@@ -108,23 +108,6 @@
         font-size: calc(38px * var(--desktop-to-mobile-multiplier));
         color: var(--color-gray-800);
       }
-      .text--headline {
-        font-family: system-ui, sans-serif;
-        color: var(--color-gray-75);
-      }
-      .text--headline-en {
-        line-height: calc(23px * var(--mobile-to-desktop-multiplier));
-        font-size: calc(17.125px * var(--mobile-to-desktop-multiplier));
-        font-weight: 450;
-        letter-spacing: -0.012em;
-      }
-      .text--headline-ko {
-        line-height: calc(24px * var(--mobile-to-desktop-multiplier));
-        font-size: calc(17px * var(--mobile-to-desktop-multiplier));
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        opacity: 0.3;
-      }
       .text--body {
         line-height: calc(32px * var(--desktop-to-mobile-multiplier));
         font-size: calc(19px * var(--desktop-to-mobile-multiplier));
@@ -143,12 +126,9 @@
   </head>
   <body>
     <main>
-      <section style="position: relative; z-index: 1; overflow: hidden; height: calc(var(--wave-amplitude) * 2); margin: calc(var(--wave-amplitude) * -1) 0;">
-        <div id="waveContainer" style="position: relative; top: 2.8px; left: -25%; width: 150%; height: 100%;"></div>
-      </section>
       <section class="section section--darker">
         <div class="container">
-          <div class="container__inner" style="padding-top: calc(var(--wave-amplitude) + 50px * var(--desktop-to-mobile-multiplier)); padding-bottom: var(--wave-amplitude);">
+          <div class="container__inner" style="padding-top: calc(50px * var(--desktop-to-mobile-multiplier));">
             <div class="row row--align-center" style="margin-left: -9px;">
               <span class="text text--display">Don’t&nbsp;Let&nbsp;the Light&nbsp;Dim</span>
             </div>
@@ -162,24 +142,5 @@
         </div>
       </section>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/siriwave@2.3.0/dist/siriwave.umd.min.js" integrity="sha256-3nuCkfua70yzdRDCr9DzTbcS/qY/DYcnNI3/iRridDY=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chroma-js@2.4.2/chroma-light.min.js" integrity="sha256-JCldSKx3AZL7ouqyCZPuf55qpw3LnQQJ0qKmDxE1VQQ=" crossorigin="anonymous"></script>
-    <script>
-      const documentStyle = getComputedStyle(document.documentElement)
-      const colorPrimary = chroma(documentStyle.getPropertyValue('--color-primary').trim())
-      const colorDark = chroma(documentStyle.getPropertyValue('--color-dark').trim())
-      const colorDarker = chroma(documentStyle.getPropertyValue('--color-darker').trim())
-      new SiriWave({
-        container: document.getElementById('waveContainer'),
-        cover: true,
-        style: 'ios9',
-        speed: 0.04,
-        curveDefinition: [
-          { color: colorPrimary.rgb().join(',') },
-          { color: colorDark.rgb().join(',') },
-          { color: colorDark.rgb().join(',') },
-        ],
-      })
-    </script>
   </body>
 </html>
