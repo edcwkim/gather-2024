@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Don’t Let the Light Dim</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="./css/colors.css?theme=dark">
+    <style>
+
+      /* reboot */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        :root {
+          scroll-behavior: smooth;
+        }
+      }
+
+      body {
+        margin: 0;
+        word-break: keep-all;
+        -webkit-text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* custom */
+      :root {
+        --desktop-to-mobile-multiplier: 1;
+        --mobile-to-desktop-multiplier: 9 / 8;
+        --font-family-default: -apple-system, 'IBM Plex Sans KR', sans-serif;
+        --color-primary: var(--color-yellow-900);
+        --color-primary-dimmed: var(--color-yellow-400);
+        --color-dark: var(--color-gray-100);
+        --color-darker: var(--color-gray-50);
+        --wave-amplitude: 108px;
+      }
+      @media (max-width: 768px) {
+        :root {
+          --desktop-to-mobile-multiplier: 10 / 11;
+          --mobile-to-desktop-multiplier: 1;
+        }
+      }
+
+      html {
+        line-height: 1;
+        background-color: var(--color-gray-900);
+        color: var(--color-gray-100);
+      }
+
+      .section--dark {
+        background-color: var(--color-dark);
+        color: var(--color-gray-800);
+        will-change: background-color;
+      }
+      .section--darker {
+        background-color: var(--color-darker);
+        color: var(--color-gray-700);
+        will-change: background-color;
+      }
+
+      .container {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+      }
+      .container__inner {
+        flex-grow: 1;
+        max-width: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .row--will-transform {
+        will-change: transform;
+      }
+      .row--align-start {
+        text-align: start;
+        padding-right: 18px;
+        padding-left: 20px;
+      }
+      .row--align-center {
+        text-align: center;
+        padding-right: 12px;
+        padding-left: 12px;
+      }
+
+      .text {
+        font-family: var(--font-family-default);
+      }
+      .text--display {
+        line-height: calc(51px * var(--desktop-to-mobile-multiplier));
+        font-size: calc(45px * var(--desktop-to-mobile-multiplier));
+        font-weight: 750;
+        font-family: system-ui, sans-serif;
+        letter-spacing: -0.02em;
+        color: var(--color-gray-900);
+      }
+      .text--display-sub {
+        line-height: calc(44px * var(--desktop-to-mobile-multiplier));
+        font-size: calc(38px * var(--desktop-to-mobile-multiplier));
+        color: var(--color-gray-800);
+      }
+      .text--headline {
+        font-family: system-ui, sans-serif;
+        color: var(--color-gray-75);
+      }
+      .text--headline-en {
+        line-height: calc(23px * var(--mobile-to-desktop-multiplier));
+        font-size: calc(17.125px * var(--mobile-to-desktop-multiplier));
+        font-weight: 450;
+        letter-spacing: -0.012em;
+      }
+      .text--headline-ko {
+        line-height: calc(24px * var(--mobile-to-desktop-multiplier));
+        font-size: calc(17px * var(--mobile-to-desktop-multiplier));
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        opacity: 0.3;
+      }
+      .text--body {
+        line-height: calc(32px * var(--desktop-to-mobile-multiplier));
+        font-size: calc(19px * var(--desktop-to-mobile-multiplier));
+        font-weight: 400;
+        letter-spacing: -0.012em;
+      }
+      .text--caption {
+        line-height: 25px;
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: -0.022em;
+        opacity: 0.4;
+      }
+
+    </style>
+  </head>
+  <body>
+    <main>
+      <section style="position: relative; z-index: 1; overflow: hidden; height: calc(var(--wave-amplitude) * 2); margin: calc(var(--wave-amplitude) * -1) 0;">
+        <div id="waveContainer" style="position: relative; top: 2.8px; left: -25%; width: 150%; height: 100%;"></div>
+      </section>
+      <section class="section section--darker">
+        <div class="container">
+          <div class="container__inner" style="padding-top: calc(var(--wave-amplitude) + 50px * var(--desktop-to-mobile-multiplier)); padding-bottom: var(--wave-amplitude);">
+            <div class="row row--align-center" style="margin-left: -9px;">
+              <span class="text text--display">Don’t&nbsp;Let&nbsp;the Light&nbsp;Dim</span>
+            </div>
+            <div class="row row--align-center" style="margin-top: calc(80px * var(--desktop-to-mobile-multiplier)); opacity: 0.5;">
+              <span class="text text--body">2024년 11월 2일<br>&nbsp;서울 어딘가에서.</span>
+            </div>
+            <div class="row row--align-start" style="margin-top: calc(5px * var(--desktop-to-mobile-multiplier)); visibility: hidden;">
+              <span class="text text--caption">*선물은 준비해 오지 말아 주세요. 대신, 현장에서 자유롭게 행사 운영 비용에 기여하실 수 있습니다.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/siriwave@2.3.0/dist/siriwave.umd.min.js" integrity="sha256-3nuCkfua70yzdRDCr9DzTbcS/qY/DYcnNI3/iRridDY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chroma-js@2.4.2/chroma-light.min.js" integrity="sha256-JCldSKx3AZL7ouqyCZPuf55qpw3LnQQJ0qKmDxE1VQQ=" crossorigin="anonymous"></script>
+    <script>
+      const documentStyle = getComputedStyle(document.documentElement)
+      const colorPrimary = chroma(documentStyle.getPropertyValue('--color-primary').trim())
+      const colorDark = chroma(documentStyle.getPropertyValue('--color-dark').trim())
+      const colorDarker = chroma(documentStyle.getPropertyValue('--color-darker').trim())
+      new SiriWave({
+        container: document.getElementById('waveContainer'),
+        cover: true,
+        style: 'ios9',
+        speed: 0.04,
+        curveDefinition: [
+          { color: colorPrimary.rgb().join(',') },
+          { color: colorDark.rgb().join(',') },
+          { color: colorDark.rgb().join(',') },
+        ],
+      })
+    </script>
+  </body>
+</html>
