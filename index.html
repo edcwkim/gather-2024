@@ -115,7 +115,7 @@
 
       const disassembledText = disassemble(textEl.dataset.text)
       const assembleSafe = text => {
-        const unsafeRegex = /([\n ?:])/g
+        const unsafeRegex = /([:?])/g
         return text.split(unsafeRegex).filter(
           textPart => textPart
         ).map(
