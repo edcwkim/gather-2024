@@ -3,12 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Don’t Let the Light Dim</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
-    <link rel="stylesheet" href="./css/colors.css?theme=dark">
+    <title>Several People Are Typing</title>
     <style>
+
+      @font-face {
+        font-family: apple-sd-gothic-neo;
+        font-weight: 800;
+        font-style: normal;
+        src:
+          local('AppleSDGothicNeo-ExtraBold'),
+          local('Apple SD Gothic Neo ExtraBold');
+      }
 
       /* reboot */
       *,
@@ -30,117 +35,99 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      /* custom */
-      :root {
-        --desktop-to-mobile-multiplier: 1;
-        --mobile-to-desktop-multiplier: 9 / 8;
-        --font-family-default: -apple-system, 'IBM Plex Sans KR', sans-serif;
-        --color-primary: var(--color-yellow-900);
-        --color-primary-dimmed: var(--color-yellow-400);
-        --color-dark: var(--color-gray-100);
-        --color-darker: var(--color-gray-50);
-        --wave-amplitude: 108px;
-      }
-      @media (max-width: 768px) {
-        :root {
-          --desktop-to-mobile-multiplier: 10 / 11;
-          --mobile-to-desktop-multiplier: 1;
-        }
+      .reveal {
+        transition: 4s opacity ease 750ms;
+        will-change: opacity;
       }
 
-      html {
-        line-height: 1;
-        background-color: var(--color-gray-900);
-        color: var(--color-gray-100);
-      }
-
-      .section--dark {
-        background-color: var(--color-dark);
-        color: var(--color-gray-800);
-        will-change: background-color;
-      }
-      .section--darker {
-        background-color: var(--color-darker);
-        color: var(--color-gray-700);
-        will-change: background-color;
-      }
-
-      .container {
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-      }
-      .container__inner {
-        flex-grow: 1;
-        max-width: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      .row--will-transform {
-        will-change: transform;
-      }
-      .row--align-start {
-        text-align: start;
-        padding-right: 18px;
-        padding-left: 20px;
-      }
-      .row--align-center {
-        text-align: center;
-        padding-right: 12px;
-        padding-left: 12px;
-      }
-
-      .text {
-        font-family: var(--font-family-default);
-      }
-      .text--display {
-        line-height: calc(51px * var(--desktop-to-mobile-multiplier));
-        font-size: calc(45px * var(--desktop-to-mobile-multiplier));
-        font-weight: 750;
-        font-family: system-ui, sans-serif;
-        letter-spacing: -0.02em;
-        color: var(--color-gray-900);
-      }
-      .text--display-sub {
-        line-height: calc(44px * var(--desktop-to-mobile-multiplier));
-        font-size: calc(38px * var(--desktop-to-mobile-multiplier));
-        color: var(--color-gray-800);
-      }
-      .text--body {
-        line-height: calc(32px * var(--desktop-to-mobile-multiplier));
-        font-size: calc(19px * var(--desktop-to-mobile-multiplier));
-        font-weight: 400;
-        letter-spacing: -0.012em;
-      }
-      .text--caption {
-        line-height: 25px;
-        font-size: 15px;
-        font-weight: 400;
-        letter-spacing: -0.022em;
-        opacity: 0.4;
+      .reveal--hidden {
+        opacity: 0;
       }
 
     </style>
   </head>
   <body>
     <main>
-      <section class="section section--darker">
-        <div class="container">
-          <div class="container__inner" style="padding-top: calc(50px * var(--desktop-to-mobile-multiplier));">
-            <div class="row row--align-center" style="margin-left: -9px;">
-              <span class="text text--display">Don’t&nbsp;Let&nbsp;the Light&nbsp;Dim</span>
+      <section style="display: flex; flex-direction: column; justify-content: center; height: 100svh;">
+        <div style="display: flex; padding: 8px 20px; gap: 8px;" class="reveal reveal--hidden">
+          <div>
+            <img style="width: 36px; height: 36px; border-radius: clamp(6px, min(22.222%, 12px), 12px);" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div style="flex: 1; margin: -12px -8px -16px -16px; padding: 8px 8px 8px 16px;">
+            <div style="display: flex; align-items: flex-end; gap: 6px;">
+              <span style="color: rgb(29, 28, 29); line-height: 22px; font-size: 15px; font-weight: 800; font-family: apple-sd-gothic-neo, system-ui; margin-top: 2px; margin-bottom: -2px; letter-spacing: -0.0078125em;">찬우</span>
+              <span style="color: rgb(97, 96, 97); line-height: 18px; font-size: 12px; font-weight: 300; font-family: system-ui; letter-spacing: -0.0078125em;">Just now</span>
             </div>
-            <div class="row row--align-center" style="margin-top: calc(80px * var(--desktop-to-mobile-multiplier)); opacity: 0.5;">
-              <span class="text text--body">2024년 11월 2일<br>&nbsp;서울 어딘가에서.</span>
+            <div>
+              <span style="color: rgb(97, 96, 97); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;">joined #conference with 40 others.</span>
             </div>
-            <div class="row row--align-start" style="margin-top: calc(5px * var(--desktop-to-mobile-multiplier)); visibility: hidden;">
-              <span class="text text--caption">*선물은 준비해 오지 말아 주세요. 대신, 현장에서 자유롭게 행사 운영 비용에 기여하실 수 있습니다.</span>
+          </div>
+        </div>
+        <div style="display: flex; padding: 8px 20px; gap: 8px;">
+          <div class="reveal reveal--hidden">
+            <img style="width: 36px; height: 36px; border-radius: clamp(6px, min(22.222%, 12px), 12px);" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div style="flex: 1; margin: -12px -8px -16px -16px; padding: 8px 8px 8px 16px;">
+            <div style="display: flex; align-items: flex-end; gap: 6px;" class="reveal reveal--hidden">
+              <span style="color: rgb(29, 28, 29); line-height: 22px; font-size: 15px; font-weight: 800; font-family: apple-sd-gothic-neo, system-ui; margin-top: 2px; margin-bottom: -2px; letter-spacing: -0.0078125em;">찬우</span>
+              <span style="color: rgb(97, 96, 97); line-height: 18px; font-size: 12px; font-weight: 300; font-family: system-ui; letter-spacing: -0.0078125em;">Just now</span>
+            </div>
+            <div>
+              <span style="color: rgb(29, 28, 29); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;" id="type" data-text="인생에서 무엇이 사라지고 있나요?"></span>
             </div>
           </div>
         </div>
       </section>
     </main>
+    <script type="module">
+      import { assemble, disassemble } from 'https://cdn.jsdelivr.net/npm/es-hangul@2.1.0/dist/index.mjs'
+
+      const textEl = document.getElementById('type')
+      const text = textEl.dataset.text
+      const textPartList = disassemble(text).split('')
+
+      const f = (text, timeout) => setTimeout(
+        () => { textEl.innerText = text; console.log(text) },
+        timeout,
+      )
+
+      let timeout = 0
+      f('', timeout)
+
+      timeout += 320
+      f('▌', timeout)
+
+      timeout += 320
+      f('', timeout)
+
+      timeout += 320
+      f('▌', timeout)
+
+      timeout += 320
+      f('', timeout)
+
+      timeout += 320
+      f('▌', timeout)
+
+      let textPartListSlice = []
+      for (let textPart of textPartList) {
+        if (textPart === '?') {
+          timeout += 60
+          break
+        }
+        else if (textPart === ' ') {
+          timeout += 90
+        }
+        else {
+          timeout += 30
+        }
+
+        textPartListSlice.push(textPart)
+        f(assemble(textPartListSlice), timeout)
+      }
+
+      f(text, timeout)
+      setTimeout(() => document.querySelectorAll('.reveal').forEach(el => el.classList.remove('reveal--hidden')), timeout)
+    </script>
   </body>
 </html>
