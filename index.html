@@ -128,10 +128,10 @@
         if (c === '\n') {
           timeout += 500
         }
-        else if (c === ' ') {
+        else if (c === ' ' || c === ':' ) {
           timeout += 80
         }
-        else if (c === ':' || c === '?') {
+        else if (c === '?') {
           timeout += 60
         }
         else {
