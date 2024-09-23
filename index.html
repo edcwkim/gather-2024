@@ -56,7 +56,7 @@
           <div style="margin: -12px -8px -16px -16px; flex: 1; padding: 8px 8px 8px 16px;">
             <div style="display: flex; align-items: flex-end; gap: 6px;">
               <span style="color: rgb(29, 28, 29); line-height: 22px; font-size: 15px; font-weight: 800; font-family: apple-sd-gothic-neo, system-ui; margin-top: 2px; margin-bottom: -2px; letter-spacing: -0.0078125em;">찬우</span>
-              <span style="color: rgb(97, 96, 97); line-height: 18px; font-size: 12px; font-weight: 300; font-family: system-ui; letter-spacing: -0.0078125em;">Just now</span>
+              <span style="color: rgb(97, 96, 97); line-height: 18px; font-size: 12px; font-weight: 300; font-family: system-ui; letter-spacing: -0.0078125em;" class="moment"></span>
             </div>
             <div>
               <span style="color: rgb(97, 96, 97); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;">joined #conference with 40 others.</span>
@@ -70,7 +70,7 @@
           <div style="margin: -12px -8px -16px -16px; flex: 1; padding: 8px 8px 8px 16px;">
             <div style="display: flex; align-items: flex-end; gap: 6px;" class="reveal reveal--hidden">
               <span style="color: rgb(29, 28, 29); line-height: 22px; font-size: 15px; font-weight: 800; font-family: apple-sd-gothic-neo, system-ui; margin-top: 2px; margin-bottom: -2px; letter-spacing: -0.0078125em;">찬우</span>
-              <span style="color: rgb(97, 96, 97); line-height: 18px; font-size: 12px; font-weight: 300; font-family: system-ui; letter-spacing: -0.0078125em;">Just now</span>
+              <span style="color: rgb(97, 96, 97); line-height: 18px; font-size: 12px; font-weight: 300; font-family: system-ui; letter-spacing: -0.0078125em;" class="moment"></span>
             </div>
             <div>
               <span style="color: rgb(29, 28, 29); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;" id="type" data-text="인생에서 무엇이 사라지고 있나요?"></span>
@@ -84,6 +84,7 @@
         </div>
       </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.30.1/min/moment.min.js" integrity="sha256-hFxSSWnt1bOvmqbYcY0p/pLo2+JblVIUqOBkoFqaUCc=" crossorigin="anonymous"></script>
     <script type="module">
       import { assemble, disassemble } from 'https://cdn.jsdelivr.net/npm/es-hangul@2.1.0/dist/index.mjs'
 
@@ -92,7 +93,7 @@
       const textPartList = disassemble(text).split('')
 
       const f = (text, timeout) => setTimeout(
-        () => { textEl.innerText = text; console.log(text) },
+        () => textEl.innerText = text,
         timeout,
       )
 
@@ -132,7 +133,22 @@
       }
 
       f(text, timeout)
-      setTimeout(() => document.querySelectorAll('.reveal').forEach(el => el.classList.remove('reveal--hidden')), timeout)
+
+      const g = (elList, epoch, isEpoch) => {
+        const fromNow = isEpoch ? 'just now' : epoch.from(moment())
+        const fromNowFormatted = fromNow.charAt(0).toUpperCase() + fromNow.slice(1)
+        elList.forEach(el => el.innerText = fromNowFormatted)
+
+        setTimeout(
+          () => g(elList, epoch),
+          1000 * 60,
+        )
+      }
+
+      setTimeout(() => {
+        g(document.querySelectorAll('.moment'), moment(), true)
+        document.querySelectorAll('.reveal').forEach(el => el.classList.remove('reveal--hidden'))
+      }, timeout)
     </script>
   </body>
 </html>
