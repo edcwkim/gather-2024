@@ -72,8 +72,9 @@
               <span style="color: rgb(29, 28, 29); line-height: 22px; font-size: 15px; font-weight: 800; font-family: apple-sd-gothic-neo, system-ui; margin-top: 2px; margin-bottom: -2px; letter-spacing: -0.0078125em;">찬우</span>
               <span style="color: rgb(97, 96, 97); line-height: 18px; font-size: 12px; font-weight: 300; font-family: system-ui; letter-spacing: -0.0078125em;" class="moment"></span>
             </div>
-            <div>
-              <span style="color: rgb(29, 28, 29); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;" id="type" data-text="인생에서 무엇이 사라지고 있나요?"></span>
+            <div style="min-height: 44px;">
+              <span style="color: rgb(29, 28, 29); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;" id="type" data-text="질문:
+인생에서 무엇이 사라지고 있나요?"></span>
             </div>
           </div>
         </div>
@@ -89,9 +90,6 @@
       import { assemble, disassemble } from 'https://cdn.jsdelivr.net/npm/es-hangul@2.1.0/dist/index.mjs'
 
       const textEl = document.getElementById('type')
-      const text = textEl.dataset.text
-      const textPartList = disassemble(text).split('')
-
       const f = (text, timeout) => setTimeout(
         () => textEl.innerText = text,
         timeout,
@@ -115,29 +113,39 @@
       timeout += 320
       f('▌', timeout)
 
-      let textPartListSlice = []
-      for (let textPart of textPartList) {
-        if (textPart === '?') {
-          timeout += 60
-          break
+      const disassembledText = disassemble(textEl.dataset.text)
+      const assembleSafe = text => {
+        const unsafeRegex = /([\n ?:])/g
+        return text.split(unsafeRegex).filter(
+          textPart => textPart
+        ).map(
+          textPart => unsafeRegex.test(textPart) ? textPart : assemble([textPart]),
+        ).join('')
+      }
+
+      let textPartList = ''
+      for (let c of disassembledText) {
+        if (c === '\n') {
+          timeout += 500
         }
-        else if (textPart === ' ') {
+        else if (c === ' ') {
           timeout += 80
+        }
+        else if (c === ':' || c === '?') {
+          timeout += 60
         }
         else {
           timeout += 30
         }
 
-        textPartListSlice.push(textPart)
-        f(assemble(textPartListSlice), timeout)
+        textPartList += c
+        f(assembleSafe(textPartList), timeout)
       }
-
-      f(text, timeout)
 
       const g = (elList, epoch, isEpoch) => {
         const fromNow = isEpoch ? 'just now' : epoch.from(moment())
-        const fromNowFormatted = fromNow.charAt(0).toUpperCase() + fromNow.slice(1)
-        elList.forEach(el => el.innerText = fromNowFormatted)
+        const formattedFromNow = fromNow.charAt(0).toUpperCase() + fromNow.slice(1)
+        elList.forEach(el => el.innerText = formattedFromNow)
 
         setTimeout(
           () => g(elList, epoch),
