@@ -36,7 +36,7 @@
       }
 
       .reveal {
-        transition: 1.8s opacity linear 1.5s;
+        transition: 1.75s opacity linear 1.5s;
         will-change: opacity;
       }
 
@@ -126,7 +126,7 @@
       let textPartList = ''
       for (let c of disassembledText) {
         if (c === '\n') {
-          timeout += 480
+          timeout += 450
         }
         else if (c === ' ' || c === ':' ) {
           timeout += 80
