@@ -90,30 +90,30 @@
       import { assemble, disassemble } from 'https://cdn.jsdelivr.net/npm/es-hangul@2.1.0/dist/index.mjs'
 
       const typeEl = document.getElementById('type')
-      const updateText = (text, timeout) => setTimeout(
+      const updateType = (text, timeout) => setTimeout(
         () => typeEl.innerText = text,
         timeout,
       )
 
       let timeout = 0
-      updateText('', timeout)
+      updateType('', timeout)
 
       timeout += 320
-      updateText('▌', timeout)
+      updateType('▌', timeout)
 
       timeout += 320
-      updateText('', timeout)
+      updateType('', timeout)
 
       timeout += 320
-      updateText('▌', timeout)
+      updateType('▌', timeout)
 
       timeout += 320
-      updateText('', timeout)
+      updateType('', timeout)
 
       timeout += 320
-      updateText('▌', timeout)
+      updateType('▌', timeout)
 
-      const disassembledText = disassemble(typeEl.dataset.text)
+      const typeText = typeEl.dataset.text
       const assembleSafe = text => {
         const unsafeRegex = /([:?])/g
         return text.split(unsafeRegex).filter(
@@ -123,8 +123,8 @@
         ).join('')
       }
 
-      let textPartList = ''
-      for (let c of disassembledText) {
+      let subTypeText = ''
+      for (let c of disassemble(typeText)) {
         if (c === '\n') {
           timeout += 480
         }
@@ -138,23 +138,27 @@
           timeout += 30
         }
 
-        textPartList += c
-        updateText(assembleSafe(textPartList), timeout)
+        subTypeText += c
+        updateType(assembleSafe(subTypeText), timeout)
       }
 
-      const updateMomentList = (elList, epoch, isEpoch) => {
+      const updateMoment = (el, epoch, isEpoch) => {
         const fromNow = isEpoch ? 'just now' : epoch.from(moment())
-        const formattedFromNow = fromNow.charAt(0).toUpperCase() + fromNow.slice(1)
-        elList.forEach(el => el.innerText = formattedFromNow)
+
+        el.innerText = fromNow.charAt(0).toUpperCase() + fromNow.slice(1)
 
         setTimeout(
-          () => updateMomentList(elList, epoch),
+          () => updateMoment(el, epoch),
           1000 * 60,
         )
       }
 
       setTimeout(() => {
-        updateMomentList(document.querySelectorAll('.moment'), moment(), true)
+        const momentElArray = Array.from(document.querySelectorAll('.moment'))
+
+        momentElArray.reverse()  // Message which comes later, should be updated first
+        momentElArray.forEach(el => updateMoment(el, moment(), true))
+
         document.querySelectorAll('.reveal').forEach(el => el.classList.remove('reveal--hidden'))
       }, timeout)
     </script>
