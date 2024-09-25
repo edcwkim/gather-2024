@@ -89,31 +89,31 @@
     <script type="module">
       import { assemble, disassemble } from 'https://cdn.jsdelivr.net/npm/es-hangul@2.1.0/dist/index.mjs'
 
-      const textEl = document.getElementById('type')
-      const f = (text, timeout) => setTimeout(
-        () => textEl.innerText = text,
+      const typeEl = document.getElementById('type')
+      const updateText = (text, timeout) => setTimeout(
+        () => typeEl.innerText = text,
         timeout,
       )
 
       let timeout = 0
-      f('', timeout)
+      updateText('', timeout)
 
       timeout += 320
-      f('▌', timeout)
+      updateText('▌', timeout)
 
       timeout += 320
-      f('', timeout)
+      updateText('', timeout)
 
       timeout += 320
-      f('▌', timeout)
+      updateText('▌', timeout)
 
       timeout += 320
-      f('', timeout)
+      updateText('', timeout)
 
       timeout += 320
-      f('▌', timeout)
+      updateText('▌', timeout)
 
-      const disassembledText = disassemble(textEl.dataset.text)
+      const disassembledText = disassemble(typeEl.dataset.text)
       const assembleSafe = text => {
         const unsafeRegex = /([:?])/g
         return text.split(unsafeRegex).filter(
@@ -139,22 +139,22 @@
         }
 
         textPartList += c
-        f(assembleSafe(textPartList), timeout)
+        updateText(assembleSafe(textPartList), timeout)
       }
 
-      const g = (elList, epoch, isEpoch) => {
+      const updateMomentList = (elList, epoch, isEpoch) => {
         const fromNow = isEpoch ? 'just now' : epoch.from(moment())
         const formattedFromNow = fromNow.charAt(0).toUpperCase() + fromNow.slice(1)
         elList.forEach(el => el.innerText = formattedFromNow)
 
         setTimeout(
-          () => g(elList, epoch),
+          () => updateMomentList(elList, epoch),
           1000 * 60,
         )
       }
 
       setTimeout(() => {
-        g(document.querySelectorAll('.moment'), moment(), true)
+        updateMomentList(document.querySelectorAll('.moment'), moment(), true)
         document.querySelectorAll('.reveal').forEach(el => el.classList.remove('reveal--hidden'))
       }, timeout)
     </script>
