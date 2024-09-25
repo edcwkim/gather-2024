@@ -126,13 +126,13 @@
       let textPartList = ''
       for (let c of disassembledText) {
         if (c === '\n') {
-          timeout += 500
+          timeout += 480
         }
         else if (c === ' ' || c === ':' ) {
           timeout += 80
         }
         else if (c === '?') {
-          timeout += 50
+          timeout += 60
         }
         else {
           timeout += 30
