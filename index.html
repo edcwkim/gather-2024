@@ -28,6 +28,20 @@
         }
       }
 
+      :root {
+        --spectrum-global-color-gray-50: #ffffff;
+        --spectrum-global-color-gray-75: #fdfdfd;
+        --spectrum-global-color-gray-100: #f8f8f8;
+        --spectrum-global-color-gray-200: #e6e6e6;
+        --spectrum-global-color-gray-300: #d5d5d5;
+        --spectrum-global-color-gray-400: #b1b1b1;
+        --spectrum-global-color-gray-500: #909090;
+        --spectrum-global-color-gray-600: #6d6d6d;
+        --spectrum-global-color-gray-700: #464646;
+        --spectrum-global-color-gray-800: #222222;
+        --spectrum-global-color-gray-900: #000000;
+      }
+
       body {
         margin: 0;
         word-break: keep-all;
@@ -36,12 +50,20 @@
       }
 
       .reveal {
-        transition: 1.75s opacity linear 1.5s;
+        transition: 1.75s opacity linear;
         will-change: opacity;
       }
 
       .reveal--hidden {
         opacity: 0;
+      }
+
+      .flicker {
+        will-change: visibility;
+      }
+
+      .flicker--alt {
+        visibility: hidden;
       }
 
     </style>
@@ -81,7 +103,7 @@
       </section>
       <section style="display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100svh;" class="reveal reveal--hidden">
         <div style="display: inline-block; border-radius: 1px; padding: 18px 22px; background-color: rgba(255, 255, 255, 0.94); text-align: center;">
-          <span style="text-transform: uppercase; color: rgb(97, 96, 97); line-height: 18px; font-size: 12px; font-weight: 600; font-family: system-ui; letter-spacing: 0.015625em;">텍스트로 진행하는 컨퍼런스 2024</span>
+          <span style="text-transform: uppercase; color: var(--spectrum-global-color-gray-600); line-height: 18px; font-size: 12px; font-weight: 600; font-family: system-ui; letter-spacing: 0.0078125em;">텍스트로 진행하는 컨퍼런스 2024<span class="flicker flicker--alt">▌</span></span>
         </div>
       </section>
     </main>
@@ -142,6 +164,7 @@
         updateType(assembleSafe(subTypeText), timeout)
       }
 
+      const momentElList = document.querySelectorAll('.moment')
       const updateMoment = (el, epoch, isEpoch) => {
         const fromNow = isEpoch ? 'just now' : epoch.from(moment())
 
@@ -153,14 +176,18 @@
         )
       }
 
-      setTimeout(() => {
-        const momentElArray = Array.from(document.querySelectorAll('.moment'))
+      const flickerElList = document.querySelectorAll('.flicker')
 
-        momentElArray.reverse()  // Message which comes later, should be updated first
-        momentElArray.forEach(el => updateMoment(el, moment(), true))
+      setTimeout(() => {
+        const momentElListReversed = Array.from(momentElList).reverse()  // what comes later, gets processed first
+        momentElListReversed.forEach(el => updateMoment(el, moment(), true))
 
         document.querySelectorAll('.reveal').forEach(el => el.classList.remove('reveal--hidden'))
-      }, timeout)
+
+        setInterval(() => {
+          flickerElList.forEach(el => el.classList.toggle('flicker--alt'))
+        }, 640)
+      }, 1500 + timeout)
     </script>
   </body>
 </html>
