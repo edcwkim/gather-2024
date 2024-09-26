@@ -83,7 +83,7 @@
     <main>
       <section style="position: fixed; z-index: 1; top: 0; left: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; width: 100%; height: 100svh;" class="reveal reveal--hidden">
         <div style="display: inline-block; border-radius: 1px; padding: 18px 22px; text-align: center;">
-          <span style="text-transform: uppercase; color: var(--spectrum-color-gray-600); line-height: 18px; font-size: 12px; font-weight: 600; font-family: system-ui; letter-spacing: 0.0078125em;"><span class="delete">텍스트로 진행하는 컨퍼런스 2024</span><span class="flicker flicker--alt">▌</span></span>
+          <span style="text-transform: uppercase; color: var(--spectrum-color-gray-600); line-height: 18px; font-size: 12px; font-weight: 600; font-family: system-ui; letter-spacing: 0.0078125em;"><span id="delete">텍스트로 진행하는 컨퍼런스 2024</span><span class="flicker flicker--alt">▌</span></span>
         </div>
       </section>
       <section style="height: 100svh;"></section>
@@ -112,7 +112,7 @@
               <span style="color: var(--slack-color-gray); line-height: 18px; font-size: 12px; font-weight: 300; font-family: system-ui; letter-spacing: -0.0078125em;" class="moment"></span>
             </div>
             <div style="min-height: 44px;">
-              <span style="color: var(--slack-color-black); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;" id="type" data-text="여러분에게 질문드려 봅니다.
+              <span style="color: var(--slack-color-black); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;" id="type" data-text="질문드립니다.
 인생에서 무엇이 사라지고 있나요?"></span>
             </div>
           </div>
@@ -124,57 +124,55 @@
     <script type="module">
       import { assemble, disassemble } from 'https://cdn.jsdelivr.net/npm/es-hangul@2.1.0/dist/index.mjs'
 
-      const typeEl = document.getElementById('type')
-      const updateType = (text, timeout) => setTimeout(
-        () => { typeEl.innerText = text },
-        timeout,
-      )
-
-      let timeout = 0
-      updateType('', timeout)
-
-      timeout += 320
-      updateType('▌', timeout)
-
-      timeout += 320
-      updateType('', timeout)
-
-      timeout += 320
-      updateType('▌', timeout)
-
-      timeout += 320
-      updateType('', timeout)
-
-      timeout += 320
-      updateType('▌', timeout)
-
-      const typeText = typeEl.dataset.text
-      const assembleSafe = text => {
-        const unsafeRegex = /([.?])/g
-        return text.split(unsafeRegex).filter(
+      const assembleSafe = unassembledText => {
+        const unsafeRegex = /([.?\d])/g
+        return unassembledText.split(unsafeRegex).filter(
           textPart => textPart !== ''
         ).map(
           textPart => unsafeRegex.test(textPart) ? textPart : assemble([textPart]),
         ).join('')
       }
 
-      let subTypeText = ''
-      for (let c of disassemble(typeText)) {
-        if (c === '\n') {
-          timeout += 750
-        }
-        else if (c === ' ' || c === '.' || c === '?') {
-          timeout += 80
-        }
-        else {
-          timeout += 30
-        }
+      let timeout = 0;
 
-        subTypeText += c
-        updateType(assembleSafe(subTypeText), timeout)
-      }
+      (el => {
+        const updateText = (text, timeout) => setTimeout(
+          () => { el.innerText = text },
+          timeout,
+        )
 
-      const momentElList = document.querySelectorAll('.moment')
+        timeout += 320
+        updateText('▌', timeout)
+
+        timeout += 320
+        updateText('', timeout)
+
+        timeout += 320
+        updateText('▌', timeout)
+
+        timeout += 320
+        updateText('', timeout)
+
+        timeout += 320
+        updateText('▌', timeout)
+
+        let unassembledText = ''
+        for (let c of disassemble(el.dataset.text)) {
+          if (c === '\n') {
+            timeout += 750
+          }
+          else if (c === ' ' || c === '.' || c === '?') {
+            timeout += 80
+          }
+          else {
+            timeout += 30
+          }
+
+          unassembledText += c
+          updateText(assembleSafe(unassembledText), timeout)
+        }
+      })(document.getElementById('type'))
+
       const updateMoment = (el, epoch, isEpoch) => {
         const now = moment()
         const fromNow = isEpoch ? 'just now' : epoch.from(now)
@@ -187,6 +185,7 @@
         )
       }
 
+      const momentElList = document.querySelectorAll('.moment')
       const flickerElList = document.querySelectorAll('.flicker')
 
       setTimeout(() => {
@@ -201,31 +200,40 @@
         document.body.classList.remove('no-scroll')
       }, 1500 + timeout)
 
-      const fadeContainerEl = document.getElementById('fadeContainer')
-      const fadeElList = fadeContainerEl.querySelectorAll('.fade')
       const getScrollYRatio = el => {
         const rect = el.getBoundingClientRect()
         const v1 = (rect.top + rect.bottom) / window.innerHeight
         const v2 = Math.abs(v1 - 1) / 2
-        const v3 = Math.max(1 - v2, 0)
-        return Math.floor(64 * v3) / 64
+        return Math.max(1 - v2, 0)
       }
 
+      const fadeContainerEl = document.getElementById('fadeContainer')
+      const fadeElList = fadeContainerEl.querySelectorAll('.fade')
+      const deleteEl = document.getElementById('delete')
+      const disassembledDeleteText = disassemble(deleteEl.innerText)
+
       window.addEventListener('scroll', () => {
-        const splashScrollYRatio = getScrollYRatio(fadeContainerEl)
-        const blurFilter = `blur(${20 * Math.pow(1 - splashScrollYRatio, 2)}px)`
-        const opacityFilter = `opacity(${Math.sqrt(splashScrollYRatio)})`
+        const fadeScrollYRatio = getScrollYRatio(fadeContainerEl)
+        const fadeScrollYRatioStep = Math.floor(64 * fadeScrollYRatio) / 64
+        const blurFilter = `blur(${20 * Math.pow(1 - fadeScrollYRatioStep, 2)}px)`
+        const opacityFilter = `opacity(${Math.sqrt(fadeScrollYRatioStep)})`
         const filter = blurFilter + ' ' + opacityFilter
 
         fadeElList.forEach(el => {
           el.style.webkitFilter = filter
           el.style.filter = filter
         })
+
+        const v1 = (0.5 - fadeScrollYRatio) * window.innerHeight
+        const v2 = Math.floor(v1 / 5)
+        const v3 = Math.min(Math.max(v2, 0), disassembledDeleteText.length)
+        const unassembledText = disassembledDeleteText.slice(0, disassembledDeleteText.length - v3)
+        deleteEl.innerText = assembleSafe(unassembledText)
       })
 
       window.addEventListener('load', () => {
         document.body.classList.add('no-scroll')
-        window.scrollTo(0, window.innerHeight)
+        window.scrollTo({ top: window.innerHeight, behavior: 'instant' })
       })
     </script>
   </body>
