@@ -210,23 +210,9 @@
         return Math.floor(64 * v3) / 64
       }
 
-      window.addEventListener('scroll', () => {
-        fadeElList.forEach(el => {
-          const splashScrollYRatio = getScrollYRatio(el)
-          const blurFilter = `blur(${16 * Math.pow(1 - splashScrollYRatio, 2)}px)`
-          const opacityFilter = `opacity(${Math.sqrt(splashScrollYRatio)})`
-          const filter = blurFilter + ' ' + opacityFilter
-
-          el.querySelectorAll('.fade__item').forEach(itemEl => {
-            itemEl.style.webkitFilter = filter
-            itemEl.style.filter = filter
-          })
-        })
-      })
-
       window.addEventListener('load', () => {
         document.body.classList.add('no-scroll')
-        window.scrollTo(0, window.innerHeight)
+        window.scrollTo(0, 0)
         window.addEventListener('scroll', () => {
           fadeElList.forEach(el => {
             const splashScrollYRatio = getScrollYRatio(el)
