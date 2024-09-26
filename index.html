@@ -53,11 +53,13 @@
       }
 
       section.conversation {
+        position: relative;
+        z-index: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
         min-height: 100svh;
-        padding-bottom: 18px;
+        padding-bottom: 16px;
       }
 
       .no-scroll {
@@ -88,16 +90,15 @@
       .slack-message {
         display: flex;
         gap: 8px;
-        padding: 8px 20px;
+        padding: 6px 20px;
       }
 
       .slack-message__article {
-        margin: -12px -8px -16px -16px;
         flex: 1;
-        padding: 8px 8px 8px 16px;
       }
 
       .slack-profile-photo {
+        margin-top: 4px;
         width: 36px;
         height: 36px;
         border-radius: clamp(6px, min(22.222%, 12px), 12px);
@@ -126,7 +127,7 @@
         font-size: 12px;
         font-weight: 300;
         font-family: system-ui;
-        letter-spacing: -0.0078125em;
+        letter-spacing: -0.015625em;
       }
 
       .slack-message-body {
@@ -155,8 +156,8 @@
   </head>
   <body>
     <main>
-      <section style="position: fixed; z-index: 1; top: 0; left: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; width: 100%; height: 100svh;" class="reveal reveal--hidden">
-        <div style="display: inline-block; border-radius: 1px; padding: 18px 22px; text-align: center;">
+      <section style="position: fixed; top: 0; left: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; width: 100%; height: 100svh;" class="reveal reveal--hidden">
+        <div style="position: relative; z-index: 1000; display: inline-block; border-radius: 1px; padding: 18px 22px; text-align: center;">
           <span style="text-transform: uppercase; color: var(--spectrum-color-gray-600); line-height: 18px; font-size: 12px; font-weight: 600; font-family: system-ui; letter-spacing: 0.0078125em;"><span id="delete">텍스트로 진행하는 컨퍼런스 2024</span><span class="flicker flicker--alt">▌</span></span>
         </div>
       </section>
@@ -168,7 +169,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">나 재작년에</span>
@@ -182,10 +183,10 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
-              <span class="slack-message-body__text"><a href="https://wandering.edcx.io" style="color: #1264a3 !important;">https://wandering.edcx.io</a></span>
+              <span class="slack-message-body__text"><a href="https://2022.edcx.io" style="color: #1264a3 !important;">Wandering Yet Visioning</a></span>
             </div>
           </div>
         </div>
@@ -196,7 +197,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">이런 행사를 했었는데</span>
@@ -210,10 +211,10 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
-              <span class="slack-message-body__text">작년에는 작게 하였고 올해에 다시 열심히 준비해 볼까 하는데… 누나를 좋은 기회가 된다면 초청해 보고 싶어!</span>
+              <span class="slack-message-body__text">작년에는 작게 하였고, 올해에 다시 열심히 준비해 볼까 하는데… 누나를 좋은 기회가 된다면 초청해 보고 싶어!</span>
             </div>
           </div>
         </div>
@@ -224,7 +225,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">아직 어떤 기획으로 자리를 만들지는 모르겠지만 ;)</span>
@@ -238,7 +239,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">진아</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body  slack-message-body--system">
               <span class="slack-message-body__text">[emoticon]</span>
@@ -252,7 +253,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">진아</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">찬우~~~ 나야 무한 영광이지!</span>
@@ -266,7 +267,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">진아</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">기획이 어떠하든 너무 재밌겠는걸!</span>
@@ -282,7 +283,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">안녕하십니까 여러분</span>
@@ -296,7 +297,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">혹시 두 분을 특별한 컨퍼런스 자리에 모실 수 있을까요</span>
@@ -310,7 +311,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">육헌</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">ㅋㅋㅋㅋ언제어떤컨퍼런스인가여</span>
@@ -324,7 +325,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">성운</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">궁금..</span>
@@ -338,7 +339,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">제가 제 생일을 전후하여 매년 다르게 기획해 보는 자리들이 있는데</span>
@@ -352,7 +353,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">이번에는 온라인 컨퍼런스를 해 볼까 해요</span>
@@ -366,7 +367,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">그런데 온라인이지만 no speech, no video로…!</span>
@@ -380,7 +381,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">슬랙에서 실시간으로 타이핑하며 발표하는 식으로 진행해 보려는데요,<br>발표 3개와 대담 1개의 자리에서 대담 자리에 두 분과 제가 함께할 수 있을까 여쭙고 싶습니다 ㅎㅎ</span>
@@ -394,10 +395,10 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">성운</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
-              <span class="slack-message-body__text">오ㅋㅋㅋㅋ슬랙 실시간 컨퍼런스는 처음 들어보는 개념이군요</span>
+              <span class="slack-message-body__text">오ㅋㅋㅋㅋ 슬랙 실시간 컨퍼런스는 처음 들어보는 개념이군요</span>
             </div>
           </div>
         </div>
@@ -408,7 +409,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">성운</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">제가 타이핑이 느린데 잘 작동할 수 있으려나,,</span>
@@ -422,7 +423,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">육헌</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">오 아 관객이 아니라 참여자(?)인가욬ㅋㅋ</span>
@@ -436,10 +437,10 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">육헌</span>
-              <span class="slack-message-byline__time">Mar 24</span>
+              <span class="slack-message-byline__time">Mar 24th</span>
             </div>
             <div class="slack-message-body">
-              <span class="slack-message-body__text">ㅋㅋㅋㅋㅋ조금.. 자신은 없지만 찬우 성운과 함께라면..?</span>
+              <span class="slack-message-body__text">ㅋㅋㅋㅋㅋ 조금.. 자신은 없지만 찬우 성운과 함께라면..?</span>
             </div>
           </div>
         </div>
@@ -452,7 +453,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Aug 13</span>
+              <span class="slack-message-byline__time">Aug 13th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">올해 11월 컨퍼런스는</span>
@@ -466,7 +467,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Aug 13</span>
+              <span class="slack-message-byline__time">Aug 13th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">슬랙에서 텍스트로 해볼까 싶네</span>
@@ -480,7 +481,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Aug 13</span>
+              <span class="slack-message-byline__time">Aug 13th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">우리가 메시지를 60개씩 타닥타닥 적듯이</span>
@@ -494,10 +495,10 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Aug 13</span>
+              <span class="slack-message-byline__time">Aug 13th</span>
             </div>
             <div class="slack-message-body">
-              <span class="slack-message-body__text">발표자가 발표를 하고, 그 뒤에 나뉘어서 대화 나누고 하는</span>
+              <span class="slack-message-body__text">발표자가 발표를 하고, 그 뒤에 나누어져서 대화 나누고 하는</span>
             </div>
           </div>
         </div>
@@ -508,7 +509,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">수영</span>
-              <span class="slack-message-byline__time">Aug 13</span>
+              <span class="slack-message-byline__time">Aug 13th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">오호</span>
@@ -522,7 +523,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">수영</span>
-              <span class="slack-message-byline__time">Aug 13</span>
+              <span class="slack-message-byline__time">Aug 13th</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">좋은 생각이고 나도 기대가 된다 👍</span>
