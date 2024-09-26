@@ -162,7 +162,7 @@
             timeout += 750
           }
           else if (c === ' ' || c === '.' || c === '?') {
-            timeout += 50
+            timeout += 60
           }
           else {
             timeout += 30
@@ -225,7 +225,7 @@
         })
 
         const v1 = (0.5 - fadeScrollYRatio) * window.innerHeight
-        const v2 = Math.floor(v1 / 5) + 24
+        const v2 = Math.floor(v1 / 6) + 20
         const v3 = Math.min(Math.max(v2, 0), disassembledDeleteText.length)
         const unassembledText = disassembledDeleteText.slice(0, disassembledDeleteText.length - v3)
         deleteEl.innerText = assembleSafe(unassembledText)
