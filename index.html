@@ -150,11 +150,8 @@
         if (c === '\n') {
           timeout += 480
         }
-        else if (c === ' ' || c === ':' ) {
+        else if (c === ' ' || c === ':' || c === '?') {
           timeout += 80
-        }
-        else if (c === '?') {
-          timeout += 60
         }
         else {
           timeout += 30
