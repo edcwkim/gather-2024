@@ -73,7 +73,7 @@
         visibility: hidden;
       }
 
-      .fade__item {
+      .fade {
         will-change: filter;
       }
 
@@ -87,8 +87,8 @@
         </div>
       </section>
       <section style="height: 100svh;"></section>
-      <section style="position: relative; display: flex; flex-direction: column; justify-content: center; height: 100svh; padding-bottom: 18px;" class="fade">
-        <div style="display: flex; padding: 8px 20px; gap: 8px;" class="reveal reveal--hidden fade__item">
+      <section style="position: relative; display: flex; flex-direction: column; justify-content: center; height: 100svh; padding-bottom: 18px;" id="fadeContainer">
+        <div style="display: flex; padding: 8px 20px; gap: 8px;" class="reveal reveal--hidden fade">
           <div>
             <img style="width: 36px; height: 36px; border-radius: clamp(6px, min(22.222%, 12px), 12px);" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
           </div>
@@ -102,7 +102,7 @@
             </div>
           </div>
         </div>
-        <div style="display: flex; padding: 8px 20px; gap: 8px;" class="fade__item">
+        <div style="display: flex; padding: 8px 20px; gap: 8px;" class="fade">
           <div class="reveal reveal--hidden">
             <img style="width: 36px; height: 36px; border-radius: clamp(6px, min(22.222%, 12px), 12px);" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
           </div>
@@ -112,7 +112,7 @@
               <span style="color: var(--slack-color-gray); line-height: 18px; font-size: 12px; font-weight: 300; font-family: system-ui; letter-spacing: -0.0078125em;" class="moment"></span>
             </div>
             <div style="min-height: 44px;">
-              <span style="color: var(--slack-color-black); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;" id="type" data-text="당신에게 질문드려 봅니다.
+              <span style="color: var(--slack-color-black); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;" id="type" data-text="여러분에게 질문드려 봅니다.
 인생에서 무엇이 사라지고 있나요?"></span>
             </div>
           </div>
@@ -201,7 +201,8 @@
         document.body.classList.remove('no-scroll')
       }, 1500 + timeout)
 
-      const fadeElList = document.querySelectorAll('.fade')
+      const fadeContainerEl = document.getElementById('fadeContainer')
+      const fadeElList = fadeContainerEl.querySelectorAll('.fade')
       const getScrollYRatio = el => {
         const rect = el.getBoundingClientRect()
         const v1 = (rect.top + rect.bottom) / window.innerHeight
@@ -211,22 +212,20 @@
       }
 
       window.addEventListener('scroll', () => {
-        fadeElList.forEach(el => {
-          const splashScrollYRatio = getScrollYRatio(el)
-          const blurFilter = `blur(${20 * Math.pow(1 - splashScrollYRatio, 2)}px)`
-          const opacityFilter = `opacity(${Math.sqrt(splashScrollYRatio)})`
-          const filter = blurFilter + ' ' + opacityFilter
+        const splashScrollYRatio = getScrollYRatio(fadeContainerEl)
+        const blurFilter = `blur(${20 * Math.pow(1 - splashScrollYRatio, 2)}px)`
+        const opacityFilter = `opacity(${Math.sqrt(splashScrollYRatio)})`
+        const filter = blurFilter + ' ' + opacityFilter
 
-          el.querySelectorAll('.fade__item').forEach(itemEl => {
-            itemEl.style.webkitFilter = filter
-            itemEl.style.filter = filter
-          })
+        fadeElList.forEach(el => {
+          el.style.webkitFilter = filter
+          el.style.filter = filter
         })
       })
 
       window.addEventListener('load', () => {
         document.body.classList.add('no-scroll')
-        window.scrollTo(0, 0)
+        window.scrollTo(0, window.innerHeight)
       })
     </script>
   </body>
