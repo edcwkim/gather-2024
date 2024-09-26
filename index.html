@@ -73,8 +73,70 @@
         visibility: hidden;
       }
 
-      .fade {
+      .fade__item {
         will-change: filter;
+      }
+
+      .slack-message {
+        display: flex;
+        gap: 8px;
+        padding: 8px 20px;
+      }
+
+      .slack-message__article {
+        margin: -12px -8px -16px -16px;
+        flex: 1;
+        padding: 8px 8px 8px 16px;
+      }
+
+      .slack-profile-photo {
+        width: 36px;
+        height: 36px;
+        border-radius: clamp(6px, min(22.222%, 12px), 12px);
+      }
+
+      .slack-message-byline {
+        display: flex;
+        align-items: flex-end;
+        gap: 6px;
+      }
+
+      .slack-message-byline__name {
+        margin-top: 2px;
+        margin-bottom: -2px;
+        color: var(--slack-color-black);
+        line-height: 22px;
+        font-size: 15px;
+        font-weight: 800;
+        font-family: apple-sd-gothic-neo, system-ui;
+        letter-spacing: -0.0078125em;
+      }
+
+      .slack-message-byline__time {
+        color: var(--slack-color-gray);
+        line-height: 18px;
+        font-size: 12px;
+        font-weight: 300;
+        font-family: system-ui;
+        letter-spacing: -0.0078125em;
+      }
+
+      .slack-message-body {
+        --text-line-height: 22px;
+        --text-color: var(--slack-color-black);
+      }
+
+      .slack-message-body--system {
+        --text-color: var(--spectrum-color-gray-600);
+      }
+
+      .slack-message-body__text {
+        color: var(--text-color);
+        line-height: var(--text-line-height);
+        font-size: 15px;
+        font-weight: 400;
+        font-family: system-ui;
+        letter-spacing: -0.015625em;
       }
 
     </style>
@@ -87,32 +149,32 @@
         </div>
       </section>
       <section style="height: 100svh;"></section>
-      <section style="position: relative; display: flex; flex-direction: column; justify-content: center; height: 100svh; padding-bottom: 18px;" id="fadeContainer">
-        <div style="display: flex; padding: 8px 20px; gap: 8px;" class="reveal reveal--hidden fade">
+      <section style="position: relative; display: flex; flex-direction: column; justify-content: center; height: 100svh; padding-bottom: 18px;" class="fade" id="splash">
+        <div class="slack-message fade__item reveal reveal--hidden">
           <div>
-            <img style="width: 36px; height: 36px; border-radius: clamp(6px, min(22.222%, 12px), 12px);" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
           </div>
-          <div style="margin: -12px -8px -16px -16px; flex: 1; padding: 8px 8px 8px 16px;">
-            <div style="display: flex; align-items: flex-end; gap: 6px;">
-              <span style="color: var(--slack-color-black); line-height: 22px; font-size: 15px; font-weight: 800; font-family: apple-sd-gothic-neo, system-ui; margin-top: 2px; margin-bottom: -2px; letter-spacing: -0.0078125em;">찬우</span>
-              <span style="color: var(--slack-color-gray); line-height: 18px; font-size: 12px; font-weight: 300; font-family: system-ui; letter-spacing: -0.0078125em;" class="moment"></span>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time moment">Just now</span>
             </div>
-            <div>
-              <span style="color: var(--spectrum-color-gray-600); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;">joined #conference with 40 others.</span>
+            <div class="slack-message-body slack-message-body--system">
+              <span class="slack-message-body__text">joined #conference with 40 others.</span>
             </div>
           </div>
         </div>
-        <div style="display: flex; padding: 8px 20px; gap: 8px;" class="fade">
+        <div class="slack-message fade__item">
           <div class="reveal reveal--hidden">
-            <img style="width: 36px; height: 36px; border-radius: clamp(6px, min(22.222%, 12px), 12px);" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
           </div>
-          <div style="margin: -12px -8px -16px -16px; flex: 1; padding: 8px 8px 8px 16px;">
-            <div style="display: flex; align-items: flex-end; gap: 6px;" class="reveal reveal--hidden">
-              <span style="color: var(--slack-color-black); line-height: 22px; font-size: 15px; font-weight: 800; font-family: apple-sd-gothic-neo, system-ui; margin-top: 2px; margin-bottom: -2px; letter-spacing: -0.0078125em;">찬우</span>
-              <span style="color: var(--slack-color-gray); line-height: 18px; font-size: 12px; font-weight: 300; font-family: system-ui; letter-spacing: -0.0078125em;" class="moment"></span>
+          <div class="slack-message__article">
+            <div class="slack-message-byline reveal reveal--hidden">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time moment">Just now</span>
             </div>
-            <div style="min-height: 44px;">
-              <span style="color: var(--slack-color-black); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;" id="type" data-text="여기에 계신 모두와 질문을 나눠 봅니다.
+            <div class="slack-message-body" style="min-height: calc(2 * var(--text-line-height));">
+              <span class="slack-message-body__text" id="type" data-text="자리에 함께하신 분들께 여쭤봅니다.
 인생에서 무엇이 사라지고 있나요?"></span>
             </div>
           </div>
@@ -207,24 +269,28 @@
         return Math.max(1 - v2, 0)
       }
 
-      const fadeContainerEl = document.getElementById('fadeContainer')
-      const fadeElList = fadeContainerEl.querySelectorAll('.fade')
+      const fadeElList = document.querySelectorAll('.fade')
+      const splashEl = document.getElementById('splash')
       const deleteEl = document.getElementById('delete')
       const disassembledDeleteText = disassemble(deleteEl.innerText)
 
       window.addEventListener('scroll', () => {
-        const fadeScrollYRatio = getScrollYRatio(fadeContainerEl)
-        const fadeScrollYRatioStep = Math.floor(64 * fadeScrollYRatio) / 64
-        const blurFilter = `blur(${20 * Math.pow(1 - fadeScrollYRatioStep, 2)}px)`
-        const opacityFilter = `opacity(${Math.sqrt(fadeScrollYRatioStep)})`
-        const filter = blurFilter + ' ' + opacityFilter
-
         fadeElList.forEach(el => {
-          el.style.webkitFilter = filter
-          el.style.filter = filter
+          const fadeScrollYRatio = getScrollYRatio(el)
+          const fadeScrollYRatioStep = Math.floor(64 * fadeScrollYRatio) / 64
+          const blurFilter = `blur(${20 * Math.pow(1 - fadeScrollYRatioStep, 2)}px)`
+          const opacityFilter = `opacity(${Math.sqrt(fadeScrollYRatioStep)})`
+          const filter = blurFilter + ' ' + opacityFilter
+
+          el.querySelectorAll('.fade__item').forEach(itemEl => {
+            el.style.webkitFilter = filter
+            el.style.filter = filter
+          })
         })
 
-        const v1 = (0.5 - fadeScrollYRatio) * window.innerHeight
+        const splashScrollYRatio = getScrollYRatio(splashEl)
+
+        const v1 = (0.5 - splashScrollYRatio) * window.innerHeight  // TODO: avoid using getScrollYRatio to simplify code
         const v2 = Math.floor(v1 / 6) + 20
         const v3 = Math.min(Math.max(v2, 0), disassembledDeleteText.length)
         const unassembledText = disassembledDeleteText.slice(0, disassembledDeleteText.length - v3)
