@@ -6,6 +6,7 @@
     <title>Several People Are Typing</title>
     <style>
 
+      /* Apple bugfix */
       @font-face {
         font-family: apple-sd-gothic-neo;
         font-weight: 800;
@@ -29,17 +30,19 @@
       }
 
       :root {
-        --spectrum-global-color-gray-50: #ffffff;
-        --spectrum-global-color-gray-75: #fdfdfd;
-        --spectrum-global-color-gray-100: #f8f8f8;
-        --spectrum-global-color-gray-200: #e6e6e6;
-        --spectrum-global-color-gray-300: #d5d5d5;
-        --spectrum-global-color-gray-400: #b1b1b1;
-        --spectrum-global-color-gray-500: #909090;
-        --spectrum-global-color-gray-600: #6d6d6d;
-        --spectrum-global-color-gray-700: #464646;
-        --spectrum-global-color-gray-800: #222222;
-        --spectrum-global-color-gray-900: #000000;
+        --spectrum-color-gray-50: #ffffff;
+        --spectrum-color-gray-75: #fdfdfd;
+        --spectrum-color-gray-100: #f8f8f8;
+        --spectrum-color-gray-200: #e6e6e6;
+        --spectrum-color-gray-300: #d5d5d5;
+        --spectrum-color-gray-400: #b1b1b1;
+        --spectrum-color-gray-500: #909090;
+        --spectrum-color-gray-600: #6d6d6d;
+        --spectrum-color-gray-700: #464646;
+        --spectrum-color-gray-800: #222222;
+        --spectrum-color-gray-900: #000000;
+        --slack-color-gray: rgb(97, 96, 97);
+        --slack-color-black: rgb(29, 28, 29);
       }
 
       body {
@@ -77,11 +80,11 @@
           </div>
           <div style="margin: -12px -8px -16px -16px; flex: 1; padding: 8px 8px 8px 16px;">
             <div style="display: flex; align-items: flex-end; gap: 6px;">
-              <span style="color: rgb(29, 28, 29); line-height: 22px; font-size: 15px; font-weight: 800; font-family: apple-sd-gothic-neo, system-ui; margin-top: 2px; margin-bottom: -2px; letter-spacing: -0.0078125em;">찬우</span>
-              <span style="color: rgb(97, 96, 97); line-height: 18px; font-size: 12px; font-weight: 300; font-family: system-ui; letter-spacing: -0.0078125em;" class="moment"></span>
+              <span style="color: var(--slack-color-black); line-height: 22px; font-size: 15px; font-weight: 800; font-family: apple-sd-gothic-neo, system-ui; margin-top: 2px; margin-bottom: -2px; letter-spacing: -0.0078125em;">찬우</span>
+              <span style="color: var(--slack-color-gray); line-height: 18px; font-size: 12px; font-weight: 300; font-family: system-ui; letter-spacing: -0.0078125em;" class="moment"></span>
             </div>
             <div>
-              <span style="color: rgb(97, 96, 97); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;">joined #conference with 40 others.</span>
+              <span style="color: var(--spectrum-color-gray-600); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;">joined #conference with 40 others.</span>
             </div>
           </div>
         </div>
@@ -91,11 +94,11 @@
           </div>
           <div style="margin: -12px -8px -16px -16px; flex: 1; padding: 8px 8px 8px 16px;">
             <div style="display: flex; align-items: flex-end; gap: 6px;" class="reveal reveal--hidden">
-              <span style="color: rgb(29, 28, 29); line-height: 22px; font-size: 15px; font-weight: 800; font-family: apple-sd-gothic-neo, system-ui; margin-top: 2px; margin-bottom: -2px; letter-spacing: -0.0078125em;">찬우</span>
-              <span style="color: rgb(97, 96, 97); line-height: 18px; font-size: 12px; font-weight: 300; font-family: system-ui; letter-spacing: -0.0078125em;" class="moment"></span>
+              <span style="color: var(--slack-color-black); line-height: 22px; font-size: 15px; font-weight: 800; font-family: apple-sd-gothic-neo, system-ui; margin-top: 2px; margin-bottom: -2px; letter-spacing: -0.0078125em;">찬우</span>
+              <span style="color: var(--slack-color-gray); line-height: 18px; font-size: 12px; font-weight: 300; font-family: system-ui; letter-spacing: -0.0078125em;" class="moment"></span>
             </div>
             <div style="min-height: 44px;">
-              <span style="color: rgb(29, 28, 29); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;" id="type" data-text="질문:
+              <span style="color: var(--slack-color-black); line-height: 22px; font-size: 15px; font-weight: 400; font-family: system-ui; letter-spacing: -0.015625em;" id="type" data-text="질문:
 인생에서 무엇이 사라지고 있나요?"></span>
             </div>
           </div>
@@ -103,7 +106,7 @@
       </section>
       <section style="display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100svh;" class="reveal reveal--hidden">
         <div style="display: inline-block; border-radius: 1px; padding: 18px 22px; background-color: rgba(255, 255, 255, 0.94); text-align: center;">
-          <span style="text-transform: uppercase; color: var(--spectrum-global-color-gray-600); line-height: 18px; font-size: 12px; font-weight: 600; font-family: system-ui; letter-spacing: 0.0078125em;">텍스트로 진행하는 컨퍼런스 2024<span class="flicker flicker--alt">▌</span></span>
+          <span style="text-transform: uppercase; color: var(--spectrum-color-gray-600); line-height: 18px; font-size: 12px; font-weight: 600; font-family: system-ui; letter-spacing: 0.0078125em;">텍스트로 진행하는 컨퍼런스 2024<span class="flicker flicker--alt">▌</span></span>
         </div>
       </section>
     </main>
