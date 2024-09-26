@@ -116,7 +116,7 @@
 
       const typeEl = document.getElementById('type')
       const updateType = (text, timeout) => setTimeout(
-        () => typeEl.innerText = text,
+        () => { typeEl.innerText = text },
         timeout,
       )
 
