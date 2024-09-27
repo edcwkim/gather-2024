@@ -60,7 +60,7 @@
         flex-direction: column;
         justify-content: center;
         min-height: 100svh;
-        padding-bottom: 16px;
+        padding-bottom: 18px;
       }
 
       .no-scroll {
@@ -790,7 +790,7 @@
           }
 
           const fadeScrollYRatioStep = Math.floor(64 * fadeScrollYRatio) / 64
-          const blurFilter = `blur(${20 * Math.pow(1 - fadeScrollYRatioStep, 2)}px)`
+          const blurFilter = `blur(${18 * Math.pow(1 - fadeScrollYRatioStep, 2)}px)`
           const opacityFilter = `opacity(${Math.sqrt(fadeScrollYRatioStep)})`
           const filter = blurFilter + ' ' + opacityFilter
 
