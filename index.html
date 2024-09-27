@@ -43,6 +43,7 @@
         --spectrum-color-gray-900: #000000;
         --slack-color-gray: rgb(97, 96, 97);
         --slack-color-black: rgb(29, 28, 29);
+        --slack-color-black-translucent: rgba(29, 28, 29, 0.06);
       }
 
       body {
@@ -90,7 +91,7 @@
       .slack-message {
         display: flex;
         gap: 8px;
-        padding: 6px 20px;
+        padding: 5px 20px;
       }
 
       .slack-message__article {
@@ -115,19 +116,19 @@
         margin-bottom: -2px;
         color: var(--slack-color-black);
         line-height: 22px;
+        letter-spacing: -0.0078125em;
         font-size: 15px;
         font-weight: 800;
         font-family: apple-sd-gothic-neo, system-ui;
-        letter-spacing: -0.0078125em;
       }
 
       .slack-message-byline__time {
         color: var(--slack-color-gray);
         line-height: 18px;
+        letter-spacing: -0.015625em;
         font-size: 12px;
         font-weight: 300;
         font-family: system-ui;
-        letter-spacing: -0.015625em;
       }
 
       .slack-message-body {
@@ -142,14 +143,41 @@
       .slack-message-body__text {
         color: var(--text-color);
         line-height: var(--text-line-height);
+        word-break: normal;
+        letter-spacing: -0.015625em;
         font-size: 15px;
         font-weight: 400;
         font-family: system-ui;
-        letter-spacing: -0.015625em;
+      }
+
+      .slack-message-body__text img {
+        width: 30px;
+        height: 30px;
       }
 
       .slack-message-body__text a {
         color: #1264a3 !important;
+        text-decoration: none !important;
+      }
+
+      .slack-message-reaction-row {
+        margin-top: 2px;
+        display: flex;
+        gap: 4px;
+      }
+
+      .slack-message-reaction-row__item {
+        display: inline-block;
+        height: 24px;
+        border-radius: 12px;
+        padding-right: 9px;
+        padding-left: 6px;
+        background-color: var(--slack-color-black-translucent);
+        color: var(--slack-color-black);
+        line-height: 24px;
+        font-size: 12px;
+        font-weight: 400;
+        font-family: system-ui;
       }
 
     </style>
@@ -169,10 +197,10 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
+              <span class="slack-message-byline__time">9:58 AM</span>
             </div>
             <div class="slack-message-body">
-              <span class="slack-message-body__text">나 재작년에</span>
+              <span class="slack-message-body__text">온라인이지만 no speech, no video로…!</span>
             </div>
           </div>
         </div>
@@ -183,205 +211,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
-            </div>
-            <div class="slack-message-body">
-              <span class="slack-message-body__text"><a href="https://2022.edcx.io" style="color: #1264a3 !important;">Wandering Yet Visioning</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="slack-message fade__item">
-          <div>
-            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
-          </div>
-          <div class="slack-message__article">
-            <div class="slack-message-byline">
-              <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
-            </div>
-            <div class="slack-message-body">
-              <span class="slack-message-body__text">이런 행사를 했었는데</span>
-            </div>
-          </div>
-        </div>
-        <div class="slack-message fade__item">
-          <div>
-            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
-          </div>
-          <div class="slack-message__article">
-            <div class="slack-message-byline">
-              <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
-            </div>
-            <div class="slack-message-body">
-              <span class="slack-message-body__text">작년에는 작게 하였고, 올해에 다시 열심히 준비해 볼까 하는데… 누나를 좋은 기회가 된다면 초청해 보고 싶어!</span>
-            </div>
-          </div>
-        </div>
-        <div class="slack-message fade__item">
-          <div>
-            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
-          </div>
-          <div class="slack-message__article">
-            <div class="slack-message-byline">
-              <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
-            </div>
-            <div class="slack-message-body">
-              <span class="slack-message-body__text">아직 어떤 기획으로 자리를 만들지는 모르겠지만 ;)</span>
-            </div>
-          </div>
-        </div>
-        <div class="slack-message fade__item">
-          <div>
-            <img class="slack-profile-photo" style="background-color: var(--spectrum-color-gray-300);">
-          </div>
-          <div class="slack-message__article">
-            <div class="slack-message-byline">
-              <span class="slack-message-byline__name">진아</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
-            </div>
-            <div class="slack-message-body  slack-message-body--system">
-              <span class="slack-message-body__text">[emoticon]</span>
-            </div>
-          </div>
-        </div>
-        <div class="slack-message fade__item">
-          <div>
-            <img class="slack-profile-photo" style="background-color: var(--spectrum-color-gray-300);">
-          </div>
-          <div class="slack-message__article">
-            <div class="slack-message-byline">
-              <span class="slack-message-byline__name">진아</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
-            </div>
-            <div class="slack-message-body">
-              <span class="slack-message-body__text">찬우~~~ 나야 무한 영광이지!</span>
-            </div>
-          </div>
-        </div>
-        <div class="slack-message fade__item">
-          <div>
-            <img class="slack-profile-photo" style="background-color: var(--spectrum-color-gray-300);">
-          </div>
-          <div class="slack-message__article">
-            <div class="slack-message-byline">
-              <span class="slack-message-byline__name">진아</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
-            </div>
-            <div class="slack-message-body">
-              <span class="slack-message-body__text">기획이 어떠하든 너무 재밌겠는걸!</span>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="conversation fade reveal reveal--hidden">
-        <div class="slack-message fade__item">
-          <div>
-            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
-          </div>
-          <div class="slack-message__article">
-            <div class="slack-message-byline">
-              <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
-            </div>
-            <div class="slack-message-body">
-              <span class="slack-message-body__text">안녕하십니까 여러분</span>
-            </div>
-          </div>
-        </div>
-        <div class="slack-message fade__item">
-          <div>
-            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
-          </div>
-          <div class="slack-message__article">
-            <div class="slack-message-byline">
-              <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
-            </div>
-            <div class="slack-message-body">
-              <span class="slack-message-body__text">혹시 두 분을 특별한 컨퍼런스 자리에 모실 수 있을까요</span>
-            </div>
-          </div>
-        </div>
-        <div class="slack-message fade__item">
-          <div>
-            <img class="slack-profile-photo" style="background-color: var(--spectrum-color-gray-300);">
-          </div>
-          <div class="slack-message__article">
-            <div class="slack-message-byline">
-              <span class="slack-message-byline__name">육헌</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
-            </div>
-            <div class="slack-message-body">
-              <span class="slack-message-body__text">ㅋㅋㅋㅋ언제어떤컨퍼런스인가여</span>
-            </div>
-          </div>
-        </div>
-        <div class="slack-message fade__item">
-          <div>
-            <img class="slack-profile-photo" style="background-color: var(--spectrum-color-gray-300);">
-          </div>
-          <div class="slack-message__article">
-            <div class="slack-message-byline">
-              <span class="slack-message-byline__name">성운</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
-            </div>
-            <div class="slack-message-body">
-              <span class="slack-message-body__text">궁금..</span>
-            </div>
-          </div>
-        </div>
-        <div class="slack-message fade__item">
-          <div>
-            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
-          </div>
-          <div class="slack-message__article">
-            <div class="slack-message-byline">
-              <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
-            </div>
-            <div class="slack-message-body">
-              <span class="slack-message-body__text">제가 제 생일을 전후하여 매년 다르게 기획해 보는 자리들이 있는데</span>
-            </div>
-          </div>
-        </div>
-        <div class="slack-message fade__item">
-          <div>
-            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
-          </div>
-          <div class="slack-message__article">
-            <div class="slack-message-byline">
-              <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
-            </div>
-            <div class="slack-message-body">
-              <span class="slack-message-body__text">이번에는 온라인 컨퍼런스를 해 볼까 해요</span>
-            </div>
-          </div>
-        </div>
-        <div class="slack-message fade__item">
-          <div>
-            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
-          </div>
-          <div class="slack-message__article">
-            <div class="slack-message-byline">
-              <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
-            </div>
-            <div class="slack-message-body">
-              <span class="slack-message-body__text">그런데 온라인이지만 no speech, no video로…!</span>
-            </div>
-          </div>
-        </div>
-        <div class="slack-message fade__item">
-          <div>
-            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
-          </div>
-          <div class="slack-message__article">
-            <div class="slack-message-byline">
-              <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
+              <span class="slack-message-byline__time">9:59 AM</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">슬랙에서 실시간으로 타이핑하며 발표하는 식으로 진행해 보려는데요,<br>발표 3개와 대담 1개의 자리에서 대담 자리에 두 분과 제가 함께할 수 있을까 여쭙고 싶습니다 ㅎㅎ</span>
@@ -395,7 +225,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">성운</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
+              <span class="slack-message-byline__time">10:11 AM</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">오ㅋㅋㅋㅋ 슬랙 실시간 컨퍼런스는 처음 들어보는 개념이군요</span>
@@ -409,7 +239,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">성운</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
+              <span class="slack-message-byline__time">10:12 AM</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">제가 타이핑이 느린데 잘 작동할 수 있으려나,,</span>
@@ -423,10 +253,52 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">육헌</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
+              <span class="slack-message-byline__time">11:12 AM</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">오 아 관객이 아니라 참여자(?)인가욬ㅋㅋ</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time">2:33 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">오 네</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time">2:33 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">ㅋㅋㅋㅋ</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time">2:33 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">혹시 관심이 가시나요 육헌님</span>
             </div>
           </div>
         </div>
@@ -437,10 +309,68 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">육헌</span>
-              <span class="slack-message-byline__time">Mar 24th</span>
+              <span class="slack-message-byline__time">5:02 PM</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">ㅋㅋㅋㅋㅋ 조금.. 자신은 없지만 찬우 성운과 함께라면..?</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="conversation fade reveal reveal--hidden">
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" style="background-color: var(--spectrum-color-gray-300);">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">대호</span>
+              <span class="slack-message-byline__time">9:26 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">오 흥미롭네요!!<br>컨퍼런스가 언제 정도가 되는 걸까요?<br>저도 시간만 가능하다면 참여하고 싶습니다<br>다만 제가 교환학생 동안 어떤 스케줄일지 감이 잘 안 와서 일정이 확실하지는 않습니다</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time">9:59 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">한국에 사는 참여자들이 제일 많을 거라 한국 시간 주말 초저녁에 하지 않을까 싶어요. 대략 체코 시간으로는 주말 아침이 될 것 같습니다.</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time">10:06 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">발표는 그런데 이번에 텍스트로 해요! 참여자들이 모두 슬랙에 들어와서 발표자가 실시간으로 메시지를 타이핑하는 식으로 진행할 것 같습니다.</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" style="background-color: var(--spectrum-color-gray-300);">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">대호</span>
+              <span class="slack-message-byline__time">4:31 AM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">오 네 좋습니다! 텍스트로 한다면 저도 더 유동적으로 시간이 가능할 것 같습니다 :))</span>
             </div>
           </div>
         </div>
@@ -453,7 +383,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Aug 13th</span>
+              <span class="slack-message-byline__time">10:09 PM</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">올해 11월 컨퍼런스는</span>
@@ -467,7 +397,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Aug 13th</span>
+              <span class="slack-message-byline__time">10:09 PM</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">슬랙에서 텍스트로 해볼까 싶네</span>
@@ -481,7 +411,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Aug 13th</span>
+              <span class="slack-message-byline__time">10:09 PM</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">우리가 메시지를 60개씩 타닥타닥 적듯이</span>
@@ -495,7 +425,7 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">찬우</span>
-              <span class="slack-message-byline__time">Aug 13th</span>
+              <span class="slack-message-byline__time">10:09 PM</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">발표자가 발표를 하고, 그 뒤에 나누어져서 대화 나누고 하는</span>
@@ -509,10 +439,40 @@
           <div class="slack-message__article">
             <div class="slack-message-byline">
               <span class="slack-message-byline__name">수영</span>
-              <span class="slack-message-byline__time">Aug 13th</span>
+              <span class="slack-message-byline__time">10:16 PM</span>
             </div>
             <div class="slack-message-body">
               <span class="slack-message-body__text">오호</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="conversation fade reveal reveal--hidden">
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time">11:17 AM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">유리님을 연사로 초대할 수 있을까 해서요</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time">11:18 AM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">관심이 있으신지 편하고 깔끔하게 yes/no로 알려주세요 ㅎㅎ</span>
             </div>
           </div>
         </div>
@@ -522,11 +482,176 @@
           </div>
           <div class="slack-message__article">
             <div class="slack-message-byline">
-              <span class="slack-message-byline__name">수영</span>
-              <span class="slack-message-byline__time">Aug 13th</span>
+              <span class="slack-message-byline__name">유리</span>
+              <span class="slack-message-byline__time">11:49 AM</span>
             </div>
             <div class="slack-message-body">
-              <span class="slack-message-body__text">좋은 생각이고 나도 기대가 된다 👍</span>
+              <span class="slack-message-body__text">찬우님 한국어로 한다면 참석 가능입니다!</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time">12:12 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">네 모두 한국어로!! (유일한 영어는 행사 제목일 것 같아요 ㅋㅋ)</span>
+            </div>
+            <div class="slack-message-reaction-row"></div>
+              <span class="slack-message-reaction-row__item">😄&nbsp;1</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time">12:12 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">제가 좀 더 구체화가 되면 문서 같은 것도 공유드리고</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time">12:12 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">줌으로 한 번 이야기 나눠 보고 싶어요</span>
+            </div>
+            <div class="slack-message-reaction-row"></div>
+              <span class="slack-message-reaction-row__item">👍&nbsp;1</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="conversation fade reveal reveal--hidden">
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time">2:59 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">나 재작년에</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time">2:59 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">이런 행사를 했었는데</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time">2:59 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text"><a href="https://2022.edcx.io">Wandering Yet Visioning</a></span>
+            </div>
+            <div class="slack-message-reaction-row">
+              <span class="slack-message-reaction-row__item">😮&nbsp;1</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time">3:01 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">작년에는 작게 하였고 올해에 다시 열심히 준비해 볼까 하는데… 누나를 좋은 기회가 된다면 초청해 보고 싶어!</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">찬우</span>
+              <span class="slack-message-byline__time">3:02 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">아직 어떤 기획으로 자리를 만들지는 모르겠지만 ;)</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" style="background-color: var(--spectrum-color-gray-300);">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">진아</span>
+              <span class="slack-message-byline__time">3:47 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text"><img src="https://item.kakaocdn.net/do/2de2424879b3e5ce697c2d53c4df5d64ff1cf2d4e1bdc11c5e3dd410963d18c7">&thinsp;<img src="https://item.kakaocdn.net/do/2de2424879b3e5ce697c2d53c4df5d64ff1cf2d4e1bdc11c5e3dd410963d18c7">&thinsp;<img src="https://item.kakaocdn.net/do/2de2424879b3e5ce697c2d53c4df5d64ff1cf2d4e1bdc11c5e3dd410963d18c7"></span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" style="background-color: var(--spectrum-color-gray-300);">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">진아</span>
+              <span class="slack-message-byline__time">3:47 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">찬우~~~ 나야 무한 영광이지!</span>
+            </div>
+          </div>
+        </div>
+        <div class="slack-message fade__item">
+          <div>
+            <img class="slack-profile-photo" style="background-color: var(--spectrum-color-gray-300);">
+          </div>
+          <div class="slack-message__article">
+            <div class="slack-message-byline">
+              <span class="slack-message-byline__name">진아</span>
+              <span class="slack-message-byline__time">3:47 PM</span>
+            </div>
+            <div class="slack-message-body">
+              <span class="slack-message-body__text">기획이 어떠하였든 너무 재밌겠는걸!</span>
             </div>
           </div>
         </div>
@@ -659,6 +784,11 @@
       window.addEventListener('scroll', () => {
         fadeElList.forEach(el => {
           const fadeScrollYRatio = getScrollYRatio(el)
+
+          if (fadeScrollYRatio === 0) {
+            return
+          }
+
           const fadeScrollYRatioStep = Math.floor(64 * fadeScrollYRatio) / 64
           const blurFilter = `blur(${20 * Math.pow(1 - fadeScrollYRatioStep, 2)}px)`
           const opacityFilter = `opacity(${Math.sqrt(fadeScrollYRatioStep)})`
