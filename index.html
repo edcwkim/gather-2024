@@ -54,8 +54,6 @@
       }
 
       section.conversation {
-        position: relative;
-        z-index: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -64,13 +62,16 @@
       }
 
       section.image {
-        position: relative;
-        z-index: 1;
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100svh;
         padding-bottom: 16px;
+      }
+
+      section.story {
+        position: relative;
+        z-index: 1;
       }
 
       .no-scroll {
@@ -193,12 +194,12 @@
   </head>
   <body>
     <main>
-      <section style="position: fixed; top: 0; left: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; width: 100%; height: 100svh;" class="reveal reveal--hidden">
+      <section style="position: fixed; z-index: 0; top: 0; left: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; width: 100%; height: 100svh;" class="reveal reveal--hidden">
         <div style="position: relative; z-index: 1000; display: inline-block; border-radius: 1px; padding: 18px 22px; text-align: center;">
-          <span style="text-transform: uppercase; color: var(--spectrum-color-gray-600); line-height: 18px; font-size: 12px; font-weight: 600; font-family: system-ui; letter-spacing: 0.0078125em;"><span id="delete">텍스트로 진행하는 컨퍼런스 2024</span><span class="flicker flicker--alt">▌</span></span>
+          <span style="text-transform: uppercase; color: var(--spectrum-color-gray-600); line-height: 18px; font-size: 12px; font-weight: 600; font-family: system-ui; letter-spacing: 0.0078125em;"><span id="narration"></span><span class="flicker flicker--alt">▌</span></span>
         </div>
       </section>
-      <section class="conversation fade reveal reveal--hidden">
+      <section class="conversation story fade reveal reveal--hidden" data-narration="체코의 대호님까지 섭외 완료! 컨퍼런스에서 만나요.">
         <div class="slack-message fade__item">
           <div>
             <img class="slack-profile-photo" style="background-color: var(--spectrum-color-gray-300);">
@@ -256,7 +257,7 @@
           </div>
         </div>
       </section>
-      <section class="conversation fade reveal reveal--hidden">
+      <section class="conversation story fade reveal reveal--hidden" data-narration="반신반의하지만 잘 되지 않을까 싶은...">
         <div class="slack-message fade__item">
           <div>
             <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
@@ -356,7 +357,7 @@
           </div>
         </div>
       </section>
-      <section class="conversation fade reveal reveal--hidden">
+      <section class="conversation story fade reveal reveal--hidden" data-narration="고민 결과 새로운 방법을 실험해 보기로 했다.">
         <div class="slack-message fade__item">
           <div>
             <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
@@ -428,10 +429,10 @@
           </div>
         </div>
       </section>
-      <section class="image fade reveal reveal--hidden">
+      <section class="image story fade reveal reveal--hidden" data-narration="그러던 중, 내가 미국으로 이사하게 되었다.">
         <img style="width: 65vw; max-width: 47.5svh; height: 65vw; max-height: 47.5svh; object-fit: cover;" src="./DL158.png">
       </section>
-      <section class="conversation fade reveal reveal--hidden">
+      <section class="conversation story fade reveal reveal--hidden" data-narration="오랜만에 재회했던 유리님도 섭외를 마쳤다.">
         <div class="slack-message fade__item">
           <div>
             <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
@@ -534,7 +535,7 @@
           </div>
         </div>
       </section>
-      <section class="conversation fade reveal reveal--hidden">
+      <section class="conversation story fade reveal reveal--hidden" data-narration="올해에도 비슷한 자리를 만들고 싶어, 일찌감치 진아를 섭외했다.">
         <div class="slack-message fade__item">
           <div>
             <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
@@ -651,10 +652,10 @@
           </div>
         </div>
       </section>
-      <section class="image fade reveal reveal--hidden">
+      <section class="image story fade reveal reveal--hidden" data-narration="2년 전, 서울의 칵테일 바에서 컨퍼런스를 진행했다.">
         <img style="width: 72vw; max-width: 50svh; height: 40.5vw; max-height: 28.125svh; object-fit: cover;" src="./WYV.jpg">
       </section>
-      <section class="conversation fade" id="splash">
+      <section class="conversation story fade" data-narration="텍스트로 진행하는 컨퍼런스 2024" id="splash">
         <div class="slack-message fade__item reveal reveal--hidden">
           <div>
             <img class="slack-profile-photo" src="https://ca.slack-edge.com/T022J7YLZ8W-U022A85BG79-40eeb7898156-512">
@@ -679,7 +680,7 @@
               <span class="slack-message-byline__time moment">Just now</span>
             </div>
             <div class="slack-message-body" style="min-height: calc(2 * var(--text-line-height));">
-              <span class="slack-message-body__text" id="type" data-text="자리에 오신 여러분께 여쭙습니다.
+              <span class="slack-message-body__text" id="type" data-text="자리에 오신 분들께 여쭙습니다.
 인생에서 무엇이 사라지고 있나요?"></span>
             </div>
           </div>
@@ -692,7 +693,7 @@
       import { assemble, disassemble } from 'https://cdn.jsdelivr.net/npm/es-hangul@2.1.0/dist/index.mjs'
 
       const assembleSafe = unassembledText => {
-        const unsafeRegex = /([.?\d])/g
+        const unsafeRegex = /([,.?!\d])/g
         return unassembledText.split(unsafeRegex).filter(
           textPart => textPart !== ''
         ).map(
@@ -700,9 +701,20 @@
         ).join('')
       }
 
-      let timeout = 0;
+      moment.updateLocale('en', {
+        relativeTime: {
+          m: '%d minute',
+          h: '%d hour',
+          d: '%d day',
+          w: '%d week',
+          M: '%d month',
+          y: '%d year',
+        },
+      })
 
-      (el => {
+      let timeout = 0
+
+      ; (el => {
         const updateText = (text, timeout) => setTimeout(
           () => { el.innerText = text },
           timeout,
@@ -728,7 +740,7 @@
           if (c === '\n') {
             timeout += 750
           }
-          else if (c === ' ' || c === '.' || c === '?') {
+          else if (c === ' ' || c === ',' || c === '.' || c === '?' || c === '!') {
             timeout += 60
           }
           else {
@@ -740,9 +752,9 @@
         }
       })(document.getElementById('type'))
 
-      const updateMoment = (el, epoch, isEpoch) => {
+      const updateMoment = (el, epoch) => {
         const now = moment()
-        const fromNow = isEpoch ? 'just now' : epoch.from(now)
+        const fromNow = epoch.from(now)
 
         el.innerText = fromNow.charAt(0).toUpperCase() + fromNow.slice(1)
 
@@ -753,17 +765,21 @@
       }
 
       const momentElList = document.querySelectorAll('.moment')
+      const momentElListReversed = Array.from(momentElList).reverse()  // messages created later gets processed first
       const flickerElList = document.querySelectorAll('.flicker')
+      const revealElList = document.querySelectorAll('.reveal')
 
       setTimeout(() => {
-        const momentElListReversed = Array.from(momentElList).reverse()  // what comes later gets processed first
-        momentElListReversed.forEach(el => updateMoment(el, moment(), true))
+        const now = moment()
+        setTimeout(() => {
+          momentElListReversed.forEach(el => updateMoment(el, now))
+        }, 1000 * 60)
 
         setInterval(() => {
           flickerElList.forEach(el => el.classList.toggle('flicker--alt'))
         }, 750)
 
-        document.querySelectorAll('.reveal').forEach(el => el.classList.remove('reveal--hidden'))
+        revealElList.forEach(el => el.classList.remove('reveal--hidden'))
         document.body.classList.remove('no-scroll')
       }, 1500 + timeout)
 
@@ -774,10 +790,33 @@
         return Math.max(1 - v2, 0)
       }
 
+      const narrationEl = document.getElementById('narration')
+      const storyElList = document.querySelectorAll('.story')
+
+      window.addEventListener('scroll', () => {
+        const prominentStoryEl = Array.from(storyElList).reduce((previousEl, currentEl) => {
+          const previousScrollYRatio = getScrollYRatio(previousEl)
+          const currentScrollYRatio = getScrollYRatio(currentEl)
+          return currentScrollYRatio > previousScrollYRatio ? currentEl : previousEl
+        })
+
+        const narrationText = prominentStoryEl.dataset.narration
+
+        if (!narrationText) {
+          return
+        }
+
+        const disassembledNarrationText = disassemble(narrationText)
+        const storyScrollYRatio = getScrollYRatio(prominentStoryEl)
+        const v1 = (0.5 - storyScrollYRatio) * window.innerHeight
+        const v2 = Math.floor(v1 / 6) + 50
+        const v3 = Math.min(Math.max(v2, 0), disassembledNarrationText.length)
+        const unassembledText = disassembledNarrationText.slice(0, disassembledNarrationText.length - v3)
+
+        narrationEl.innerText = assembleSafe(unassembledText)
+      })
+
       const fadeElList = document.querySelectorAll('.fade')
-      const splashEl = document.getElementById('splash')
-      const deleteEl = document.getElementById('delete')
-      const disassembledDeleteText = disassemble(deleteEl.innerText)
 
       window.addEventListener('scroll', () => {
         fadeElList.forEach(el => {
@@ -788,7 +827,7 @@
           }
 
           const fadeScrollYRatioStep = Math.floor(64 * fadeScrollYRatio) / 64
-          const blurFilter = `blur(${18 * Math.pow(1 - fadeScrollYRatioStep, 2)}px)`
+          const blurFilter = `blur(${20 * Math.pow(1 - fadeScrollYRatioStep, 2)}px)`
           const opacityFilter = `opacity(${Math.sqrt(fadeScrollYRatioStep)})`
           const filter = blurFilter + ' ' + opacityFilter
 
@@ -797,15 +836,9 @@
             el.style.filter = filter
           })
         })
-
-        const splashScrollYRatio = getScrollYRatio(splashEl)
-        const v1 = (0.5 - splashScrollYRatio) * window.innerHeight  // TODO: avoid using getScrollYRatio to simplify code
-        const v2 = Math.floor(v1 / 6) + 20
-        const v3 = Math.min(Math.max(v2, 0), disassembledDeleteText.length)
-        const unassembledText = disassembledDeleteText.slice(0, disassembledDeleteText.length - v3)
-
-        deleteEl.innerText = assembleSafe(unassembledText)
       })
+
+      const splashEl = document.getElementById('splash')
 
       window.addEventListener('load', () => {
         document.body.classList.add('no-scroll')
