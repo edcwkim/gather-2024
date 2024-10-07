@@ -843,8 +843,8 @@
         )
       }
 
-      const startFlicker = textEl => {
-        textEl.parentElement.querySelectorAll('.flicker').forEach(flickerEl => {
+      const bulkStartFlicker = containerEl => {
+        containerEl.querySelectorAll('.flicker').forEach(flickerEl => {
           if (flickerEl.dataset.flickerNonce !== true.toString()) {
             setInterval(() => {
               flickerEl.classList.toggle('flicker--alt')
@@ -855,12 +855,12 @@
         })
       }
 
-      const hideFlicker = textEl => {
-        textEl.parentElement.querySelectorAll('.flicker').forEach(flickerEl => flickerEl.style.visibility = 'hidden')
+      const bulkHideFlicker = containerEl => {
+        containerEl.querySelectorAll('.flicker').forEach(flickerEl => flickerEl.style.visibility = 'hidden')
       }
 
-      const unhideFlicker = textEl => {
-        textEl.parentElement.querySelectorAll('.flicker').forEach(flickerEl => flickerEl.style.visibility = null)
+      const bulkUnhideFlicker = containerEl => {
+        containerEl.querySelectorAll('.flicker').forEach(flickerEl => flickerEl.style.visibility = null)
       }
 
       const reveal = el => {
@@ -912,8 +912,6 @@
 
       const momentElList = document.querySelectorAll('.moment')
       const momentElListReversed = Array.from(momentElList).reverse()  // messages created later gets processed first
-      const narrationEl = document.getElementById('narration')
-      const narrationContainerEl = narrationEl.closest('aside')
       const revealElList = document.querySelectorAll('.reveal')
 
       setTimeout(() => {
@@ -923,12 +921,14 @@
           momentElListReversed.forEach(el => updateMoment(el, now))
         }, 1000 * 60)
 
-        startFlicker(narrationEl)
+        revealElList.forEach(bulkStartFlicker)
         revealElList.forEach(reveal)
         document.body.classList.remove('no-scroll')
       }, globalTimeout)
 
       const storyElList = document.querySelectorAll('.story')
+      const narrationEl = document.getElementById('narration')
+      const narrationContainerEl = narrationEl.closest('aside')
 
       window.addEventListener('scroll', () => {
         const prominentStoryEl = Array.from(storyElList).reduce((previousEl, currentEl) => {
@@ -955,11 +955,11 @@
 
           if (prominentStoryRect.bottom < window.innerHeight) {
             unreveal(narrationContainerEl)
-            hideFlicker(narrationEl)
+            bulkHideFlicker(narrationContainerEl)
             return
           }
           else {
-            unhideFlicker(narrationEl)
+            bulkUnhideFlicker(narrationContainerEl)
             rereveal(narrationContainerEl)
           }
         }
@@ -999,7 +999,7 @@
 
         if (logoRect.top + logoRect.bottom < 2 * window.innerHeight) {
           if (logoEl.dataset.typed !== true.toString()) {
-            logoTypeElList.forEach(startFlicker)
+            bulkStartFlicker(logoEl)
 
             setTimeout(() => {
               logoTypeElList.forEach(typeText)
