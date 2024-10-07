@@ -101,10 +101,6 @@
         width: 100%;
       }
 
-      aside.narration--flicker-hidden .flicker {
-        visibility: hidden;
-      }
-
       section.story {
         min-height: 100svh;
         padding-bottom: 16px;
@@ -133,12 +129,18 @@
       */
 
       .reveal {
-        transition: 1.75s opacity linear;
+        opacity: 0;
         will-change: opacity;
       }
 
-      .reveal--hidden {
+      .reveal--done {
+        opacity: 1;
+        transition: opacity 1.75s linear;
+      }
+
+      .reveal--done.reveal--reverted {
         opacity: 0;
+        transition: opacity 750ms ease;
       }
 
       .flicker {
@@ -253,12 +255,12 @@
   </head>
   <body>
     <main>
-      <aside class="reveal reveal--hidden">
+      <aside class="reveal">
         <div style="display: inline-block; border-radius: 1px; padding: 18px 22px; text-align: center;">
           <span style="text-transform: uppercase; color: var(--spectrum-color-gray-600); line-height: 18px; font-size: 12px; font-weight: 600; font-family: system-ui; letter-spacing: 0.0078125em;"><span id="narration"></span><span class="flicker flicker--alt"></span></span>
         </div>
       </aside>
-      <section class="story story--conversation fade reveal reveal--hidden" data-narration-text="체코의 대호님까지 섭외 완료! 컨퍼런스에서 만나요.">
+      <section class="story story--conversation fade reveal" data-narration-text="체코의 대호님까지 섭외 완료! 컨퍼런스에서 만나요.">
         <div class="slack-message fade__item">
           <div>
             <img class="slack-profile-photo" style="background-color: var(--spectrum-color-gray-300);">
@@ -316,7 +318,7 @@
           </div>
         </div>
       </section>
-      <section class="story story--conversation fade reveal reveal--hidden" data-narration-text="반신반의하지만, 잘 되지 않을까 싶은...">
+      <section class="story story--conversation fade reveal" data-narration-text="반신반의하지만, 잘 되지 않을까 싶은...">
         <div class="slack-message fade__item">
           <div>
             <img class="slack-profile-photo" src="./images/profile--edcx.png">
@@ -416,7 +418,7 @@
           </div>
         </div>
       </section>
-      <section class="story story--conversation fade reveal reveal--hidden" data-narration-text="고민 결과 새로운 방식을 시도해 보기로 했다.">
+      <section class="story story--conversation fade reveal" data-narration-text="고민 결과 새로운 방식을 시도해 보기로 했다.">
         <div class="slack-message fade__item">
           <div>
             <img class="slack-profile-photo" src="./images/profile--edcx.png">
@@ -488,10 +490,10 @@
           </div>
         </div>
       </section>
-      <section class="story story--image fade reveal reveal--hidden" data-narration-text="그러던 중, 내가 미국으로 이주를 하게 되었다.">
+      <section class="story story--image fade reveal" data-narration-text="그러던 중, 내가 미국으로 이주를 하게 되었다.">
         <img style="width: 65vw; max-width: 47.5svh; height: 65vw; max-height: 47.5svh; object-fit: cover;" src="./images/DL158.png">
       </section>
-      <section class="story story--conversation fade reveal reveal--hidden" data-narration-text="오랜만에 재회했던 유리님도 초청했다.">
+      <section class="story story--conversation fade reveal" data-narration-text="오랜만에 재회했던 유리님도 초청했다.">
         <div class="slack-message fade__item">
           <div>
             <img class="slack-profile-photo" src="./images/profile--edcx.png">
@@ -580,7 +582,7 @@
           </div>
         </div>
       </section>
-      <section class="story story--conversation fade reveal reveal--hidden" data-narration-text="올해에도 같은 자리를 만들고 싶어, 일찌감치 진아를 섭외했다.">
+      <section class="story story--conversation fade reveal" data-narration-text="올해에도 같은 자리를 만들고 싶어, 일찌감치 진아를 섭외했다.">
         <div class="slack-message fade__item">
           <div>
             <img class="slack-profile-photo" src="./images/profile--edcx.png">
@@ -697,11 +699,11 @@
           </div>
         </div>
       </section>
-      <section class="story story--image fade reveal reveal--hidden" data-narration-text="2년 전, 서울의 칵테일 바에서 컨퍼런스를 열었다.">
+      <section class="story story--image fade reveal" data-narration-text="2년 전, 서울의 칵테일 바에서 컨퍼런스를 열었다.">
         <img style="width: 72vw; max-width: 50svh; height: 40.5vw; max-height: 28.125svh; object-fit: cover;" src="./images/WYV.jpg">
       </section>
       <section class="story story--conversation fade" data-narration-text="텍스트로 진행하는 컨퍼런스 2024" id="splash">
-        <div class="slack-message fade__item reveal reveal--hidden">
+        <div class="slack-message fade__item reveal">
           <div>
             <img class="slack-profile-photo" src="./images/profile--edcx.png">
           </div>
@@ -716,11 +718,11 @@
           </div>
         </div>
         <div class="slack-message fade__item">
-          <div class="reveal reveal--hidden">
+          <div class="reveal">
             <img class="slack-profile-photo" src="./images/profile--edcx.png">
           </div>
           <div class="slack-message__article">
-            <div class="slack-message-byline reveal reveal--hidden">
+            <div class="slack-message-byline reveal">
               <span class="slack-message-byline__name">찬우</span>
               <span class="slack-message-byline__time moment">Just now</span>
             </div>
@@ -732,7 +734,7 @@
         </div>
       </section>
       <section style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100svh; padding-top: calc(90px * var(--desktop-to-mobile-multiplier)); padding-bottom: calc(90px * var(--desktop-to-mobile-multiplier)); background-color: var(--spectrum-color-gray-100);">
-        <h1 style="margin: 0; text-align: center; line-height: calc(61px * var(--desktop-to-mobile-multiplier)); letter-spacing: -0.34em; font-size: calc(42px * var(--desktop-to-mobile-multiplier)); font-family: ui-monospace; filter: contrast(1.35) brightness(0.85);" class="reveal reveal--special"><span style="letter-spacing: -0.02em; color: var(--slack-color-1); font-size: var(--font-size-logo-1); font-weight: var(--font-weight-logo-1); font-style: var(--font-style-logo-1); font-family: var(--font-family-logo-1);"><span class="type" data-text="Several"></span><span class="flicker flicker--alt"></span></span>&nbsp;<span style="letter-spacing: -0.02em; color: var(--slack-color-2); font-size: var(--font-size-logo-2); font-weight: var(--font-weight-logo-2); font-style: var(--font-style-logo-2); font-family: var(--font-family-logo-2);"><span class="type" data-text="People"></span><span class="flicker flicker--alt"></span></span><br><span style="letter-spacing: -0.02em; color: var(--slack-color-3); font-size: var(--font-size-logo-3); font-weight: var(--font-weight-logo-3); font-style: var(--font-style-logo-3); font-family: var(--font-family-logo-3);"><span class="type" data-text="Are"></span><span class="flicker flicker--alt"></span></span>&nbsp;<span style="letter-spacing: -0.02em; color: var(--slack-color-4); font-size: var(--font-size-logo-4); font-weight: var(--font-weight-logo-4); font-style: var(--font-style-logo-4); font-family: var(--font-family-logo-4);"><span class="type" data-text="Typing"></span><span class="flicker flicker--alt"></span></span></h1>
+        <h1 style="margin: 0; text-align: center; line-height: calc(61px * var(--desktop-to-mobile-multiplier)); letter-spacing: -0.34em; font-size: calc(42px * var(--desktop-to-mobile-multiplier)); font-family: ui-monospace; filter: contrast(1.35) brightness(0.85);" id="logo"><span style="letter-spacing: -0.02em; color: var(--slack-color-1); font-size: var(--font-size-logo-1); font-weight: var(--font-weight-logo-1); font-style: var(--font-style-logo-1); font-family: var(--font-family-logo-1);"><span class="type" data-text="Several"></span><span class="flicker flicker--alt"></span></span>&nbsp;<span style="letter-spacing: -0.02em; color: var(--slack-color-2); font-size: var(--font-size-logo-2); font-weight: var(--font-weight-logo-2); font-style: var(--font-style-logo-2); font-family: var(--font-family-logo-2);"><span class="type" data-text="People"></span><span class="flicker flicker--alt"></span></span><br><span style="letter-spacing: -0.02em; color: var(--slack-color-3); font-size: var(--font-size-logo-3); font-weight: var(--font-weight-logo-3); font-style: var(--font-style-logo-3); font-family: var(--font-family-logo-3);"><span class="type" data-text="Are"></span><span class="flicker flicker--alt"></span></span>&nbsp;<span style="letter-spacing: -0.02em; color: var(--slack-color-4); font-size: var(--font-size-logo-4); font-weight: var(--font-weight-logo-4); font-style: var(--font-style-logo-4); font-family: var(--font-family-logo-4);"><span class="type" data-text="Typing"></span><span class="flicker flicker--alt"></span></span></h1>
         <div style="margin-top: calc(61px * var(--desktop-to-mobile-multiplier)); max-width: 80svh; padding-right: 24px; padding-left: 24px;">
           <p style="margin: calc(34px * var(--desktop-to-mobile-multiplier)) 0; color: var(--spectrum-color-gray-800); line-height: calc(34px * var(--desktop-to-mobile-multiplier)); letter-spacing: -0.012em; font-size: calc(19px * var(--desktop-to-mobile-multiplier)); font-weight: 400; font-family: ui-sans-serif;">김찬우의 2024년 생일을 즈음하여 지인들과 함께할 컨퍼런스를 개최합니다.</p>
           <p style="margin: calc(34px * var(--desktop-to-mobile-multiplier)) 0; color: var(--spectrum-color-gray-800); line-height: calc(34px * var(--desktop-to-mobile-multiplier)); letter-spacing: -0.012em; font-size: calc(19px * var(--desktop-to-mobile-multiplier)); font-weight: 400; font-family: ui-sans-serif;">여러분의 인생에서는 사라지고 있는 것이 있나요? 혹은 여러분 주위의 사람들은 삶에서 무엇이 없어지고 있다고 이야기하던가요? 혹은, 우리 사회에서 집단적으로 사라져 가는 것이 있을까요? 이 질문에 창의적으로 대답해 봅시다.</p>
@@ -841,14 +843,36 @@
         )
       }
 
+      const startFlicker = textEl => {
+        textEl.parentElement.querySelectorAll('.flicker').forEach(flickerEl => {
+          if (flickerEl.dataset.flickerNonce !== true.toString()) {
+            setInterval(() => {
+              flickerEl.classList.toggle('flicker--alt')
+            }, 750)
+
+            flickerEl.dataset.flickerNonce = true
+          }
+        })
+      }
+
+      const hideFlicker = textEl => {
+        textEl.parentElement.querySelectorAll('.flicker').forEach(flickerEl => flickerEl.style.visibility = 'hidden')
+      }
+
+      const unhideFlicker = textEl => {
+        textEl.parentElement.querySelectorAll('.flicker').forEach(flickerEl => flickerEl.style.visibility = null)
+      }
+
       const reveal = el => {
-        const flickerElList = el.querySelectorAll('.flicker')
+        el.classList.add('reveal--done')
+      }
 
-        setInterval(() => {
-          flickerElList.forEach(flickerEl => flickerEl.classList.toggle('flicker--alt'))
-        }, 750)
+      const unreveal = el => {
+        el.classList.add('reveal--reverted')
+      }
 
-        el.classList.remove('reveal--hidden')
+      const rereveal = el => {
+        el.classList.remove('reveal--reverted')
       }
 
       const getScrollYRatio = el => {
@@ -888,7 +912,9 @@
 
       const momentElList = document.querySelectorAll('.moment')
       const momentElListReversed = Array.from(momentElList).reverse()  // messages created later gets processed first
-      const revealElList = document.querySelectorAll('.reveal:not(.reveal--special)')
+      const narrationEl = document.getElementById('narration')
+      const narrationContainerEl = narrationEl.closest('aside')
+      const revealElList = document.querySelectorAll('.reveal')
 
       setTimeout(() => {
         const now = moment()
@@ -897,63 +923,12 @@
           momentElListReversed.forEach(el => updateMoment(el, now))
         }, 1000 * 60)
 
+        startFlicker(narrationEl)
         revealElList.forEach(reveal)
         document.body.classList.remove('no-scroll')
       }, globalTimeout)
 
-      const specialRevealElList = document.querySelectorAll('.reveal--special')
-
-      window.addEventListener('scroll', () => {
-        specialRevealElList.forEach(el => {
-          const rect = el.getBoundingClientRect()
-
-          if (rect.top + rect.bottom < 2 * window.innerHeight) {
-            if (el.dataset.reveal === undefined) {
-              reveal(el)
-            }
-
-            if (el.dataset.reveal !== true.toString()) {
-              setTimeout(() => {
-                el.querySelectorAll('.type').forEach(typeText)
-              }, 750)
-
-              el.dataset.reveal = true
-            }
-          }
-          else if (rect.top > window.innerHeight) {
-            if (el.dataset.reveal === true.toString()) {
-              el.querySelectorAll('.type').forEach(el => updateText(el, ''))
-              el.dataset.reveal = false
-            }
-          }
-        })
-      })
-
-      const fadeElList = document.querySelectorAll('.fade')
-
-      window.addEventListener('scroll', () => {
-        fadeElList.forEach(el => {
-          const fadeScrollYRatio = getScrollYRatio(el)
-
-          if (fadeScrollYRatio === 0) {
-            return
-          }
-
-          const fadeScrollYRatioStep = Math.floor(64 * fadeScrollYRatio) / 64
-          const blurFilter = `blur(${20 * Math.pow(1 - fadeScrollYRatioStep, 2)}px)`
-          const opacityFilter = `opacity(${Math.sqrt(fadeScrollYRatioStep)})`
-          const filter = blurFilter + ' ' + opacityFilter
-
-          el.querySelectorAll('.fade__item').forEach(itemEl => {
-            el.style.webkitFilter = filter
-            el.style.filter = filter
-          })
-        })
-      })
-
       const storyElList = document.querySelectorAll('.story')
-      const narrationEl = document.getElementById('narration')
-      const narrationContainerEl = narrationEl.closest('aside')
 
       window.addEventListener('scroll', () => {
         const prominentStoryEl = Array.from(storyElList).reduce((previousEl, currentEl) => {
@@ -968,6 +943,27 @@
           return
         }
 
+        if (prominentStoryEl == splashEl) {
+          const prominentStoryRect = prominentStoryEl.getBoundingClientRect()
+
+          if (prominentStoryRect.bottom > 0) {
+            narrationContainerEl.style.display = null
+          }
+          else {
+            narrationContainerEl.style.display = 'none'
+          }
+
+          if (prominentStoryRect.bottom < window.innerHeight) {
+            unreveal(narrationContainerEl)
+            hideFlicker(narrationEl)
+            return
+          }
+          else {
+            unhideFlicker(narrationEl)
+            rereveal(narrationContainerEl)
+          }
+        }
+
         const prominentStoryScrollYRatio = getScrollYRatio(prominentStoryEl)
         const disassembledNarrationText = disassemble(narrationText)
         const v1 = (0.5 - prominentStoryScrollYRatio) * window.innerHeight
@@ -976,23 +972,47 @@
         const unassembledText = disassembledNarrationText.slice(0, disassembledNarrationText.length - v3)
 
         narrationEl.innerText = assembleSafe(unassembledText)
-
-        if (prominentStoryEl == splashEl && !unassembledText) {
-          narrationContainerEl.style.display = 'none'
-        }
-        else {
-          narrationContainerEl.style.display = null
-        }
       })
 
-      window.addEventListener('scroll', () => {
-        const splashRect = splashEl.getBoundingClientRect()
+      const fadeElList = document.querySelectorAll('.fade')
 
-        if (splashRect.bottom < window.innerHeight) {
-          narrationContainerEl.classList.add('narration--flicker-hidden')
+      window.addEventListener('scroll', () => {
+        fadeElList.forEach(el => {
+          const fadeScrollYRatio = getScrollYRatio(el)
+          const fadeScrollYRatioStep = Math.floor(64 * fadeScrollYRatio) / 64
+          const blurFilter = `blur(${20 * Math.pow(1 - fadeScrollYRatioStep, 2)}px)`
+          const opacityFilter = `opacity(${Math.sqrt(fadeScrollYRatioStep)})`
+          const filter = blurFilter + ' ' + opacityFilter
+
+          el.querySelectorAll('.fade__item').forEach(itemEl => {
+            el.style.webkitFilter = filter
+            el.style.filter = filter
+          })
+        })
+      })
+
+      const logoEl = document.getElementById('logo')
+      const logoTypeElList = logoEl.querySelectorAll('.type')
+
+      window.addEventListener('scroll', () => {
+        const logoRect = logoEl.getBoundingClientRect()
+
+        if (logoRect.top + logoRect.bottom < 2 * window.innerHeight) {
+          if (logoEl.dataset.typed !== true.toString()) {
+            logoTypeElList.forEach(startFlicker)
+
+            setTimeout(() => {
+              logoTypeElList.forEach(typeText)
+            }, 750)
+
+            logoEl.dataset.typed = true
+          }
         }
-        else {
-          narrationContainerEl.classList.remove('narration--flicker-hidden')
+        else if (logoRect.top > window.innerHeight) {
+          if (logoEl.dataset.typed === true.toString()) {
+            logoTypeElList.forEach(el => updateText(el, ''))
+            logoEl.dataset.typed = false
+          }
         }
       })
     </script>
