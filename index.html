@@ -6,7 +6,7 @@
     <title>Several People Are Typing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&display=block">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&family=IBM+Plex+Mono:ital,wght@1,700&family=Space+Mono:wght@700&text=Several+People+Are+Typing&display=block">
     <style>
 
       /* Apple bugfix */
@@ -47,6 +47,33 @@
         --slack-color-gray: rgb(97, 96, 97);
         --slack-color-black: rgb(29, 28, 29);
         --slack-color-black-translucent: rgba(29, 28, 29, 0.06);
+        --slack-color-4: rgb(68, 190, 223);
+        --slack-color-1: rgb(46, 182, 125);
+        --slack-color-2: rgb(224, 30, 90);
+        --slack-color-3: rgb(236, 178, 46);
+        --font-family-logo-1: 'Ubuntu Mono', serif;
+        --font-style-logo-1: normal;
+        --font-weight-logo-1: 700;
+        --font-size-logo-1: 1.11em;
+        --font-family-logo-2: 'Courier New', serif;
+        --font-style-logo-2: normal;
+        --font-weight-logo-2: 700;
+        --font-size-logo-2: 1.12em;
+        --font-family-logo-3: 'IBM Plex Mono', serif;
+        --font-style-logo-3: italic;
+        --font-weight-logo-3: 700;
+        --font-size-logo-3: 1.05em;
+        --font-family-logo-4: 'Space Mono', serif;
+        --font-style-logo-4: normal;
+        --font-weight-logo-4: 700;
+        --font-size-logo-4: 1em;
+        --desktop-to-mobile-multiplier: 0.9;
+      }
+
+      @media (max-width: 768px) {
+        :root {
+          --desktop-to-mobile-multiplier: 0.8;
+        }
       }
 
       body {
@@ -56,7 +83,7 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      aside.narration {
+      aside {
         position: fixed;
         z-index: 99;
         bottom: 0;
@@ -64,6 +91,10 @@
         display: flex;
         justify-content: center;
         width: 100%;
+      }
+
+      aside.narration--flicker-hidden .flicker {
+        visibility: hidden;
       }
 
       section.story {
@@ -87,11 +118,9 @@
         align-items: center;
       }
 
-      /*
       .no-scroll {
         overflow: hidden;
       }
-      */
 
       .reveal {
         transition: 1.75s opacity linear;
@@ -209,9 +238,9 @@
   </head>
   <body>
     <main>
-      <aside class="narration reveal reveal--hidden">
+      <aside class="reveal reveal--hidden">
         <div style="display: inline-block; border-radius: 1px; padding: 18px 22px; text-align: center;">
-          <span style="text-transform: uppercase; color: var(--spectrum-color-gray-600); line-height: 18px; font-size: 12px; font-weight: 600; font-family: system-ui; letter-spacing: 0.0078125em;"><span id="narrationText"></span><span class="flicker flicker--alt">▌</span></span>
+          <span style="text-transform: uppercase; color: var(--spectrum-color-gray-600); line-height: 18px; font-size: 12px; font-weight: 600; font-family: system-ui; letter-spacing: 0.0078125em;"><span id="narration"></span><span class="flicker flicker--alt">▌</span></span>
         </div>
       </aside>
       <section class="story story--conversation fade reveal reveal--hidden" data-narration-text="체코의 대호님까지 섭외 완료! 컨퍼런스에서 만나요.">
@@ -681,30 +710,21 @@
               <span class="slack-message-byline__time moment">Just now</span>
             </div>
             <div class="slack-message-body" style="min-height: calc(2 * var(--text-line-height));">
-              <span class="slack-message-body__text" id="splashText" data-text="자리에 오신 분들께 여쭙습니다.
+              <span class="slack-message-body__text type" data-text="자리에 오신 분들께 여쭙습니다.
 인생에서 무엇이 사라지고 있나요?"></span>
             </div>
           </div>
         </div>
       </section>
-      <section style="min-height: 100svh;">
-        <h1 style="margin: 0; padding: 18px 24px; color: var(--spectrum-color-gray-800); text-align: center; line-height: 46.36px; letter-spacing: -0.82px; font-size: 40.91px; font-weight: 600; font-family: 'IBM Plex Mono', ui-monospace;">Several<br>People<br>Are<br>Typing</h1>
-        <p style="margin: 0; padding: 18px 24px; color: var(--spectrum-color-gray-800); line-height: 29.09px; letter-spacing: -0.21px; font-size: 17.28px; font-weight: 400; font-family: ui-sans-serif;"></p>
+      <section style="min-height: 100svh; padding-top: calc(64px * var(--desktop-to-mobile-multiplier)); padding-bottom: calc(64px * var(--desktop-to-mobile-multiplier));">
+        <h1 style="margin: 0; padding-right: 24px; padding-left: 24px; text-align: center; line-height: calc(64px * var(--desktop-to-mobile-multiplier)); letter-spacing: -0.325em; font-size: calc(45px * var(--desktop-to-mobile-multiplier)); font-family: ui-monospace; filter: contrast(1.4) brightness(0.875);" class="reveal reveal--special"><span style="letter-spacing: -0.02em; color: var(--slack-color-1); font-size: var(--font-size-logo-1); font-weight: var(--font-weight-logo-1); font-style: var(--font-style-logo-1); font-family: var(--font-family-logo-1);"><span class="type" data-text="Several"></span><span class="flicker flicker--alt">▌</span></span>&nbsp;<span style="letter-spacing: -0.02em; color: var(--slack-color-2); font-size: var(--font-size-logo-2); font-weight: var(--font-weight-logo-2); font-style: var(--font-style-logo-2); font-family: var(--font-family-logo-2);"><span class="type" data-text="People"></span><span class="flicker flicker--alt">▌</span></span><br><span style="letter-spacing: -0.02em; color: var(--slack-color-3); font-size: var(--font-size-logo-3); font-weight: var(--font-weight-logo-3); font-style: var(--font-style-logo-3); font-family: var(--font-family-logo-3);"><span class="type" data-text="Are"></span><span class="flicker flicker--alt">▌</span></span>&nbsp;<span style="letter-spacing: -0.02em; color: var(--slack-color-4); font-size: var(--font-size-logo-4); font-weight: var(--font-weight-logo-4); font-style: var(--font-style-logo-4); font-family: var(--font-family-logo-4);"><span class="type" data-text="Typing"></span><span class="flicker flicker--alt">▌</span></span></h1>
+        <p style="margin: 0; padding-right: 24px; padding-left: 24px; color: var(--spectrum-color-gray-800); line-height: 29.09px; letter-spacing: -0.21px; font-size: 17.28px; font-weight: 400; font-family: ui-sans-serif;"></p>
       </section>
       <section style="min-height: 100svh;"></section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.30.1/min/moment.min.js" integrity="sha256-hFxSSWnt1bOvmqbYcY0p/pLo2+JblVIUqOBkoFqaUCc=" crossorigin="anonymous"></script>
     <script type="module">
       import { assemble, disassemble } from 'https://cdn.jsdelivr.net/npm/es-hangul@2.1.0/dist/index.mjs'
-
-      const assembleSafe = unassembledText => {
-        const unsafeRegex = /([,.?!\d])/g
-        return unassembledText.split(unsafeRegex).filter(
-          textPart => textPart !== ''
-        ).map(
-          textPart => unsafeRegex.test(textPart) ? textPart : assemble([textPart]),
-        ).join('')
-      }
 
       moment.updateLocale('en', {
         relativeTime: {
@@ -717,80 +737,72 @@
         },
       })
 
-      let globalTimeout = 0
+      const assembleSafe = unassembledText => {
+        const unsafeRegex = /(\P{Script=Hangul}+)/u
+        return unassembledText.split(unsafeRegex).filter(
+          textPart => textPart !== ''
+        ).map(
+          textPart => unsafeRegex.test(textPart) ? textPart : assemble([textPart]),
+        ).join('')
+      }
 
-      const splashTextEl = document.getElementById('splashText')
+      const updateText = (el, text, timeout) => setTimeout(
+        () => { el.innerText = text },
+        timeout,
+      )
 
-      ; (() => {
-        const updateText = (text, timeout) => setTimeout(
-          () => { splashTextEl.innerText = text },
-          timeout,
-        )
-
-        globalTimeout += 320
-        updateText('▌', globalTimeout)
-
-        globalTimeout += 320
-        updateText('', globalTimeout)
-
-        globalTimeout += 320
-        updateText('▌', globalTimeout)
-
-        globalTimeout += 320
-        updateText('', globalTimeout)
-
-        globalTimeout += 320
-        updateText('▌', globalTimeout)
-
+      const typeText = (el, baseTimeout) => {
+        let localTimeout = baseTimeout
         let unassembledText = ''
-        for (let c of disassemble(splashTextEl.dataset.text)) {
+
+        for (let c of disassemble(el.dataset.text)) {
           if (c === '\n') {
-            globalTimeout += 750
+            localTimeout += 750
           }
-          else if (c === ' ' || c === ',' || c === '.' || c === '?' || c === '!') {
-            globalTimeout += 60
+          else if (/\p{Script=Hangul}/u.test(c)) {
+            localTimeout += 30
           }
           else {
-            globalTimeout += 30
+            localTimeout += 60
           }
 
           unassembledText += c
-          updateText(assembleSafe(unassembledText), globalTimeout)
-        }
-      })()
-
-      globalTimeout += 1500
-
-      const momentElList = document.querySelectorAll('.moment')
-      const momentElListReversed = Array.from(momentElList).reverse()  // messages created later gets processed first
-      const flickerElList = document.querySelectorAll('.flicker')
-      const revealElList = document.querySelectorAll('.reveal')
-
-      setTimeout(() => {
-        const updateMoment = (el, epoch) => {
-          const fromNow = epoch.from(moment())
-
-          el.innerText = fromNow.charAt(0).toUpperCase() + fromNow.slice(1)
-
-          setTimeout(
-            () => updateMoment(el, epoch),
-            1000 * 60,
-          )
+          updateText(el, assembleSafe(unassembledText), localTimeout)
         }
 
+        const timeoutDelta = localTimeout - baseTimeout
+
+        return timeoutDelta
+      }
+
+      const updateMoment = (el, epoch) => {
         const now = moment()
+        const fromNow = epoch.from(now)
 
-        setTimeout(() => {
-          momentElListReversed.forEach(el => updateMoment(el, now))
-        }, 1000 * 60)
+        el.innerText = fromNow.charAt(0).toUpperCase() + fromNow.slice(1)
+
+        setTimeout(
+          () => updateMoment(el, epoch),
+          1000 * 60,
+        )
+      }
+
+      const reveal = el => {
+        const flickerElList = el.querySelectorAll('.flicker')
 
         setInterval(() => {
-          flickerElList.forEach(el => el.classList.toggle('flicker--alt'))
+          flickerElList.forEach(flickerEl => flickerEl.classList.toggle('flicker--alt'))
         }, 750)
 
-        revealElList.forEach(el => el.classList.remove('reveal--hidden'))
-        document.body.classList.remove('no-scroll')
-      }, globalTimeout)
+        el.classList.remove('reveal--hidden')
+      }
+
+      const getScrollYRatio = el => {
+        const rect = el.getBoundingClientRect()
+        const v1 = (rect.top + rect.bottom) / window.innerHeight
+        const v2 = Math.abs(v1 - 1) / 2
+        return Math.max(1 - v2, 0)
+      }
 
       const splashEl = document.getElementById('splash')
 
@@ -802,16 +814,64 @@
         window.scrollTo({ top: splashRect.top + window.scrollY, behavior: 'instant' })
       })
 
-      const getScrollYRatio = el => {
-        const rect = el.getBoundingClientRect()
-        const v1 = (rect.top + rect.bottom) / window.innerHeight
-        const v2 = Math.abs(v1 - 1) / 2
-        return Math.max(1 - v2, 0)
-      }
+      let globalTimeout = 0
+      const splashTypeEl = splashEl.querySelector('.type')
+
+      globalTimeout += 320
+      updateText(splashTypeEl, '▌', globalTimeout)
+
+      globalTimeout += 320
+      updateText(splashTypeEl, '', globalTimeout)
+
+      globalTimeout += 320
+      updateText(splashTypeEl, '▌', globalTimeout)
+
+      globalTimeout += 320
+      updateText(splashTypeEl, '', globalTimeout)
+
+      globalTimeout += 200
+      globalTimeout += typeText(splashTypeEl, globalTimeout) + 1250
+
+      const momentElList = document.querySelectorAll('.moment')
+      const momentElListReversed = Array.from(momentElList).reverse()  // messages created later gets processed first
+      const revealElList = document.querySelectorAll('.reveal:not(.reveal--special)')
+
+      setTimeout(() => {
+        const now = moment()
+
+        setTimeout(() => {
+          momentElListReversed.forEach(el => updateMoment(el, now))
+        }, 1000 * 60)
+
+        revealElList.forEach(reveal)
+        document.body.classList.remove('no-scroll')
+      }, globalTimeout)
+
+      const fadeElList = document.querySelectorAll('.fade')
+
+      window.addEventListener('scroll', () => {
+        fadeElList.forEach(el => {
+          const fadeScrollYRatio = getScrollYRatio(el)
+
+          if (fadeScrollYRatio === 0) {
+            return
+          }
+
+          const fadeScrollYRatioStep = Math.floor(64 * fadeScrollYRatio) / 64
+          const blurFilter = `blur(${20 * Math.pow(1 - fadeScrollYRatioStep, 2)}px)`
+          const opacityFilter = `opacity(${Math.sqrt(fadeScrollYRatioStep)})`
+          const filter = blurFilter + ' ' + opacityFilter
+
+          el.querySelectorAll('.fade__item').forEach(itemEl => {
+            el.style.webkitFilter = filter
+            el.style.filter = filter
+          })
+        })
+      })
 
       const storyElList = document.querySelectorAll('.story')
-      const narrationTextEl = document.getElementById('narrationText')
-      const narrationContainerEl = narrationTextEl.closest('aside.narration')
+      const narrationEl = document.getElementById('narration')
+      const narrationContainerEl = narrationEl.closest('aside')
 
       window.addEventListener('scroll', () => {
         const prominentStoryEl = Array.from(storyElList).reduce((previousEl, currentEl) => {
@@ -833,7 +893,7 @@
         const v3 = Math.min(Math.max(v2, 0), disassembledNarrationText.length)
         const unassembledText = disassembledNarrationText.slice(0, disassembledNarrationText.length - v3)
 
-        narrationTextEl.innerText = assembleSafe(unassembledText)
+        narrationEl.innerText = assembleSafe(unassembledText)
 
         if (prominentStoryEl == splashEl && !unassembledText) {
           narrationContainerEl.style.display = 'none'
@@ -843,25 +903,29 @@
         }
       })
 
-      const fadeElList = document.querySelectorAll('.fade')
+      const specialRevealElList = document.querySelectorAll('.reveal--special')
 
       window.addEventListener('scroll', () => {
-        fadeElList.forEach(el => {
-          const fadeScrollYRatio = getScrollYRatio(el)
+        const splashRect = splashEl.getBoundingClientRect()
 
-          if (fadeScrollYRatio === 0) {
-            return
+        if (splashRect.bottom < window.innerHeight) {
+          narrationContainerEl.classList.add('narration--flicker-hidden')
+        }
+        else {
+          narrationContainerEl.classList.remove('narration--flicker-hidden')
+        }
+
+        specialRevealElList.forEach(el => {
+          if (!el.dataset.reveal) {
+            const rect = el.getBoundingClientRect()
+            if (rect.top + rect.bottom < 2 * window.innerHeight) {
+              reveal(el)
+              setTimeout(() => {
+                el.querySelectorAll('.type').forEach(typeText)
+              }, 750)
+              el.dataset.reveal = true
+            }
           }
-
-          const fadeScrollYRatioStep = Math.floor(64 * fadeScrollYRatio) / 64
-          const blurFilter = `blur(${20 * Math.pow(1 - fadeScrollYRatioStep, 2)}px)`
-          const opacityFilter = `opacity(${Math.sqrt(fadeScrollYRatioStep)})`
-          const filter = blurFilter + ' ' + opacityFilter
-
-          el.querySelectorAll('.fade__item').forEach(itemEl => {
-            el.style.webkitFilter = filter
-            el.style.filter = filter
-          })
         })
       })
     </script>
