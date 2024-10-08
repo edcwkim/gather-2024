@@ -56,26 +56,38 @@
         --slack-color-black: rgb(29, 28, 29);
         --slack-color-black-translucent: rgba(29, 28, 29, 0.06);
         --slack-color-blue: rgb(18, 100, 163);
-        --slack-color-4: rgb(68, 190, 223);
-        --slack-color-1: rgb(46, 182, 125);
-        --slack-color-2: rgb(224, 30, 90);
-        --slack-color-3: rgb(236, 178, 46);
-        --font-family-logo-1: 'Ubuntu Mono', ui-monospace;
-        --font-style-logo-1: normal;
-        --font-weight-logo-1: 700;
-        --font-size-logo-1: 1.11em;
-        --font-family-logo-2: 'Courier New', ui-monospace;
-        --font-style-logo-2: normal;
-        --font-weight-logo-2: 700;
-        --font-size-logo-2: 1.12em;
-        --font-family-logo-3: 'IBM Plex Mono', ui-monospace;
-        --font-style-logo-3: italic;
-        --font-weight-logo-3: 700;
-        --font-size-logo-3: 1.05em;
-        --font-family-logo-4: 'Space Mono', ui-monospace;
-        --font-style-logo-4: normal;
-        --font-weight-logo-4: 700;
-        --font-size-logo-4: 1em;
+        --slack-color-1: rgb(68, 190, 223);
+        --slack-color-2: rgb(46, 182, 125);
+        --slack-color-3: rgb(224, 30, 90);
+        --slack-color-4: rgb(236, 178, 46);
+        --logo-font-family-1: 'Ubuntu Mono', ui-monospace;
+        --logo-font-family-2: 'Courier New', ui-monospace;
+        --logo-font-family-3: 'IBM Plex Mono', ui-monospace;
+        --logo-font-family-4: 'Space Mono', ui-monospace;
+        --logo-font-style-1: normal;
+        --logo-font-style-2: normal;
+        --logo-font-style-3: italic;
+        --logo-font-style-4: normal;
+        --logo-font-weight-1: 700;
+        --logo-font-weight-2: 700;
+        --logo-font-weight-3: 700;
+        --logo-font-weight-4: 700;
+        --logo-font-size-1: 1.11em;
+        --logo-font-size-2: 1.12em;
+        --logo-font-size-3: 1.05em;
+        --logo-font-size-4: 1em;
+        --logo-letter-spacing-1: -0.014em;
+        --logo-letter-spacing-2: -0.018em;
+        --logo-letter-spacing-3: -0.018em;
+        --logo-letter-spacing-4: -0.015em;
+        --logo-vertical-align-1: -0.008em;
+        --logo-vertical-align-2: 0em;
+        --logo-vertical-align-3: -0.024em;
+        --logo-vertical-align-4: -0.002em;
+        --logo-color-1: var(--slack-color-2);
+        --logo-color-2: var(--slack-color-3);
+        --logo-color-3: var(--slack-color-4);
+        --logo-color-4: var(--slack-color-1);
         --responsive-multiplier: 1.51;
         --rmul: var(--responsive-multiplier);
 
@@ -739,10 +751,10 @@
       <section style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100lvh; padding-top: calc(1rem + 105px * var(--rmul)); padding-bottom: calc(1rem + 105px * var(--rmul)); background-color: var(--spectrum-color-gray-100);">
         <div style="text-align: center;">
           <h1 style="margin: 0;" id="logo">
-            <span style="line-height: 1.43em; letter-spacing: -0.39em; font-size: calc(1rem + 15px * var(--rmul)); font-weight: 700; font-family: 'Courier New', ui-monospace; filter: contrast(1.35) brightness(0.85);">
-              <span style="color: var(--slack-color-1); letter-spacing: -0.02em; font-size: var(--font-size-logo-1); font-weight: var(--font-weight-logo-1); font-style: var(--font-style-logo-1); font-family: var(--font-family-logo-1);"><span class="type" data-text="Several"></span><span class="flicker flicker--alt"></span></span>&nbsp;<span style="color: var(--slack-color-2); letter-spacing: -0.02em; font-size: var(--font-size-logo-2); font-weight: var(--font-weight-logo-2); font-style: var(--font-style-logo-2); font-family: var(--font-family-logo-2);"><span class="type" data-text="People"></span><span class="flicker flicker--alt"></span></span>
+            <span style="line-height: 1.42em; letter-spacing: -0.36em; font-size: calc(1rem + 15px * var(--rmul)); font-weight: 700; font-family: 'Courier New', ui-monospace; filter: contrast(1.35) brightness(0.85);">
+              <span style="color: var(--logo-color-1); letter-spacing: var(--logo-letter-spacing-1); font-size: var(--logo-font-size-1); font-weight: var(--logo-font-weight-1); font-style: var(--logo-font-style-1); font-family: var(--logo-font-family-1); vertical-align: var(--logo-vertical-align-1);"><span class="type" data-text="Several"></span><span class="flicker flicker--alt"></span></span>&nbsp;<span style="color: var(--logo-color-2); letter-spacing: var(--logo-letter-spacing-2); font-size: var(--logo-font-size-2); font-weight: var(--logo-font-weight-2); font-style: var(--logo-font-style-2); font-family: var(--logo-font-family-2); vertical-align: var(--logo-vertical-align-2);"><span class="type" data-text="People"></span><span class="flicker flicker--alt"></span></span>
               <br>
-              <span style="color: var(--slack-color-3); letter-spacing: -0.02em; font-size: var(--font-size-logo-3); font-weight: var(--font-weight-logo-3); font-style: var(--font-style-logo-3); font-family: var(--font-family-logo-3);"><span class="type" data-text="Are"></span><span class="flicker flicker--alt"></span></span>&nbsp;<span style="color: var(--slack-color-4); letter-spacing: -0.02em; font-size: var(--font-size-logo-4); font-weight: var(--font-weight-logo-4); font-style: var(--font-style-logo-4); font-family: var(--font-family-logo-4);"><span class="type" data-text="Typing"></span><span class="flicker flicker--alt"></span></span>
+              <span style="color: var(--logo-color-3); letter-spacing: var(--logo-letter-spacing-3); font-size: var(--logo-font-size-3); font-weight: var(--logo-font-weight-3); font-style: var(--logo-font-style-3); font-family: var(--logo-font-family-3); vertical-align: var(--logo-vertical-align-3);"><span class="type" data-text="Are"></span><span class="flicker flicker--alt"></span></span>&nbsp;<span style="color: var(--logo-color-4); letter-spacing: var(--logo-letter-spacing-4); font-size: var(--logo-font-size-4); font-weight: var(--logo-font-weight-4); font-style: var(--logo-font-style-4); font-family: var(--logo-font-family-4); vertical-align: var(--logo-vertical-align-4);"><span class="type" data-text="Typing"></span><span class="flicker flicker--alt"></span></span>
             </span>
           </h1>
         </div>
@@ -758,7 +770,7 @@
           </p>
         </div>
       </section>
-      <section style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 100lvh; min-height: 100lvh; padding-top: calc(1rem + 105px * var(--rmul)); padding-bottom: calc(1rem + 105px * var(--rmul));">
+      <section style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 80lvh; min-height: 100lvh; padding-top: calc(1rem + 105px * var(--rmul)); padding-bottom: calc(1rem + 105px * var(--rmul));">
         <div style="position: sticky; top: 18px;">
           <h2 style="margin: 0;">
             <span style="color: var(--spectrum-color-gray-600); line-height: 1.82em; letter-spacing: -0.012em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: ui-sans-serif;">장소와 진행 방식</span>
