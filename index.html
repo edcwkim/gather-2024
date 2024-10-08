@@ -14,6 +14,7 @@
     <meta property="og:image:height" content="660">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300..800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&family=IBM+Plex+Mono:ital,wght@1,700&family=Space+Mono:wght@700&text=Several+People+Are+Typing&display=block">
     <style>
 
@@ -40,6 +41,14 @@
         }
       }
 
+      body {
+        margin: 0;
+        word-break: keep-all;
+        -webkit-text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* custom */
       :root {
         --spectrum-color-gray-50: #ffffff;
         --spectrum-color-gray-75: #fdfdfd;
@@ -88,6 +97,7 @@
         --logo-color-2: var(--slack-color-3);
         --logo-color-3: var(--slack-color-4);
         --logo-color-4: var(--slack-color-1);
+        --default-font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans KR', ui-sans-serif;
         --responsive-multiplier: 1.51;
         --rmul: var(--responsive-multiplier);
 
@@ -98,13 +108,6 @@
         :root {
           --responsive-multiplier: 1;
         }
-      }
-
-      body {
-        margin: 0;
-        word-break: keep-all;
-        -webkit-text-size-adjust: 100%;
-        -webkit-font-smoothing: antialiased;
       }
 
       aside {
@@ -223,7 +226,7 @@
         letter-spacing: -0.0078125em;
         font-size: 15px;
         font-weight: 800;
-        font-family: apple-sd-gothic-neo, system-ui;
+        font-family: apple-sd-gothic-neo, 'Apple SD Gothic Neo', system-ui;
       }
 
       .slack-message-byline__time {
@@ -288,7 +291,7 @@
     <main>
       <aside class="reveal">
         <div style="display: inline-block; padding: 18px 22px; text-align: center;">
-          <span style="text-transform: uppercase; color: var(--spectrum-color-gray-600); line-height: 18px; font-size: 12px; font-weight: 600; font-family: system-ui; letter-spacing: 0.0078125em;"><span id="narration"></span><span class="flicker flicker--alt"></span></span>
+          <span style="text-transform: uppercase; color: var(--spectrum-color-gray-600); line-height: 18px; font-size: 12px; font-weight: 600; font-family: var(--default-font-family); letter-spacing: 0.0078125em;"><span id="narration"></span><span class="flicker flicker--alt"></span></span>
         </div>
       </aside>
       <section class="story story--conversation fade reveal" data-narration-text="체코의 대호님까지 섭외 완료! 컨퍼런스에서 만나요.">
@@ -776,30 +779,30 @@
         </div>
         <div style="margin-top: calc(1rem + 44px * var(--rmul)); max-width: 720px; padding-right: 24px; padding-left: 24px;">
           <p style="margin: 0;">
-            <span style="color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.012em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: ui-sans-serif;">김찬우의 2024년 생일을 즈음하여, 지인들과 함께 자리할 컨퍼런스를 마련<wbr>합니다.</span>
+            <span style="color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: var(--default-font-family);">김찬우의 2024년 생일을 즈음하여, 지인들과 함께 자리할 컨퍼런스를 마련<wbr>합니다.</span>
           </p>
           <p style="margin: calc(1rem + 8px * var(--rmul)) 0 0;">
-            <span style="color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.012em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: ui-sans-serif;">이번 컨퍼런스의 주제는 “사라져 가는 것”입니다. 당신의 인생<wbr>에서는 현재 사라지고 있는 것이 있나요? 혹은 주변 사람들이 근래에 없어져 간다 이야기<wbr>하는 것들이 있나요? 혹은, 우리 사회의 전반적인 삶에서 동시에 모습을 감춰 가는 것이 있을까요?</span>
+            <span style="color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: var(--default-font-family);">이번 컨퍼런스의 주제는 “사라져 가는 것”입니다. 당신의 인생<wbr>에서는 현재 사라지고 있는 것이 있나요? 혹은 주변 사람들이 근래에 없어져 간다 이야기<wbr>하는 것들이 있나요? 혹은, 우리 사회의 전반적인 삶에서 동시에 모습을 감춰 가는 것이 있을까요?</span>
           </p>
           <p style="margin: calc(1rem + 8px * var(--rmul)) 0 0;">
-            <span style="color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.012em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: ui-sans-serif;"><a class="link" href="./event.ics">2024년 11월 2일, 토요일</a>, 세 분의 발표자와 세 분의 대담 참여자<wbr>들이 각각의 생각을 들려줄 예정<wbr>입니다. 청중으로 참석하는 이들<wbr>에게도 재미 있는 교류의 기회들이 열릴 것입니다. 자리에 오셔서 인상적인 경험을 얻고 가시면 좋겠습니다!</span>
+            <span style="color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: var(--default-font-family);"><a class="link" href="./event.ics">2024년 11월 2일, 토요일</a>, 세 분의 발표자와 세 분의 대담 참여자<wbr>들이 각각의 생각을 들려줄 예정<wbr>입니다. 청중으로 참석하는 이들<wbr>에게도 재미 있는 교류의 기회들이 열릴 것입니다. 자리에 오셔서 인상적인 경험을 얻고 가시면 좋겠습니다!</span>
           </p>
         </div>
       </section>
       <section style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 50lvh; min-height: 100lvh; padding-top: calc(1rem + 90px * var(--rmul)); padding-bottom: calc(1rem + 90px * var(--rmul));">
         <div style="position: sticky; top: 18px;">
           <h2 style="margin: 0;">
-            <span style="color: var(--spectrum-color-gray-600); line-height: 1.83em; letter-spacing: -0.012em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: ui-sans-serif;">장소와 진행 방식</span>
+            <span style="color: var(--spectrum-color-gray-600); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: var(--default-font-family);">장소와 진행 방식</span>
           </h2>
         </div>
         <div style="margin-top: calc(1rem + 120px * var(--rmul) - 50lvh);" class="fade">
           <div style="display: flex; flex-direction: column; align-items: center;">
-            <div style="color: var(--spectrum-color-gray-700); line-height: 1.8em; letter-spacing: -0.012em; font-size: calc(1rem + 9px * var(--rmul)); font-weight: 500; font-family: ui-sans-serif;" class="fade__item"><span style="margin-right: 0.25em; vertical-align: -0.05em;">🌎</span>online</div>
-            <div style="color: var(--spectrum-color-gray-700); line-height: 1.8em; letter-spacing: -0.012em; font-size: calc(1rem + 9px * var(--rmul)); font-weight: 500; font-family: ui-sans-serif;" class="fade__item"><span style="margin-right: 0.3em; vertical-align: -0.05em;">⌨️</span>text-only</div>
+            <div style="color: var(--spectrum-color-gray-700); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 9px * var(--rmul)); font-weight: 500; font-family: var(--default-font-family);" class="fade__item"><span style="margin-right: 0.26em; vertical-align: -0.038em;">🌎</span>online</div>
+            <div style="color: var(--spectrum-color-gray-700); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 9px * var(--rmul)); font-weight: 500; font-family: var(--default-font-family);" class="fade__item"><span style="margin-right: 0.33em; vertical-align: -0.051em;">⌨️</span>text-only</div>
           </div>
           <div style="margin: 0 auto; max-width: 640px; padding-right: 24px; padding-left: 24px; text-align: center;">
             <p style="margin: calc(1rem + 18px * var(--rmul)) 0 0;" class="fade__item">
-              <span style="color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.012em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: ui-sans-serif;">이번 컨퍼런스는 여러 지역의 사람들과 함께하기 위해 온라인<wbr>으로 실시<wbr>합니다. 단, 음성과 영상을 이용하는 발표가 아니라 실시간<wbr>으로 글을 올리는 방식으로 발표가 진행될 예정<wbr>입니다.</span>
+              <span style="color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 300; font-family: var(--default-font-family);">이번 컨퍼런스는 여러 지역의 사람들과 함께하기 위해 온라인<wbr>으로 실시<wbr>합니다. 단, 음성과 영상을 이용하는 발표가 아니라 실시간<wbr>으로 글을 올리는 방식으로 발표가 진행될 예정<wbr>입니다.</span>
             </p>
           </div>
         </div>
@@ -839,7 +842,7 @@
           </div>
           <div style="margin: 0 auto; max-width: 640px; padding-right: 24px; padding-left: 24px;">
             <p style="margin: calc(1rem + 18px * var(--rmul)) 0 0; text-align: center;" class="fade__item">
-              <span style="color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.012em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: ui-sans-serif;">설명 설명</span>
+              <span style="color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 300; font-family: var(--default-font-family);">설명 설명</span>
             </p>
           </div>
         </div>
@@ -849,7 +852,7 @@
           </div>
           <div style="margin: 0 auto; max-width: 640px; padding-right: 24px; padding-left: 24px;">
             <p style="margin: calc(1rem + 18px * var(--rmul)) 0 0; text-align: center;" class="fade__item">
-              <span style="color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.012em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: ui-sans-serif;">설명하기</span>
+              <span style="color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 300; font-family: var(--default-font-family);">설명하기</span>
             </p>
           </div>
         </div>
@@ -857,23 +860,23 @@
       <section style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100lvh; padding-top: calc(1rem + 90px * var(--rmul)); padding-bottom: calc(1rem + 90px * var(--rmul)); background-color: var(--spectrum-color-gray-100);">
         <div style="position: sticky; top: 18px; text-align: center;">
           <h2 style="margin: 0;">
-            <span style="color: var(--spectrum-color-gray-600); line-height: 1.83em; letter-spacing: -0.012em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: ui-sans-serif;">일정</span>
+            <span style="color: var(--spectrum-color-gray-600); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: var(--default-font-family);">일정</span>
           </h2>
         </div>
         <div style="margin-top: calc(1rem + 44px * var(--rmul)); max-width: 720px; padding-right: 24px; padding-left: 24px; text-align: center;">
-          <p style="margin: 0; color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.012em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: ui-sans-serif;">입장: 2024년 11월 2일, 첫 번째 발표 10분 전까지</p>
+          <p style="margin: 0; color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 300; font-family: var(--default-font-family)f;">입장: 2024년 11월 2일, 첫 번째 발표 10분 전까지</p>
         </div>
         <div style="margin-top: calc(1rem + 44px * var(--rmul)); max-width: 720px; padding-right: 24px; padding-left: 24px;">
-          <p style="margin: 0; color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.012em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: ui-sans-serif;">3:00 발표—유리</p>
-          <p style="margin: 0; color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.012em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: ui-sans-serif;">3:30 발표—대호</p>
-          <p style="margin: 0; color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.012em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: ui-sans-serif;">4:00 대담—육헌, 성운, 찬우</p>
-          <p style="margin: 0; color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.012em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: ui-sans-serif;">4:30 발표—진아</p>
+          <p style="margin: 0; color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 300; font-family: var(--default-font-family);">3:00 발표—유리</p>
+          <p style="margin: 0; color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 300; font-family: var(--default-font-family);">3:30 발표—대호</p>
+          <p style="margin: 0; color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 300; font-family: var(--default-font-family);">4:00 대담—육헌, 성운, 찬우</p>
+          <p style="margin: 0; color: var(--spectrum-color-gray-800); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 300; font-family: var(--default-font-family);">4:30 발표—진아</p>
         </div>
       </section>
       <section style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100lvh; padding-top: calc(1rem + 90px * var(--rmul)); padding-bottom: calc(1rem + 90px * var(--rmul));">
         <div style="position: sticky; top: 18px; text-align: center;">
           <h2 style="margin: 0;">
-            <span style="color: var(--spectrum-color-gray-600); line-height: 1.83em; letter-spacing: -0.012em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: ui-sans-serif;">참석할 사람들의 한마디</span>
+            <span style="color: var(--spectrum-color-gray-600); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: var(--default-font-family);">참석할 사람들의 한마디</span>
           </h2>
         </div>
       </section>
