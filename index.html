@@ -927,16 +927,19 @@
 
       const splashEl = document.getElementById('splash')
 
-      const initializeScroll = () => {
-        document.body.classList.add('no-scroll')
-
+      const scrollToSplash = () => {
         const splashRect = splashEl.getBoundingClientRect()
 
         window.scrollTo({ top: splashRect.top + window.scrollY, behavior: 'instant' })
       }
 
-      document.addEventListener('DOMContentLoaded', initializeScroll)
-      window.addEventListener('load', initializeScroll)
+      document.addEventListener('DOMContentLoaded', () => {
+        document.body.classList.add('no-scroll')
+        scrollToSplash()
+      })
+      window.addEventListener('load', () => {
+        scrollToSplash()
+      })
 
       let globalTimeout = 0
       const splashTypeEl = splashEl.querySelector('.type')
