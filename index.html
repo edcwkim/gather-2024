@@ -1026,8 +1026,8 @@
           const filter = blurFilter + ' ' + opacityFilter
 
           el.querySelectorAll('.fade__item').forEach(itemEl => {
-            el.style.webkitFilter = filter
-            el.style.filter = filter
+            itemEl.style.webkitFilter = filter
+            itemEl.style.filter = filter
           })
         })
       })
