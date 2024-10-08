@@ -76,7 +76,7 @@
         --font-style-logo-4: normal;
         --font-weight-logo-4: 700;
         --font-size-logo-4: 1em;
-        --responsive-multiplier: 1.5;
+        --responsive-multiplier: 1.51;
         --rmul: var(--responsive-multiplier);
 
         font-size: 15px;
@@ -739,7 +739,7 @@
       <section style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100lvh; padding-top: calc(1rem + 105px * var(--rmul)); padding-bottom: calc(1rem + 105px * var(--rmul)); background-color: var(--spectrum-color-gray-100);">
         <div style="text-align: center;">
           <h1 style="margin: 0;" id="logo">
-            <span style="line-height: 1.42em; letter-spacing: -0.4em; font-size: calc(1rem + 15px * var(--rmul)); font-weight: 700; font-family: 'Courier New', ui-monospace; filter: contrast(1.35) brightness(0.85);">
+            <span style="line-height: 1.43em; letter-spacing: -0.4em; font-size: calc(1rem + 15px * var(--rmul)); font-weight: 700; font-family: 'Courier New', ui-monospace; filter: contrast(1.35) brightness(0.85);">
               <span style="color: var(--slack-color-1); letter-spacing: -0.02em; font-size: var(--font-size-logo-1); font-weight: var(--font-weight-logo-1); font-style: var(--font-style-logo-1); font-family: var(--font-family-logo-1);"><span class="type" data-text="Several"></span><span class="flicker flicker--alt"></span></span>&nbsp;<span style="color: var(--slack-color-2); letter-spacing: -0.02em; font-size: var(--font-size-logo-2); font-weight: var(--font-weight-logo-2); font-style: var(--font-style-logo-2); font-family: var(--font-family-logo-2);"><span class="type" data-text="People"></span><span class="flicker flicker--alt"></span></span>
               <br>
               <span style="color: var(--slack-color-3); letter-spacing: -0.02em; font-size: var(--font-size-logo-3); font-weight: var(--font-weight-logo-3); font-style: var(--font-style-logo-3); font-family: var(--font-family-logo-3);"><span class="type" data-text="Are"></span><span class="flicker flicker--alt"></span></span>&nbsp;<span style="color: var(--slack-color-4); letter-spacing: -0.02em; font-size: var(--font-size-logo-4); font-weight: var(--font-weight-logo-4); font-style: var(--font-style-logo-4); font-family: var(--font-family-logo-4);"><span class="type" data-text="Typing"></span><span class="flicker flicker--alt"></span></span>
@@ -999,8 +999,11 @@
         const v2 = Math.floor(v1 / 6) + 48
         const v3 = Math.min(Math.max(v2, 0), disassembledNarrationText.length)
         const unassembledText = disassembledNarrationText.slice(0, disassembledNarrationText.length - v3)
+        const assembledText = assembleSafe(unassembledText)
 
-        narrationEl.innerText = assembleSafe(unassembledText)
+        if (assembledText !== narrationEl.innerText) {
+          narrationEl.innerText = assembledText
+        }
       })
 
       const fadeElList = document.querySelectorAll('.fade')
@@ -1009,6 +1012,15 @@
         fadeElList.forEach(el => {
           const fadeScrollYRatio = getScrollYRatio(el)
           const fadeScrollYRatioStep = Math.floor(64 * fadeScrollYRatio) / 64
+          const fadeScrollYRatioStepStr = fadeScrollYRatioStep.toString()
+
+          if (el.dataset.fadeStep === fadeScrollYRatioStepStr) {
+            return
+          }
+          else {
+            el.dataset.fadeStep = fadeScrollYRatioStepStr
+          }
+
           const blurFilter = `blur(${20 * Math.pow(1 - fadeScrollYRatioStep, 2)}px)`
           const opacityFilter = `opacity(${Math.sqrt(fadeScrollYRatioStep)})`
           const filter = blurFilter + ' ' + opacityFilter
