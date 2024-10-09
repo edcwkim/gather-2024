@@ -290,6 +290,13 @@
         font-family: system-ui;
       }
 
+      .slack-message-reaction-row__item--selected {
+        background-color: #e3f8ff;
+        color: var(--slack-color-blue);
+        font-weight: 700;
+        box-shadow: 0 0 0 1px var(--slack-color-blue);
+      }
+
     </style>
   </head>
   <body>
@@ -802,7 +809,7 @@
         </div>
         <div style="margin-top: calc(1rem + 120px * var(--rmul) - 50lvh);" class="fade">
           <div style="display: flex; flex-direction: column; align-items: center;">
-            <div style="color: var(--spectrum-color-gray-700); text-transform: lowercase; line-height: 1.83em; letter-spacing: -0.014em; /* different intentionally */ font-size: calc(1rem + 9px * var(--rmul)); font-weight: 600; font-family: var(--default-font-family);" class="fade__item"><span style="margin-left: -0.06em; margin-right: 0.33em; vertical-align: -0.06em; font-size: 1.19em;">🌎</span>Online</div>
+            <div style="color: var(--spectrum-color-gray-700); text-transform: lowercase; line-height: 1.83em; letter-spacing: -0.014em; /* different intentionally */ font-size: calc(1rem + 9px * var(--rmul)); font-weight: 600; font-family: var(--default-font-family);" class="fade__item"><span style="margin-left: -0.07em; margin-right: 0.32em; vertical-align: -0.06em; font-size: 1.19em;">🌎</span>Online</div>
             <div style="color: var(--spectrum-color-gray-700); text-transform: lowercase; line-height: 1.83em; letter-spacing: -0.014em; /* different intentionally */ font-size: calc(1rem + 9px * var(--rmul)); font-weight: 600; font-family: var(--default-font-family);" class="fade__item"><span style="margin-right: 0.31em; vertical-align: -0.19em; font-size: 1.54em;">⌨️</span>Text-only</div>
           </div>
           <div style="margin: 0 auto; max-width: 640px; padding-right: 22px; padding-left: 22px; text-align: center;">
@@ -813,7 +820,7 @@
         </div>
         <div class="fade">
           <div style="display: flex; flex-direction: column; align-items: center;">
-            <div>
+            <div style="padding-right: 24px;">
               <div class="slack-message fade__item">
                 <div>
                   <img class="slack-profile-photo" src="./images/profile--edcx.png">
@@ -827,7 +834,7 @@
                     <span class="slack-message-body__text type">안녕하세요!</span>
                   </div>
                   <div class="slack-message-reaction-row">
-                    <span class="slack-message-reaction-row__item">👋&nbsp;2</span><span class="slack-message-reaction-row__item">👋🏼&nbsp;1</span><span class="slack-message-reaction-row__item">👀&nbsp;1</span>
+                    <span class="slack-message-reaction-row__item slack-message-reaction-row__item--selected">👋&nbsp;2</span><span class="slack-message-reaction-row__item">👋🏼&nbsp;1</span><span class="slack-message-reaction-row__item">👀&nbsp;1</span>
                   </div>
                 </div>
               </div>
@@ -867,7 +874,7 @@
       <section style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100lvh; padding-top: calc(1rem + 90px * var(--rmul)); padding-bottom: calc(1rem + 90px * var(--rmul));">
         <div style="position: sticky; z-index: 10; top: 18px; text-align: center;">
           <h2 style="margin: 0;">
-            <span style="color: var(--spectrum-color-gray-600); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: var(--default-font-family);">시작 시간과 순서</span>
+            <span style="color: var(--spectrum-color-gray-600); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 2px * var(--rmul)); font-weight: 400; font-family: var(--default-font-family);">시작 시간과 일정</span>
           </h2>
         </div>
         <div style="margin-top: calc(1rem + 44px * var(--rmul)); max-width: 720px; padding-right: 24px; padding-left: 24px; text-align: center;">
