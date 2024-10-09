@@ -146,6 +146,26 @@
         align-items: center;
       }
 
+      section.info {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100lvh;
+      }
+
+      section.info--intro {
+        padding-top: calc(1rem + 125px * var(--rmul));
+        padding-bottom: calc(1rem + 130px * var(--rmul));
+        background-color: var(--spectrum-color-gray-100);
+      }
+
+      section.info--details {
+        padding-top: calc(1rem + 66px * var(--rmul));
+        padding-bottom: calc(1rem + 66px * var(--rmul));
+      }
+
       .no-scroll {
         overflow: hidden;
       }
@@ -299,6 +319,91 @@
         color: var(--slack-color-blue);
         font-weight: 700;
         box-shadow: 0 0 0 1px var(--slack-color-blue);
+      }
+
+      .section-logo {
+        text-align: center;
+      }
+
+      .section-logo__text {
+        line-height: 1.41em;
+        letter-spacing: -0.37em;
+        font-size: calc(1rem + 17px * var(--rmul));
+        font-weight: 700;
+        font-family: 'Courier New', ui-monospace;
+        filter: contrast(1.35) brightness(0.85);
+      }
+
+      .section-sticky {
+        position: sticky;
+        z-index: 10;
+        top: 18px;
+      }
+
+      .section-sticky-header {
+        text-align: center;
+      }
+
+      .section-sticky-header__text,
+      .section-normal-paragraph__text {
+        line-height: 1.82em;
+        letter-spacing: -0.014em;
+        font-size: calc(1rem + 2px * var(--rmul));
+        font-weight: 400;
+        font-family: var(--default-font-family);
+      }
+
+      .section-sticky-header__text {
+        color: var(--spectrum-color-gray-600);
+      }
+
+      .section-normal-paragraph__text {
+        color: var(--spectrum-color-gray-700);
+      }
+
+      section.info--intro .section-normal-paragraph__text {
+        color: var(--spectrum-color-gray-800);
+      }
+
+      .section-normal-paragraph--emphasized .section-normal-paragraph__text {
+        color: var(--spectrum-color-gray-600);
+        font-size: calc(1rem + 5px * var(--rmul));
+        font-weight: 800;
+      }
+
+      .calendar-line {
+        position: absolute;
+        left: 2px;
+        margin: 0;
+        width: calc(100% - 4px);
+        border: 0;
+        border-bottom: 1px solid var(--spectrum-color-gray-800);
+        opacity: 0.125;
+      }
+
+      .calendar-line--secondary {
+        border-bottom-color: var(--spectrum-color-gray-500);
+      }
+
+      .calendar-caption {
+        position: absolute;
+        width: 100%;
+        padding: 1px 6px 0;
+      }
+
+      .calendar-caption__text {
+        color: var(--spectrum-color-gray-500);
+        line-height: 1em;
+        font-size: 11px;
+      }
+
+      .calendar-caption__text--time {
+        margin-right: 6px;
+        font-family: ui-monospace;
+      }
+
+      .calendar-caption__text--name {
+        font-family: system-ui;
       }
 
     </style>
