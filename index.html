@@ -1223,7 +1223,8 @@
         const timezoneValue = e.currentTarget.value
 
         document.querySelectorAll(`[data-text-${timezoneValue}]`).forEach(el => {
-          el.innerText = el.dataset[`text-${timezoneValue}`]
+          const datasetKey = 'text' + timezoneValue.charAt(0).toUpperCase() + timezoneValue.slice(1)
+          el.innerText = el.dataset[datasetKey]
         })
       })
     </script>
