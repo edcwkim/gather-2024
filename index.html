@@ -183,6 +183,10 @@
         transition: opacity 750ms ease;
       }
 
+      .fade__item {
+        will-change: filter;
+      }
+
       .flicker {
         will-change: visibility;
       }
@@ -196,8 +200,8 @@
         visibility: hidden;
       }
 
-      .fade__item {
-        will-change: filter;
+      .scroll-to-story {
+        cursor: pointer;
       }
 
       .slack-message {
@@ -306,7 +310,7 @@
           <span style="text-transform: uppercase; color: var(--spectrum-color-gray-600); line-height: 18px; font-size: 12px; font-weight: 600; font-family: var(--default-font-family); letter-spacing: 0.0078125em;"><span id="narration"></span><span class="flicker flicker--alt"></span></span>
         </div>
       </aside>
-      <section class="story story--conversation fade reveal" data-narration-text="체코의 대호님까지 섭외 완료! 컨퍼런스에서 만나요.">
+      <section class="story story--conversation fade reveal" data-story-key="daeho" data-narration-text="체코의 대호님까지 섭외 완료! 컨퍼런스에서 만나요.">
         <div class="slack-message fade__item">
           <div>
             <img class="slack-profile-photo" style="background-color: var(--spectrum-color-gray-300);">
@@ -364,7 +368,7 @@
           </div>
         </div>
       </section>
-      <section class="story story--conversation fade reveal" data-narration-text="반신반의하지만, 잘 되지 않을까 싶은...">
+      <section class="story story--conversation fade reveal" data-story-key="creativecloud-youkhun" data-narration-text="반신반의하지만, 잘 되지 않을까 싶은...">
         <div class="slack-message fade__item">
           <div>
             <img class="slack-profile-photo" src="./images/profile--edcx.png">
@@ -437,7 +441,7 @@
         </div>
         <div class="slack-message fade__item">
           <div>
-            <img class="slack-profile-photo" src="./images/profile--youkhun.lee.jpeg">
+            <img class="slack-profile-photo" src="./images/profile--youkhun.jpeg">
           </div>
           <div class="slack-message__article">
             <div class="slack-message-byline">
@@ -451,7 +455,7 @@
         </div>
         <div class="slack-message fade__item">
           <div>
-            <img class="slack-profile-photo" src="./images/profile--youkhun.lee.jpeg">
+            <img class="slack-profile-photo" src="./images/profile--youkhun.jpeg">
           </div>
           <div class="slack-message__article">
             <div class="slack-message-byline">
@@ -523,7 +527,7 @@
         </div>
         <div class="slack-message fade__item">
           <div>
-            <img class="slack-profile-photo" src="./images/profile--mayjungphoto.png">
+            <img class="slack-profile-photo" src="./images/profile--mayjung.png">
           </div>
           <div class="slack-message__article">
             <div class="slack-message-byline">
@@ -539,7 +543,7 @@
       <section class="story story--image fade reveal" data-narration-text="그러던 중, 내가 미국으로 이주를 하게 되었다.">
         <img class="fade__item" style="width: 65svw; max-width: 47.5svh; height: 65svw; max-height: 47.5svh; border-radius: 1px; object-fit: cover;" src="./images/DL158.png">
       </section>
-      <section class="story story--conversation fade reveal" data-narration-text="오랜만에 재회했던 유리님도 초청했다.">
+      <section class="story story--conversation fade reveal" data-story-key="ykim" data-narration-text="오랜만에 재회했던 유리님도 초청했다.">
         <div class="slack-message fade__item">
           <div>
             <img class="slack-profile-photo" src="./images/profile--edcx.png">
@@ -628,7 +632,7 @@
           </div>
         </div>
       </section>
-      <section class="story story--conversation fade reveal" data-narration-text="올해에도 같은 자리를 만들고 싶어, 일찌감치 진아를 섭외했다.">
+      <section class="story story--conversation fade reveal" data-story-key="todoelmundo" data-narration-text="올해에도 같은 자리를 만들고 싶어, 일찌감치 진아를 섭외했다.">
         <div class="slack-message fade__item">
           <div>
             <img class="slack-profile-photo" src="./images/profile--edcx.png">
@@ -921,19 +925,19 @@
               </div>
             </div>
             <div style="position: absolute; z-index: 3; right: 0; width: 50%; height: 100%;">
-              <div style="position: absolute; width: 100%; height: calc(3 * var(--5-mins)); top: calc(12 * var(--5-mins));">
+              <div style="position: absolute; width: 100%; height: calc(3 * var(--5-mins)); top: calc(12 * var(--5-mins));" class="scroll-to-story" data-story-key="ykim">
                 <div style="position: absolute; top: 3px; right: 3px; width: calc(100% - 5px); height: calc(100% - 4px); border-radius: 4px; background-color: var(--slack-color-4); filter: contrast(1.35) brightness(0.85); opacity: 0.25;"></div>
                 <div style="position: relative; padding: 8px 8px 0;">
                   <img style="margin-right: 5px; width: 20px; height: 20px; border-radius: clamp(6px, min(22.222%, 12px), 12px);" src="./images/profile--ykim.jpeg"><span style="color: var(--spectrum-color-gray-800); font-size: 13px; font-weight: 700; font-family: system-ui; vertical-align: 6px;">율<span data-text-kst="&thinsp;🇰🇷" data-text-cet="" data-text-edt=""></span></span>
                 </div>
               </div>
-              <div style="position: absolute; width: 100%; height: calc(3 * var(--5-mins)); top: calc(18 * var(--5-mins));">
+              <div style="position: absolute; width: 100%; height: calc(3 * var(--5-mins)); top: calc(18 * var(--5-mins));" class="scroll-to-story" data-story-key="daeho">
                 <div style="position: absolute; top: 3px; right: 3px; width: calc(100% - 5px); height: calc(100% - 4px); border-radius: 4px; background-color: var(--slack-color-4); filter: contrast(1.35) brightness(0.85); opacity: 0.25;"></div>
                 <div style="position: relative; padding: 8px 8px 0;">
                   <img style="margin-right: 5px; width: 20px; height: 20px; border-radius: clamp(6px, min(22.222%, 12px), 12px); background-color: var(--slack-color-4); filter: contrast(1.35) brightness(0.85); opacity: 0.25;"><span style="color: var(--spectrum-color-gray-800); font-size: 13px; font-weight: 700; font-family: system-ui; vertical-align: 6px;">대호<span data-text-kst="" data-text-cet="&thinsp;🇨🇿" data-text-edt=""></span></span>
                 </div>
               </div>
-              <div style="position: absolute; width: 100%; height: calc(4 * var(--5-mins)); top: calc(24 * var(--5-mins));">
+              <div style="position: absolute; width: 100%; height: calc(4 * var(--5-mins)); top: calc(24 * var(--5-mins));" class="scroll-to-story" data-story-key="creativecloud-youkhun">
                 <div style="position: absolute; top: 3px; right: 3px; width: calc(100% - 5px); height: calc(100% - 4px); border-radius: 4px; background-color: var(--slack-color-4); filter: contrast(1.35) brightness(0.85); opacity: 0.25;"></div>
                 <div style="position: relative; padding: 8px 8px 0;">
                   <span style="position: relative; margin-bottom: -4px; margin-right: 4px; display: inline-block; width: 24px; height: 24px;">
@@ -942,7 +946,7 @@
                   </span><span style="color: var(--spectrum-color-gray-800); font-size: 13px; font-weight: 700; font-family: system-ui; vertical-align: 6px;">최성운<span data-text-kst="&thinsp;🇰🇷" data-text-cet="" data-text-edt=""></span>, 육헌<span data-text-kst="&thinsp;🇰🇷" data-text-cet="" data-text-edt=""></span>, 찬우<span data-text-kst="" data-text-cet="" data-text-edt="&thinsp;🇺🇸"></span></span>
                 </div>
               </div>
-              <div style="position: absolute; width: 100%; height: calc(3 * var(--5-mins)); top: calc(30 * var(--5-mins));">
+              <div style="position: absolute; width: 100%; height: calc(3 * var(--5-mins)); top: calc(30 * var(--5-mins));" class="scroll-to-story" data-story-key="todoelmundo">
                 <div style="position: absolute; top: 3px; right: 3px; width: calc(100% - 5px); height: calc(100% - 4px); border-radius: 4px; background-color: var(--slack-color-4); filter: contrast(1.35) brightness(0.85); opacity: 0.25;"></div>
                 <div style="position: relative; padding: 8px 8px 0;">
                   <img style="margin-right: 5px; width: 20px; height: 20px; border-radius: clamp(6px, min(22.222%, 12px), 12px); background-color: var(--slack-color-4); filter: contrast(1.35) brightness(0.85); opacity: 0.25;"><span style="color: var(--spectrum-color-gray-800); font-size: 13px; font-weight: 700; font-family: system-ui; vertical-align: 6px;">진아<span data-text-kst="&thinsp;🇰🇷" data-text-cet="" data-text-edt=""></span></span>
@@ -1235,6 +1239,17 @@
         document.querySelectorAll(`[data-text-${timezoneValue}]`).forEach(el => {
           const datasetKey = 'text' + timezoneValue.charAt(0).toUpperCase() + timezoneValue.slice(1)
           el.innerText = el.dataset[datasetKey]
+        })
+      })
+
+      document.querySelectorAll('.scroll-to-story').forEach(el => {
+        el.addEventListener('click', e => {
+          const storyKey = e.currentTarget.dataset.storyKey
+
+          document.querySelector(`.story[data-story-key="${storyKey}"]`).scrollIntoView({
+            block: 'center',
+            behavior: 'smooth',
+          })
         })
       })
     </script>
