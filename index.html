@@ -188,6 +188,20 @@
         }
       }
 
+      .dropdown {
+        appearance: none;
+        border: none;
+        /* padding: 0; */
+        background-color: transparent;
+        color: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        font-family: inherit;
+        opacity: 0.5;
+      }
+
       .reveal {
         opacity: 0;
         will-change: opacity;
@@ -222,6 +236,22 @@
 
       .scroll-to-story {
         cursor: pointer;
+      }
+
+      .narration {
+        display: inline-block;
+        padding: 18px 22px;
+        text-align: center;
+      }
+
+      .narration__text {
+        color: var(--spectrum-color-gray-600);
+        text-transform: uppercase;
+        line-height: 18px;
+        letter-spacing: 0.0078125em;
+        font-size: 12px;
+        font-weight: 600;
+        font-family: var(--default-font-family);
       }
 
       .slack-message {
@@ -411,8 +441,8 @@
   <body>
     <main>
       <aside class="reveal">
-        <div style="display: inline-block; padding: 18px 22px; text-align: center;">
-          <span style="text-transform: uppercase; color: var(--spectrum-color-gray-600); line-height: 18px; font-size: 12px; font-weight: 600; font-family: var(--default-font-family); letter-spacing: 0.0078125em;"><span id="narration"></span><span class="flicker flicker--alt"></span></span>
+        <div class="narration">
+          <span class="narration__text"><span id="narrationText"></span><span class="flicker flicker--alt"></span></span>
         </div>
       </aside>
       <section class="story story--conversation fade reveal" data-story-key="daeho" data-narration-text="체코의 대호님까지 섭외 완료! 컨퍼런스에서 만나요.">
@@ -989,7 +1019,7 @@
         <div style="max-width: 720px; text-align: center;">
           <p class="section-normal-paragraph section-normal-paragraph--emphasized" style="margin: calc(1rem + 40px * var(--rmul)) 0 0;">
             <span class="section-normal-paragraph__text">2024<span class="kr-extrabold">년</span>&nbsp;11<span class="kr-extrabold">월</span>&nbsp;2<span class="kr-extrabold">일</span> <span class="kr-extrabold" data-text-kst="오후" data-text-cet="오전" data-text-edt="오전">오후</span>&nbsp;<span data-text-kst="2:50" data-text-cet="6:50" data-text-edt="1:50">2:50</span>,
-            <select style="appearance: none; border: none; padding: 0; background-color: transparent; color: inherit; line-height: inherit; letter-spacing: inherit; font-size: inherit; font-weight: inherit; font-family: inherit; opacity: 0.5;" id="timezone"><option value="kst">🇰🇷&thinsp;KST</option><option value="cet">🇨🇿&thinsp;CET</option><option value="edt">🇺🇸&thinsp;EDT</option></select></span>
+            <select class="dropdown" id="timezone"><option value="kst">🇰🇷&thinsp;KST</option><option value="cet">🇨🇿&thinsp;CET</option><option value="edt">🇺🇸&thinsp;EDT</option></select></span>
           </p>
         </div>
         <div style="position: relative; margin-top: calc(1rem + 46px * var(--rmul)); margin-bottom: calc(1rem + 48px * var(--rmul)); /* top-bottom difference is intended */ width: 100%; --5-mins: 16px;">
@@ -1064,7 +1094,7 @@
       <section class="info info--details">
         <div class="section-sticky">
           <h2 class="section-sticky-header" style="margin: 0;">
-            <span class="section-sticky-header__text">컨퍼런스에 참석할 사람들</span>
+            <span class="section-sticky-header__text">오는 사람들과 한마디</span>
           </h2>
         </div>
         <div style="width: 100%; max-width: 720px;">
@@ -1378,8 +1408,8 @@
       }, globalTimeout)
 
       const storyElList = document.querySelectorAll('.story')
-      const narrationEl = document.getElementById('narration')
-      const narrationContainerEl = narrationEl.closest('aside')
+      const narrationTextEl = document.getElementById('narrationText')
+      const narrationContainerEl = narrationTextEl.closest('aside')
 
       window.addEventListener('scroll', () => {
         const prominentStoryEl = Array.from(storyElList).reduce((previousEl, currentEl) => {
@@ -1427,7 +1457,7 @@
         const unassembledText = disassembledNarrationText.slice(0, disassembledNarrationText.length - v3)
         const assembledText = assembleSafe(unassembledText)
 
-        updateText(narrationEl, assembledText)
+        updateText(narrationTextEl, assembledText)
       })
 
       const fadeElList = document.querySelectorAll('.fade')
