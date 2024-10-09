@@ -66,9 +66,9 @@
         --spectrum-color-gray-700: #464646;
         --spectrum-color-gray-800: #222222;
         --spectrum-color-gray-900: #000000;
+        --slack-color-black-rgb: 29, 28, 29;
+        --slack-color-black: rgb(var(--slack-color-black-rgb));
         --slack-color-gray: rgb(97, 96, 97);
-        --slack-color-black: rgb(29, 28, 29);
-        --slack-color-black-translucent: rgba(29, 28, 29, 0.06);
         --slack-color-blue: rgb(18, 100, 163);
         --slack-color-1: rgb(68, 190, 223);
         --slack-color-2: rgb(46, 182, 125);
@@ -282,7 +282,7 @@
         border-radius: 12px;
         padding-right: 9px;
         padding-left: 6px;
-        background-color: var(--slack-color-black-translucent);
+        background-color: rgba(var(--slack-color-black-rgb), 0.06);
         color: var(--slack-color-black);
         line-height: 24px;
         font-size: 12px;
@@ -802,7 +802,7 @@
         </div>
         <div style="margin-top: calc(1rem + 120px * var(--rmul) - 50lvh);" class="fade">
           <div style="display: flex; flex-direction: column; align-items: center;">
-            <div style="color: var(--spectrum-color-gray-700); text-transform: lowercase; line-height: 1.83em; letter-spacing: -0.014em; /* different intentionally */ font-size: calc(1rem + 9px * var(--rmul)); font-weight: 600; font-family: var(--default-font-family);" class="fade__item"><span style="margin-left: -0.06em; margin-right: 0.34em; vertical-align: -0.06em; font-size: 1.19em;">🌎</span>Online</div>
+            <div style="color: var(--spectrum-color-gray-700); text-transform: lowercase; line-height: 1.83em; letter-spacing: -0.014em; /* different intentionally */ font-size: calc(1rem + 9px * var(--rmul)); font-weight: 600; font-family: var(--default-font-family);" class="fade__item"><span style="margin-left: -0.06em; margin-right: 0.33em; vertical-align: -0.06em; font-size: 1.19em;">🌎</span>Online</div>
             <div style="color: var(--spectrum-color-gray-700); text-transform: lowercase; line-height: 1.83em; letter-spacing: -0.014em; /* different intentionally */ font-size: calc(1rem + 9px * var(--rmul)); font-weight: 600; font-family: var(--default-font-family);" class="fade__item"><span style="margin-right: 0.31em; vertical-align: -0.19em; font-size: 1.54em;">⌨️</span>Text-only</div>
           </div>
           <div style="margin: 0 auto; max-width: 640px; padding-right: 22px; padding-left: 22px; text-align: center;">
@@ -871,7 +871,7 @@
           </h2>
         </div>
         <div style="margin-top: calc(1rem + 44px * var(--rmul)); max-width: 720px; padding-right: 24px; padding-left: 24px; text-align: center;">
-          <p style="margin: 0; color: var(--spectrum-color-gray-600); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 5px * var(--rmul)); font-weight: 800; font-family: var(--default-font-family);">2024<span class="kr-extrabold">년</span>&nbsp;11<span class="kr-extrabold">월</span>&nbsp;2<span class="kr-extrabold">일</span> <span class="kr-extrabold" data-text-kst="오후" data-text-cet="오전" data-text-edt="오전">오후</span>&nbsp;<span data-text-kst="2:50" data-text-cet="6:50" data-text-edt="1:50">2:50</span>, <select id="timezone" style="appearance: none; border: none; padding: 0; background-color: transparent; color: inherit; line-height: inherit; letter-spacing: inherit; font-size: inherit; font-weight: inherit; font-family: inherit; opacity: 0.5;"><option value="kst">KST</option><option value="cet">CET</option><option value="edt">EDT</option></select></p>
+          <p style="margin: 0; color: var(--spectrum-color-gray-600); line-height: 1.83em; letter-spacing: -0.013em; font-size: calc(1rem + 5px * var(--rmul)); font-weight: 800; font-family: var(--default-font-family);">2024<span class="kr-extrabold">년</span>&nbsp;11<span class="kr-extrabold">월</span>&nbsp;2<span class="kr-extrabold">일</span> <span class="kr-extrabold" data-text-kst="오후" data-text-cet="오전" data-text-edt="오전">오후</span>&nbsp;<span data-text-kst="2:50" data-text-cet="6:50" data-text-edt="1:50">2:50</span>, <select id="timezone" style="appearance: none; border: none; padding: 0; background-color: transparent; color: inherit; line-height: inherit; letter-spacing: inherit; font-size: inherit; font-weight: inherit; font-family: inherit; opacity: 0.5;"><option value="kst">🇰🇷&thinsp;KST</option><option value="cet">🇨🇿&thinsp;CET</option><option value="edt">🇺🇸&thinsp;EDT</option></select></p>
         </div>
         <div style="position: relative; margin-top: calc(1rem + 44px * var(--rmul)); width: 100%; --5-mins: 16px;">
           <div style="position: absolute; z-index: 1; width: 100%;">
@@ -928,7 +928,7 @@
                 <div style="position: relative; padding: 8px 8px 0;">
                   <span style="position: relative; margin-bottom: -4px; margin-right: 4px; display: inline-block; width: 24px; height: 24px;">
                     <img style="position: absolute; top: 0; left: 0; width: 14px; height: 14px; border-radius: clamp(6px, min(22.222%, 12px), 12px);" src="./images/profile--edcx.png">
-                    <span style="position: absolute; top: 8px; left: 8px; display: inline-block; width: 14px; height: 14px; border-radius: 4px; background-color: rgb(235, 235, 235); color: rgba(29, 28, 29, 0.7); text-align: center; line-height: 14px; font-size: 11px; font-weight: 700; font-family: system-ui; box-shadow: 0 0 0 2px rgb(248, 248, 248);">3</span>
+                    <span style="position: absolute; top: 8px; left: 8px; display: inline-block; width: 14px; height: 14px; border-radius: 4px; background-color: #ebebeb; color: rgba(var(--slack-color-black-rgb), 0.7); text-align: center; line-height: 14px; font-size: 11px; font-weight: 700; font-family: system-ui; box-shadow: 0 0 0 2px #f8f8f8;">3</span>
                   </span><span style="color: var(--spectrum-color-gray-800); font-size: 13px; font-weight: 700; font-family: system-ui; vertical-align: 6px;">성운, 육헌, 찬우</span>
                 </div>
               </div>
