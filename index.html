@@ -74,6 +74,8 @@
         --slack-color-2: rgb(46, 182, 125);
         --slack-color-3: rgb(224, 30, 90);
         --slack-color-4: rgb(236, 178, 46);
+        --slack-color-adjust-filter: contrast(1.35) brightness(0.85);
+        --slack-profile-photo-border-radius: clamp(6px, min(22.222%, 12px), 12px);
         --logo-font-family-1: 'Ubuntu Mono', ui-monospace;
         --logo-font-family-2: 'Courier New', ui-monospace;
         --logo-font-family-3: 'IBM Plex Mono', ui-monospace;
@@ -268,7 +270,7 @@
         margin-top: 4px;
         width: 36px;
         height: 36px;
-        border-radius: clamp(6px, min(22.222%, 12px), 12px);
+        border-radius: var(--slack-profile-photo-border-radius);
       }
 
       .slack-message-byline {
@@ -361,7 +363,7 @@
         font-size: calc(1rem + 17px * var(--rmul));
         font-weight: 700;
         font-family: 'Courier New', ui-monospace;
-        filter: contrast(1.35) brightness(0.85);
+        filter: var(--slack-color-adjust-filter);
       }
 
       .section-sticky {
@@ -401,6 +403,15 @@
         font-weight: 800;
       }
 
+      .calendar-area {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background-color: var(--slack-color-4);
+        filter: var(--slack-color-adjust-filter);
+        opacity: 0.125;
+      }
+
       .calendar-line {
         position: absolute;
         left: 2px;
@@ -417,6 +428,7 @@
 
       .calendar-caption {
         position: absolute;
+        left: 0;
         width: 100%;
         padding: 1px 6px 0;
       }
@@ -434,6 +446,47 @@
 
       .calendar-caption__text--name {
         font-family: system-ui;
+      }
+
+      .calendar-event {
+        position: absolute;
+        left: 0;
+        width: 100%;
+      }
+
+      .calendar-event::before {
+        content: '';
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        display: block;
+        width: calc(100% - 5px);
+        height: calc(100% - 4px);
+        border-radius: 4px;
+        background-color: var(--slack-color-4);
+        filter: var(--slack-color-adjust-filter);
+        opacity: 0.25;
+      }
+
+      .calendar-event-speaker {
+        padding: 8px 8px 0;
+      }
+
+      .calendar-event-speaker__photo {
+        margin-right: 5px;
+        width: 20px;
+        height: 20px;
+        border-radius: var(--slack-profile-photo-border-radius);
+      }
+
+      .calendar-event-speaker__name {
+        color: var(--spectrum-color-gray-800);
+        line-height: 1;
+        letter-spacing: -0.0078125em;
+        font-size: 13px;
+        font-weight: 700;
+        font-family: system-ui;
+        vertical-align: 6px;
       }
 
     </style>
@@ -1017,16 +1070,16 @@
           </h2>
         </div>
         <div style="max-width: 720px; text-align: center;">
-          <p class="section-normal-paragraph section-normal-paragraph--emphasized" style="margin: calc(1rem + 40px * var(--rmul)) 0 0;">
+          <p class="section-normal-paragraph section-normal-paragraph--emphasized" style="margin: calc(1rem + 40px * var(--rmul)) 0 calc(1rem + 46px * var(--rmul));">
             <span class="section-normal-paragraph__text">2024<span class="kr-extrabold">년</span>&nbsp;11<span class="kr-extrabold">월</span>&nbsp;2<span class="kr-extrabold">일</span> <span class="kr-extrabold" data-text-kst="오후" data-text-cet="오전" data-text-edt="오전">오후</span>&nbsp;<span data-text-kst="2:50" data-text-cet="6:50" data-text-edt="1:50">2:50</span>,
             <select class="dropdown" id="timezone"><option value="kst">🇰🇷&thinsp;KST</option><option value="cet">🇨🇿&thinsp;CET</option><option value="edt">🇺🇸&thinsp;EDT</option></select></span>
           </p>
         </div>
-        <div style="position: relative; margin-top: calc(1rem + 46px * var(--rmul)); margin-bottom: calc(1rem + 48px * var(--rmul)); /* top-bottom difference is intended */ width: 100%; --5-mins: 16px;">
-          <div style="position: absolute; z-index: 1; width: 100%;">
-            <div style="position: absolute; left: 0; width: 100%; height: calc(24 * var(--5-mins)); background-color: var(--slack-color-4); filter: contrast(1.35) brightness(0.85); opacity: 0.125; top: calc(10 * var(--5-mins));"></div>
+        <div style="position: relative; margin-bottom: calc(1rem + 48px * var(--rmul)); width: 100%; --5-mins: 16px;">
+          <div style="position: absolute; width: 100%;">
+            <div class="calendar-area" style="top: calc(10 * var(--5-mins)); height: calc(24 * var(--5-mins));"></div>
           </div>
-          <div style="position: relative; z-index: 2; margin: 0 auto; max-width: 720px; height: calc(36 * var(--5-mins));">
+          <div style="position: relative; z-index: 1; margin: 0 auto; max-width: 720px; height: calc(36 * var(--5-mins));">
             <div>
               <hr class="calendar-line" style="top: 0;">
               <hr class="calendar-line calendar-line--secondary" style="top: calc(6 * var(--5-mins));">
@@ -1060,31 +1113,27 @@
               </div>
             </div>
             <div style="position: absolute; top: 0; right: 0; width: 50%; height: 100%;">
-              <div style="position: absolute; width: 100%; height: calc(3 * var(--5-mins)); top: calc(12 * var(--5-mins));" class="scroll-to-story" data-story-key="ykim">
-                <div style="position: absolute; top: 3px; right: 3px; width: calc(100% - 5px); height: calc(100% - 4px); border-radius: 4px; background-color: var(--slack-color-4); filter: contrast(1.35) brightness(0.85); opacity: 0.25;"></div>
-                <div style="position: relative; padding: 8px 8px 0;">
-                  <img style="margin-right: 5px; width: 20px; height: 20px; border-radius: clamp(6px, min(22.222%, 12px), 12px);" src="./images/profile--ykim.jpeg"><span style="color: var(--spectrum-color-gray-800); font-size: 13px; font-weight: 700; font-family: system-ui; vertical-align: 6px;">율<span data-text-kst="&thinsp;🇰🇷" data-text-cet="" data-text-edt=""></span></span>
+              <div class="calendar-event scroll-to-story" style="top: calc(12 * var(--5-mins)); height: calc(3 * var(--5-mins));" data-story-key="ykim">
+                <div class="calendar-event-speaker">
+                  <img class="calendar-event-speaker__photo" src="./images/profile--ykim.jpeg"><span class="calendar-event-speaker__name">율<span data-text-kst="&thinsp;🇰🇷" data-text-cet="" data-text-edt=""></span></span>
                 </div>
               </div>
-              <div style="position: absolute; width: 100%; height: calc(3 * var(--5-mins)); top: calc(18 * var(--5-mins));" class="scroll-to-story" data-story-key="daeho">
-                <div style="position: absolute; top: 3px; right: 3px; width: calc(100% - 5px); height: calc(100% - 4px); border-radius: 4px; background-color: var(--slack-color-4); filter: contrast(1.35) brightness(0.85); opacity: 0.25;"></div>
-                <div style="position: relative; padding: 8px 8px 0;">
-                  <img style="margin-right: 5px; width: 20px; height: 20px; border-radius: clamp(6px, min(22.222%, 12px), 12px); background-color: var(--slack-color-4); filter: contrast(1.35) brightness(0.85); opacity: 0.25;"><span style="color: var(--spectrum-color-gray-800); font-size: 13px; font-weight: 700; font-family: system-ui; vertical-align: 6px;">대호<span data-text-kst="" data-text-cet="&thinsp;🇨🇿" data-text-edt=""></span></span>
+              <div class="calendar-event scroll-to-story" style="top: calc(18 * var(--5-mins)); height: calc(3 * var(--5-mins));" data-story-key="daeho">
+                <div class="calendar-event-speaker">
+                  <img class="calendar-event-speaker__photo" style="background-color: var(--slack-color-4); filter: var(--slack-color-adjust-filter); opacity: 0.25;"><span class="calendar-event-speaker__name">대호<span data-text-kst="" data-text-cet="&thinsp;🇨🇿" data-text-edt=""></span></span>
                 </div>
               </div>
-              <div style="position: absolute; width: 100%; height: calc(4 * var(--5-mins)); top: calc(24 * var(--5-mins));" class="scroll-to-story" data-story-key="creativecloud-youkhun">
-                <div style="position: absolute; top: 3px; right: 3px; width: calc(100% - 5px); height: calc(100% - 4px); border-radius: 4px; background-color: var(--slack-color-4); filter: contrast(1.35) brightness(0.85); opacity: 0.25;"></div>
-                <div style="position: relative; padding: 8px 8px 0;">
+              <div class="calendar-event scroll-to-story" style="top: calc(24 * var(--5-mins)); height: calc(4 * var(--5-mins));" data-story-key="creativecloud-youkhun">
+                <div class="calendar-event-speaker">
                   <span style="position: relative; margin-bottom: -4px; margin-right: 4px; display: inline-block; width: 24px; height: 24px;">
-                    <img style="position: absolute; top: 0; left: 0; width: 14px; height: 14px; border-radius: clamp(6px, min(22.222%, 12px), 12px);" src="./images/profile--edcx.png">
+                    <img style="position: absolute; top: 0; left: 0; width: 14px; height: 14px; border-radius: var(--slack-profile-photo-border-radius);" src="./images/profile--edcx.png">
                     <span style="position: absolute; top: 8px; left: 8px; display: inline-block; width: 14px; height: 14px; border-radius: 4px; background-color: #ebebeb; color: rgba(var(--slack-color-black-rgb), 0.7); text-align: center; line-height: 14px; font-size: 11px; font-weight: 700; font-family: system-ui; box-shadow: 0 0 0 2px #f8f8f8;">3</span>
-                  </span><span style="color: var(--spectrum-color-gray-800); font-size: 13px; font-weight: 700; font-family: system-ui; vertical-align: 6px;">최성운<span data-text-kst="&thinsp;🇰🇷" data-text-cet="" data-text-edt=""></span>, 육헌<span data-text-kst="&thinsp;🇰🇷" data-text-cet="" data-text-edt=""></span>, 찬우<span data-text-kst="" data-text-cet="" data-text-edt="&thinsp;🇺🇸"></span></span>
+                  </span><span class="calendar-event-speaker__name">최성운<span data-text-kst="&thinsp;🇰🇷" data-text-cet="" data-text-edt=""></span>, 육헌<span data-text-kst="&thinsp;🇰🇷" data-text-cet="" data-text-edt=""></span>, 찬우<span data-text-kst="" data-text-cet="" data-text-edt="&thinsp;🇺🇸"></span></span>
                 </div>
               </div>
-              <div style="position: absolute; width: 100%; height: calc(3 * var(--5-mins)); top: calc(30 * var(--5-mins));" class="scroll-to-story" data-story-key="todoelmundo">
-                <div style="position: absolute; top: 3px; right: 3px; width: calc(100% - 5px); height: calc(100% - 4px); border-radius: 4px; background-color: var(--slack-color-4); filter: contrast(1.35) brightness(0.85); opacity: 0.25;"></div>
-                <div style="position: relative; padding: 8px 8px 0;">
-                  <img style="margin-right: 5px; width: 20px; height: 20px; border-radius: clamp(6px, min(22.222%, 12px), 12px); background-color: var(--slack-color-4); filter: contrast(1.35) brightness(0.85); opacity: 0.25;"><span style="color: var(--spectrum-color-gray-800); font-size: 13px; font-weight: 700; font-family: system-ui; vertical-align: 6px;">진아<span data-text-kst="&thinsp;🇰🇷" data-text-cet="" data-text-edt=""></span></span>
+              <div class="calendar-event scroll-to-story" style="top: calc(30 * var(--5-mins)); height: calc(3 * var(--5-mins));" data-story-key="todoelmundo">
+                <div class="calendar-event-speaker">
+                  <img class="calendar-event-speaker__photo" style="background-color: var(--slack-color-4); filter: var(--slack-color-adjust-filter); opacity: 0.25;"><span class="calendar-event-speaker__name">진아<span data-text-kst="&thinsp;🇰🇷" data-text-cet="" data-text-edt=""></span></span>
                 </div>
               </div>
             </div>
@@ -1094,7 +1143,7 @@
       <section class="info info--details">
         <div class="section-sticky">
           <h2 class="section-sticky-header" style="margin: 0;">
-            <span class="section-sticky-header__text">오는 사람들과 한마디</span>
+            <span class="section-sticky-header__text">오는 사람들의 한마디</span>
           </h2>
         </div>
         <div style="width: 100%; max-width: 720px;">
@@ -1210,7 +1259,7 @@
                   <span class="slack-message-byline__time moment" data-moment-epoch="2024-10-09T18:21:44Z"></span>
                 </div>
                 <div class="slack-message-body">
-                  <span class="slack-message-body__text type">안녕하세요!</span>
+                  <span class="slack-message-body__text">안녕하세요!</span>
                 </div>
               </div>
             </div>
