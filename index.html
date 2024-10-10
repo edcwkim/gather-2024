@@ -424,12 +424,12 @@
       }
 
       @media (hover: hover) {
-        .section-normal-paragraph__text a {
+        .section-normal-paragraph__text a:not(.block-hover-effect) {
           opacity: 0.75;
           transition: opacity 250ms ease;
           will-change: opacity;
         }
-        .section-normal-paragraph__text a:hover {
+        .section-normal-paragraph__text a:not(.block-hover-effect):hover {
           opacity: 1;
         }
       }
@@ -1213,7 +1213,7 @@
             <div class="section-normal-paragraph section-normal-paragraph--guestlist">
               <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-name">안희종</span>
               <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-dot"></span>
-              <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-comment"><a href="https://ahnheejong.name">https://ahnheejong.name</a></span>
+              <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-comment"><a class="block-hover-effect" href="https://ahnheejong.name">https://ahnheejong.name</a></span>
             </div>
             <div class="section-normal-paragraph section-normal-paragraph--guestlist">
               <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-name">육헌</span>
@@ -1399,10 +1399,10 @@
       document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.moment[data-moment-epoch]').forEach(el => updateMoment(el))
         document.body.classList.add('no-scroll')
-        scrollToSplash()
+        splashEl.scrollIntoView({ block: 'start', behavior: 'instant' })
       })
       window.addEventListener('load', () => {
-        scrollToSplash()
+        splashEl.scrollIntoView({ block: 'start', behavior: 'instant' })
       })
 
       let globalTimeout = 0
