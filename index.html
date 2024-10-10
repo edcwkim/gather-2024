@@ -376,6 +376,15 @@
         text-align: center;
       }
 
+      .section-normal-paragraph--guestlist {
+        display: flex;
+        gap: 7px;
+      }
+
+      .section-normal-paragraph--guestlist:not(:first-of-type) {
+        margin-top: 14px;
+      }
+
       .section-sticky-header__text,
       .section-normal-paragraph__text {
         line-height: 1.82em;
@@ -401,6 +410,24 @@
         color: var(--spectrum-color-gray-600);
         font-size: calc(1rem + 5px * var(--rmul));
         font-weight: 800;
+      }
+
+      .section-normal-paragraph--guestlist .section-normal-paragraph__text:nth-of-type(1) {
+        font-weight: 700;
+      }
+
+      .section-normal-paragraph--guestlist .section-normal-paragraph__text:nth-of-type(2) {
+        opacity: 0.3;
+      }
+
+      .section-normal-paragraph--guestlist .section-normal-paragraph__text:nth-of-type(2)::before {
+        content: '·';
+      }
+
+      .section-normal-paragraph--guestlist .section-normal-paragraph__text:nth-of-type(3) {
+        color: var(--logo-color-1);
+        filter: var(--slack-color-adjust-filter);
+        opacity: 0.54;
       }
 
       .calendar-area {
@@ -981,7 +1008,7 @@
             </span>
           </h1>
         </div>
-        <div style="width: 100%; max-width: 720px; padding-right: 24px; padding-left: 24px;">
+        <div style="width: 100%; max-width: 720px; padding-right: 24px; padding-left: 22px;">
           <p class="section-normal-paragraph" style="margin: calc(1rem + 43px * var(--rmul)) 0 0;">
             <span class="section-normal-paragraph__text">김찬우의 2024년 생일을 즈음하여, 지인들과 함께 자리할 컨퍼런스를 개최<wbr>합니다.</span>
           </p>
@@ -1001,12 +1028,12 @@
         </div>
         <div style="margin-top: -24.25lvh;" class="fade">
           <div style="display: flex; flex-direction: column; align-items: center;">
-            <div style="color: var(--spectrum-color-gray-700); text-transform: lowercase; line-height: 1.82em; letter-spacing: -0.014em; font-size: calc(1rem + 6px * var(--rmul)); font-weight: 700; font-family: var(--default-font-family);" class="fade__item"><span style="margin-left: -0.06em; margin-right: 0.31em; vertical-align: 0.01em; font-size: 1.27em;">👥</span>비대면으로</div>
-            <div style="color: var(--spectrum-color-gray-700); text-transform: lowercase; line-height: 1.82em; letter-spacing: -0.014em; font-size: calc(1rem + 6px * var(--rmul)); font-weight: 700; font-family: var(--default-font-family);" class="fade__item"><span style="margin-left: -0.09em; margin-right: 0.3em; vertical-align: -0.15em; font-size: 1.51em;">⌨️</span>카메라 없이, 스피커 없이</div>
+            <div style="color: var(--spectrum-color-gray-700); text-transform: lowercase; line-height: 1.82em; letter-spacing: -0.014em; font-size: calc(1rem + 6px * var(--rmul)); font-weight: 700; font-family: var(--default-font-family);" class="fade__item"><span style="margin-left: -0.1em; margin-right: 0.31em; vertical-align: 0.01em; font-size: 1.27em;">👥</span>비대면으로</div>
+            <div style="color: var(--spectrum-color-gray-700); text-transform: lowercase; line-height: 1.82em; letter-spacing: -0.014em; font-size: calc(1rem + 6px * var(--rmul)); font-weight: 700; font-family: var(--default-font-family);" class="fade__item"><span style="margin-left: -0.1em; margin-right: 0.28em; vertical-align: -0.15em; font-size: 1.51em;">⌨️</span>카메라 없이, 스피커 없이</div>
           </div>
           <div style="margin: 0 auto; max-width: 640px; padding-right: 22px; padding-left: 22px; text-align: center;">
             <p class="section-normal-paragraph" style="margin: calc(1rem + 21px * var(--rmul)) 0 0;">
-              <span class="section-normal-paragraph__text">이번 컨퍼런스는 다양한 거주지의 사람들과 함께하기 위해 온라인<wbr>으로 개최<wbr>합니다. 그러나 카메라와 마이크를 사용해야 하는 발표가 아니라, 실시간<wbr>으로 글을 올리는 방식으로 발표가 이루어질 예정<wbr>입니다.</span>
+              <span class="section-normal-paragraph__text">이번 컨퍼런스는 다양한 공간의 사람들과 함께하기 위해 온라인<wbr>으로 개최<wbr>합니다. 그러나 얼굴을 보며 말소리를 통해 듣는 발표가 아니라, 실시간<wbr>으로 글귀가 공유되는 방식으로 발표가 이루어집니다.</span>
             </p>
           </div>
         </div>
@@ -1058,7 +1085,7 @@
           </div>
           <div style="margin: 0 auto; max-width: 640px; padding-right: 22px; padding-left: 22px; text-align: center;">
             <p class="section-normal-paragraph" style="margin: calc(1rem + 18px * var(--rmul)) 0 0;">
-              <span class="section-normal-paragraph__text">컨퍼런스<wbr>에서 공식으로 사용할 플랫폼은 <a class="link" target="_blank" href="https://slack.com">Slack</a><wbr>입니다. 일주일 전 초대장이 발송되어 사전에 로그인할 수 있으며, 컨퍼런스 첫 발표 1시간 전부터 메인 채널에 접속할 수 있습니다.</span>
+              <span class="section-normal-paragraph__text">컨퍼런스<wbr>에서 공식으로 활용할 플랫폼은 <a class="link" target="_blank" href="https://slack.com">Slack</a><wbr>입니다. 일주일 전 초대장이 발송되어 사전에 로그인할 수 있고, 컨퍼런스 첫 발표 1시간 전부터 메인 채널에 접속할 수 있습니다.</span>
             </p>
           </div>
         </div>
@@ -1143,149 +1170,95 @@
       <section class="info info--details">
         <div class="section-sticky">
           <h2 class="section-sticky-header" style="margin: 0;">
-            <span class="section-sticky-header__text">오는 사람들의 한마디</span>
+            <span class="section-sticky-header__text">컨퍼런스에 참석할 사람들</span>
           </h2>
         </div>
-        <div style="width: 100%; max-width: 720px;">
+        <div style="width: 100%; max-width: 720px; padding-right: 24px; padding-left: 22px;">
           <div style="margin-top: calc(1rem + 46px * var(--rmul));">
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">김지윤</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">김지윤</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">대호</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">대호</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">데빈</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">데빈</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">서동민</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">서동민</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">수영</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">수영</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">안희종</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">안희종</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">육헌</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">육헌</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">윤지영</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">윤지영</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">율</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">율</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">정재원</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">정재원</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">젤리빈</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">젤리빈</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">조소담</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">조소담</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">진아</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">진아</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">찬우</span>
-                  <span class="slack-message-byline__time moment" data-moment-epoch="2024-10-09T18:21:44Z"></span>
-                </div>
-                <div class="slack-message-body">
-                  <span class="slack-message-body__text">안녕하세요!</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">찬우</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text">안녕하세요!</span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">처리</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">처리</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">최성운</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">최성운</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
-            <div class="slack-message">
-              <div class="slack-message__article">
-                <div class="slack-message-byline">
-                  <span class="slack-message-byline__name kr-extrabold">추현석</span>
-                  <span class="slack-message-byline__time moment">Just now</span>
-                </div>
-              </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text">추현석</span>
+              <span class="section-normal-paragraph__text"></span>
+              <span class="section-normal-paragraph__text"></span>
             </div>
           </div>
         </div>
