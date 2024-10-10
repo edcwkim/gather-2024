@@ -172,24 +172,6 @@
         overflow: hidden;
       }
 
-      .link {
-        text-decoration: none;
-        font-size: 0.98em;
-        font-weight: 700;
-        color: var(--slack-color-blue);
-      }
-
-      @media (hover: hover) {
-        .link {
-          opacity: 0.75;
-          transition: opacity 250ms ease;
-          will-change: opacity;
-        }
-        .link:hover {
-          opacity: 1;
-        }
-      }
-
       .dropdown {
         appearance: none;
         border: none;
@@ -424,10 +406,38 @@
         color: var(--spectrum-color-gray-800);
       }
 
+      .section-normal-paragraph--guestlist .section-normal-paragraph__text {
+        line-height: 1.72em;
+      }
+
       .section-normal-paragraph--emphasized .section-normal-paragraph__text {
         color: var(--spectrum-color-gray-600);
         font-size: calc(1rem + 5px * var(--rmul));
         font-weight: 800;
+      }
+
+      .section-normal-paragraph__text a {
+        color: var(--slack-color-blue);
+        text-decoration: none;
+        font-size: 0.98em;
+        font-weight: 700;
+      }
+
+      @media (hover: hover) {
+        .section-normal-paragraph__text a {
+          opacity: 0.75;
+          transition: opacity 250ms ease;
+          will-change: opacity;
+        }
+        .section-normal-paragraph__text a:hover {
+          opacity: 1;
+        }
+      }
+
+      .section-normal-paragraph__text--guestlist-comment a {
+        color: inherit;
+        font-size: inherit;
+        font-weight: inherit;
       }
 
       .calendar-area {
@@ -1016,7 +1026,7 @@
             <span class="section-normal-paragraph__text">이번 컨퍼런스<wbr>에서 논의할 주제는 ‘사라지고 있는 것’<wbr>입니다. 여러분<wbr>에게는 최근 사라져 가는 것이 있나요? 혹은 주위의 사람들이 없어져 간다고 이야기<wbr>하던 것들이 있나요? 그것이 사라지는 과정을 어떻게 받아<wbr>들이고 계신가요?</span>
           </p>
           <p class="section-normal-paragraph" style="margin: calc(1rem + 8px * var(--rmul)) 0 0;">
-            <span class="section-normal-paragraph__text"><a class="link" href="./event.ics">2024년 11월 2일, 토요일</a>, 세 분의 발표자와 세 분의 대담 참여자<wbr>들이 각자의 진솔한 이야기를 들려줄 예정<wbr>입니다. 청중으로 참여하는 분들<wbr>에게도 재미 있는 교류의 기회들이 있을 것입니다. 자리에 오셔서 인상적인 경험을 하고 가시면 좋겠습니다!</span>
+            <span class="section-normal-paragraph__text"><a href="./event.ics">2024년 11월 2일, 토요일</a>, 세 분의 발표자와 세 분의 대담 참여자<wbr>들이 각자의 진솔한 이야기를 들려줄 예정<wbr>입니다. 청중으로 참여하는 분들<wbr>에게도 재미 있는 교류의 기회들이 있을 것입니다. 자리에 오셔서 인상적인 경험을 하고 가시면 좋겠습니다!</span>
           </p>
         </div>
       </section>
@@ -1085,7 +1095,7 @@
           </div>
           <div style="margin: 0 auto; max-width: 640px; padding-right: 22px; padding-left: 22px; text-align: center;">
             <p class="section-normal-paragraph" style="margin: calc(1rem + 18px * var(--rmul)) 0 0;">
-              <span class="section-normal-paragraph__text">컨퍼런스<wbr>에서 공식으로 활용할 플랫폼은 <a class="link" target="_blank" href="https://slack.com">Slack</a><wbr>입니다. 일주일 전 초대장이 발송되어 사전에 로그인할 수 있고, 컨퍼런스 첫 발표 1시간 전부터 메인 채널에 접속할 수 있습니다.</span>
+              <span class="section-normal-paragraph__text">컨퍼런스<wbr>에서 공식으로 활용할 플랫폼은 <a target="_blank" href="https://slack.com">Slack</a><wbr>입니다. 일주일 전 초대장이 발송되어 사전에 로그인할 수 있고, 컨퍼런스 첫 발표 1시간 전부터 메인 채널에 접속할 수 있습니다.</span>
             </p>
           </div>
         </div>
@@ -1203,7 +1213,7 @@
             <div class="section-normal-paragraph section-normal-paragraph--guestlist">
               <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-name">안희종</span>
               <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-dot"></span>
-              <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-comment">https://ahnheejong.name</span>
+              <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-comment"><a href="https://ahnheejong.name">https://ahnheejong.name</a></span>
             </div>
             <div class="section-normal-paragraph section-normal-paragraph--guestlist">
               <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-name">육헌</span>
