@@ -988,7 +988,7 @@
               <span class="slack-message-byline__time moment">Just now</span>
             </div>
             <div class="slack-message-body slack-message-body--system">
-              <span class="slack-message-body__text">joined #conference with 15 others.</span>
+              <span class="slack-message-body__text">joined #conference with <span class="guest-count"></span> others.</span>
             </div>
           </div>
         </div>
@@ -1265,6 +1265,11 @@
               <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-dot"></span>
               <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-comment"></span>
             </div>
+            <div class="section-normal-paragraph section-normal-paragraph--guestlist">
+              <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-name">휴이</span>
+              <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-dot"></span>
+              <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-comment">다시 태어나고 있는 듯한 휴이입니다. 반갑습니다:)</span>
+            </div>
           </div>
         </div>
       </section>
@@ -1392,6 +1397,9 @@
       }
 
       document.addEventListener('DOMContentLoaded', () => {
+        const guestCount = document.querySelectorAll('.section-normal-paragraph--guestlist').length
+
+        document.querySelectorAll('.guest-count').forEach(el => el.innerText = guestCount - 1)
         document.querySelectorAll('.moment[data-moment-epoch]').forEach(el => updateMoment(el))
         document.body.classList.add('no-scroll')
         splashEl.scrollIntoView({ block: 'start', behavior: 'instant' })
