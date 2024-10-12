@@ -1414,12 +1414,6 @@
 
       const splashEl = document.getElementById('splash')
 
-      const scrollToSplash = () => {
-        const splashRect = splashEl.getBoundingClientRect()
-
-        window.scrollTo({ top: splashRect.top + window.scrollY, behavior: 'instant' })
-      }
-
       document.addEventListener('DOMContentLoaded', () => {
         const guestCount = document.querySelectorAll('.section-normal-paragraph--guestlist').length
 
