@@ -1354,8 +1354,7 @@
 
       const updateMoment = (el, epoch) => {
         const now = moment()
-        const then = epoch || moment(el.dataset.momentEpoch)
-        const fromNow = then.from(now)
+        const fromNow = epoch.from(now)
 
         updateText(el, fromNow.charAt(0).toUpperCase() + fromNow.slice(1))
 
@@ -1418,7 +1417,6 @@
         const guestCount = document.querySelectorAll('.section-normal-paragraph--guestlist').length
 
         document.querySelectorAll('.guest-count').forEach(el => el.innerText = guestCount - 1)
-        document.querySelectorAll('.moment[data-moment-epoch]').forEach(el => updateMoment(el))
         document.body.classList.add('no-scroll')
         splashEl.scrollIntoView({ block: 'start', behavior: 'instant' })
       })
@@ -1444,7 +1442,7 @@
       globalTimeout += 150
       globalTimeout += typeText(splashTypeEl, globalTimeout) + 1250
 
-      const momentElList = document.querySelectorAll('.moment:not([data-moment-epoch])')
+      const momentElList = document.querySelectorAll('.moment')
       const momentElListReversed = Array.from(momentElList).reverse()  // what appears later gets processed first
       const revealElList = document.querySelectorAll('.reveal')
 
