@@ -400,6 +400,18 @@
         color: var(--logo-color-1);
         filter: var(--slack-color-adjust-filter);
         opacity: 0.57;
+        cursor: pointer;
+      }
+
+      .section-normal-paragraph__text--guestlist-comment.clipped::after {
+        content: '▼';
+        margin-left: 0.25em;
+        color: var(--spectrum-color-gray-600);
+        opacity: 0.5;
+      }
+
+      .section-normal-paragraph__text--guestlist-comment.clipped.open::after {
+        content: '▵';
       }
 
       section.info--intro .section-normal-paragraph__text {
@@ -1590,6 +1602,54 @@
             behavior: 'smooth',
           })
         })
+      })
+
+      const clipComment = el => {
+        const style = window.getComputedStyle(el)
+        const lineHeight = parseFloat(style.lineHeight)
+
+        while (parseFloat(style.height) >= 3 * lineHeight) {
+          el.classList.add('clipped')
+
+          const [l, r] = el.innerText.split(/(\s+\S+)$/)
+
+          el.innerText = l
+          el.dataset.hiddenText = r + (el.dataset.hiddenText || '')
+        }
+      }
+
+      const unclipComment = (el, persistent) => {
+        if (el.dataset.hiddenText) {
+          el.innerText += el.dataset.hiddenText
+          delete el.dataset.hiddenText
+        }
+
+        if (persistent) {
+          el.classList.remove('clipped')
+        }
+      }
+
+      const commentElList = document.querySelectorAll('.section-normal-paragraph__text--guestlist-comment')
+
+      commentElList.forEach(el => {
+        el.addEventListener('click', e => {
+          if (e.currentTarget.classList.contains('open')) {
+            e.currentTarget.classList.remove('open')
+            clipComment(e.currentTarget)
+          }
+          else if (e.currentTarget.classList.contains('clipped')) {
+            unclipComment(e.currentTarget)
+            e.currentTarget.classList.add('open')
+          }
+        })
+      })
+
+      window.addEventListener('load', () => {
+        commentElList.forEach(el => { unclipComment(el, true); clipComment(el) })
+      })
+
+      window.addEventListener('resize', () => {
+        commentElList.forEach(el => { unclipComment(el, true); clipComment(el) })
       })
     </script>
   </body>
