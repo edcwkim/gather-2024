@@ -1049,13 +1049,13 @@
           </p>
         </div>
       </section>
-      <section class="info info--details" style="gap: 48.5lvh;">
+      <section class="info info--details viewport-relative-gap" style="gap: 48.5lvh;">
         <div class="section-sticky">
           <h2 class="section-sticky-header" style="margin: 0;">
             <span class="section-sticky-header__text">장소와 진행 방식</span>
           </h2>
         </div>
-        <div style="margin-top: -24.25lvh;" class="fade">
+        <div class="fade viewport-relative-gap__first-item" style="margin-top: -24.25lvh;">
           <div style="display: flex; flex-direction: column; align-items: center;">
             <div style="color: var(--spectrum-color-gray-700); text-transform: lowercase; line-height: 1.82em; letter-spacing: -0.014em; font-size: calc(1rem + 6px * var(--rmul)); font-weight: 700; font-family: var(--default-font-family);" class="fade__item"><span style="margin-left: -0.11em; margin-right: 0.31em; vertical-align: 0.01em; font-size: 1.27em;">👥</span>비대면으로</div>
             <div style="color: var(--spectrum-color-gray-700); text-transform: lowercase; line-height: 1.82em; letter-spacing: -0.014em; font-size: calc(1rem + 6px * var(--rmul)); font-weight: 700; font-family: var(--default-font-family);" class="fade__item"><span style="margin-left: -0.1em; margin-right: 0.28em; vertical-align: -0.15em; font-size: 1.51em;">⌨️</span>카메라 없이, 스피커 없이</div>
@@ -1459,10 +1459,30 @@
       window.addEventListener('load', () => {
         splashEl.scrollIntoView({ block: 'start', behavior: 'instant' })
 
-        document.querySelectorAll('section').forEach(el => {
+        // viewport relative length bugfix for petty browsers
+        document.querySelectorAll('section.story, section.info').forEach(el => {
           const style = window.getComputedStyle(el)
 
           el.style.minHeight = style.minHeight
+        })
+
+        document.querySelectorAll('section.story--image img').forEach(el => {
+          const style = window.getComputedStyle(el)
+
+          el.style.maxWidth = style.maxWidth
+          el.style.maxHeight = style.maxHeight
+        })
+
+        document.querySelectorAll('.viewport-relative-gap').forEach(el => {
+          const style = window.getComputedStyle(el)
+
+          el.style.gap = style.gap
+        })
+
+        document.querySelectorAll('.viewport-relative-gap__first-item').forEach(el => {
+          const style = window.getComputedStyle(el)
+
+          el.style.marginTop = style.marginTop
         })
       })
 
