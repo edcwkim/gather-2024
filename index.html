@@ -410,7 +410,7 @@
         content: '▼';
         margin-left: 0.25em;
         color: var(--spectrum-color-gray-600);
-        opacity: 0.5;
+        opacity: 0.43;
       }
 
       .section-normal-paragraph__text--guestlist-comment.clipped.open::after {
@@ -1634,6 +1634,10 @@
 
       const commentElList = document.querySelectorAll('.section-normal-paragraph__text--guestlist-comment')
 
+      window.addEventListener('load', () => {
+        commentElList.forEach(el => { unclipComment(el, true); clipComment(el) })
+      })
+
       commentElList.forEach(el => {
         el.addEventListener('click', e => {
           if (e.currentTarget.classList.contains('open')) {
@@ -1645,14 +1649,6 @@
             e.currentTarget.classList.add('open')
           }
         })
-      })
-
-      window.addEventListener('load', () => {
-        commentElList.forEach(el => { unclipComment(el, true); clipComment(el) })
-      })
-
-      window.addEventListener('resize', () => {
-        commentElList.forEach(el => { unclipComment(el, true); clipComment(el) })
       })
     </script>
   </body>
