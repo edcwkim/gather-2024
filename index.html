@@ -1388,7 +1388,6 @@
         }
 
         const timeoutDelta = localTimeout - baseTimeout
-
         return timeoutDelta
       }
 
@@ -1556,7 +1555,7 @@
             }
           }
 
-          if (prominentStoryRect.bottom < window.innerHeight) {
+          if (prominentStoryRect.top < 0 && prominentStoryRect.bottom < window.innerHeight) {
             unreveal(narrationContainerEl)
             bulkHideFlicker(narrationContainerEl)
             return
