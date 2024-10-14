@@ -1455,8 +1455,14 @@
         document.body.classList.add('no-scroll')
         splashEl.scrollIntoView({ block: 'start', behavior: 'instant' })
       })
+
       window.addEventListener('load', () => {
         splashEl.scrollIntoView({ block: 'start', behavior: 'instant' })
+
+        document.querySelectorAll('section').forEach(el => {
+          const style = window.getComputedStyle(el)
+          el.style.height = style.height
+        })
       })
 
       let globalTimeout = 0
