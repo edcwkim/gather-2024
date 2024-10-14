@@ -1459,9 +1459,17 @@
       window.addEventListener('load', () => {
         splashEl.scrollIntoView({ block: 'start', behavior: 'instant' })
 
-        document.querySelectorAll('section').forEach(el => {
+        document.querySelectorAll('section.story').forEach(el => {
           const style = window.getComputedStyle(el)
           el.style.height = style.height
+        })
+
+        document.querySelectorAll('section.story--image img').forEach(el => {
+          const style = window.getComputedStyle(el)
+          el.style.width = style.width
+          el.style.height = style.height
+          el.style.maxWidth = style.maxWidth
+          el.style.maxHeight = style.maxHeight
         })
       })
 
