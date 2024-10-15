@@ -1432,7 +1432,9 @@
         containerEl.querySelectorAll('.flicker').forEach(flickerEl => {
           if (flickerEl.dataset.flickerNonce !== true.toString()) {
             setInterval(() => {
-              flickerEl.classList.toggle('flicker--alt')
+              if (flickerEl.style.visibility !== 'hidden') {
+                flickerEl.classList.toggle('flicker--alt')
+              }
             }, 750)
 
             flickerEl.dataset.flickerNonce = true
@@ -1628,6 +1630,7 @@
 
       const logoEl = document.getElementById('logo')
       const logoTypeElList = logoEl.querySelectorAll('.type')
+      let logoTypeTimeout
 
       window.addEventListener('scroll', () => {
         const logoRect = logoEl.getBoundingClientRect()
@@ -1636,7 +1639,7 @@
           if (logoEl.dataset.typed !== true.toString()) {
             bulkStartFlicker(logoEl)
 
-            setTimeout(() => {
+            logoTypeTimeout = setTimeout(() => {
               logoTypeElList.forEach(typeText)
             }, 750)
 
@@ -1645,6 +1648,7 @@
         }
         else if (logoRect.top > window.innerHeight) {
           if (logoEl.dataset.typed === true.toString()) {
+            clearTimeout(logoTypeTimeout)
             logoTypeElList.forEach(el => updateText(el, ''))
             logoEl.dataset.typed = false
           }
