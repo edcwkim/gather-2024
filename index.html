@@ -1554,6 +1554,29 @@
       const narrationContainerEl = narrationTextEl.closest('aside')
 
       window.addEventListener('scroll', () => {
+        const splashRect = splashEl.getBoundingClientRect()
+
+        if (splashRect.bottom < 0) {
+          if (narrationContainerEl.style.display !== 'none') {
+            narrationContainerEl.style.display = 'none'
+          }
+        }
+        else {
+          if (narrationContainerEl.style.display !== '') {
+            narrationContainerEl.style.display = ''
+          }
+        }
+
+        if (splashRect.top < 0 && splashRect.bottom < window.innerHeight) {
+          unreveal(narrationContainerEl)
+          bulkHideFlicker(narrationContainerEl)
+          return
+        }
+        else {
+          bulkUnhideFlicker(narrationContainerEl)
+          rereveal(narrationContainerEl)
+        }
+
         const prominentStoryEl = Array.from(storyElList).reduce((previousEl, currentEl) => {
           const previousScrollYRatio = getScrollYRatio(previousEl)
           const currentScrollYRatio = getScrollYRatio(currentEl)
@@ -1564,31 +1587,6 @@
 
         if (!narrationText) {
           return
-        }
-
-        if (prominentStoryEl == splashEl) {
-          const prominentStoryRect = prominentStoryEl.getBoundingClientRect()
-
-          if (prominentStoryRect.bottom <= 0) {
-            if (narrationContainerEl.style.display !== 'none') {
-              narrationContainerEl.style.display = 'none'
-            }
-          }
-          else {
-            if (narrationContainerEl.style.display !== '') {
-              narrationContainerEl.style.display = ''
-            }
-          }
-
-          if (prominentStoryRect.top < 0 && prominentStoryRect.bottom < window.innerHeight) {
-            unreveal(narrationContainerEl)
-            bulkHideFlicker(narrationContainerEl)
-            return
-          }
-          else {
-            bulkUnhideFlicker(narrationContainerEl)
-            rereveal(narrationContainerEl)
-          }
         }
 
         const prominentStoryScrollYRatio = getScrollYRatio(prominentStoryEl)
