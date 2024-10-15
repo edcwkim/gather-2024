@@ -1394,7 +1394,7 @@
       }, timeout)
 
       const typeText = (el, baseTimeout) => {
-        let localTimeout = baseTimeout
+        let localTimeout = baseTimeout || 0
         let unassembledText = ''
 
         for (let c of disassemble(el.dataset.text)) {
