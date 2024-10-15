@@ -12,6 +12,7 @@
     <meta property="og:image" content="https://typing.edcx.io/images/og.png">
     <meta property="og:image:width" content="1260">
     <meta property="og:image:height" content="660">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..800&display=swap">
@@ -19,7 +20,7 @@
     <style>
 
       /* Apple font bugfix */
-      /* This custom declaration is only intended for use of font-weight: 800 */
+      /* This custom declaration should not be used for text other than font-weight: 800 */
       @font-face {
         font-family: apple-sd-gothic-neo;
         font-weight: 800;
@@ -30,6 +31,7 @@
       }
 
       .kr-extrabold {
+        font-weight: 800 !important;
         font-family: apple-sd-gothic-neo, system-ui !important;
       }
 
