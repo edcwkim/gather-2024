@@ -338,6 +338,8 @@
       }
 
       .section-logo {
+        position: relative;
+        overflow: hidden;
         text-align: center;
       }
 
@@ -367,6 +369,10 @@
 
       .section-normal-paragraph--guestlist:not(:first-of-type) {
         margin-top: 15px;
+      }
+
+      .section-normal-paragraph--emphasized {
+        text-align: center;
       }
 
       .section-sticky-header__text,
@@ -1127,14 +1133,14 @@
             <span class="section-sticky-header__text">시작 시간과 진행 일정</span>
           </h2>
         </div>
-        <div style="max-width: 720px; text-align: center;">
+        <div>
           <p class="section-normal-paragraph section-normal-paragraph--emphasized" style="margin: calc(1rem + 40px * var(--rmul)) 0 calc(1rem + 46px * var(--rmul));">
             <span class="section-normal-paragraph__text">2024<span class="kr-extrabold">년</span>&nbsp;11<span class="kr-extrabold">월</span>&nbsp;2<span class="kr-extrabold">일</span> <span class="kr-extrabold" data-text-kst="오후" data-text-cet="오전" data-text-edt="오전">오후</span>&nbsp;<span data-text-kst="2:50" data-text-cet="6:50" data-text-edt="1:50">2:50</span>,
             <select class="dropdown" id="timezone"><option value="kst">🇰🇷&thinsp;KST</option><option value="cet">🇨🇿&thinsp;CET</option><option value="edt">🇺🇸&thinsp;EDT</option></select></span>
           </p>
         </div>
         <div style="position: relative; margin-bottom: calc(1rem + 48px * var(--rmul)); width: 100%; --5-mins: 16px;">
-          <div style="position: absolute; width: 100%;">
+          <div style="position: absolute; top: 0; left: 0; width: 100%;">
             <div class="calendar-area" style="top: calc(10 * var(--5-mins)); height: calc(24 * var(--5-mins));"></div>
           </div>
           <div style="position: relative; z-index: 1; margin: 0 auto; max-width: 720px; height: calc(36 * var(--5-mins));">
@@ -1264,7 +1270,7 @@
             <div class="section-normal-paragraph section-normal-paragraph--guestlist">
               <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-name">안희종</span>
               <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-dot"></span>
-              <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-comment"><a class="block-hover-effect" href="https://ahnheejong.name">https://ahnheejong.name</a></span>
+              <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-comment"><a class="block-hover-effect" href="https://ahnheejong.name" style="word-break: break-all;">https://ahnheejong.name</a></span>
             </div>
             <div class="section-normal-paragraph section-normal-paragraph--guestlist">
               <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-name">유정정</span>
@@ -1279,7 +1285,7 @@
             <div class="section-normal-paragraph section-normal-paragraph--guestlist">
               <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-name">윤의</span>
               <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-dot"></span>
-              <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-comment"><a class="block-hover-effect" href="https://www.instagram.com/juniso">https://www.instagram.com/juniso</a></span>
+              <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-comment"><a class="block-hover-effect" href="https://www.instagram.com/juniso" style="word-break: break-all;">https://www.instagram.com/juniso</a></span>
             </div>
             <div class="section-normal-paragraph section-normal-paragraph--guestlist">
               <span class="section-normal-paragraph__text section-normal-paragraph__text--guestlist-name">윤지영</span>
