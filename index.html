@@ -1514,11 +1514,12 @@
       }
 
       const splashEl = document.getElementById('splash')
+      const guestCountElList = document.querySelectorAll('.guest-count')
 
       document.addEventListener('DOMContentLoaded', () => {
         const guestCount = document.querySelectorAll('.section-normal-paragraph--guestlist').length
 
-        document.querySelectorAll('.guest-count').forEach(el => el.innerText = guestCount - 1)
+        guestCountElList.forEach(el => el.innerText = guestCount - 1)
         document.body.classList.add('no-scroll')
         splashEl.scrollIntoView({ block: 'start', behavior: 'instant' })
       })
