@@ -1035,7 +1035,7 @@
       </section>
       <section class="info info--intro">
         <div>
-          <h1 class="section-logo" id="logo" style="margin: 0;">
+          <h1 class="section-logo" style="margin: 0;" id="logo">
             <span class="section-logo__text">
               <span style="color: var(--logo-color-1); letter-spacing: var(--logo-letter-spacing-1); font-size: var(--logo-font-size-1); font-weight: var(--logo-font-weight-1); font-style: var(--logo-font-style-1); font-family: var(--logo-font-family-1); vertical-align: var(--logo-vertical-align-1);"><span class="type" data-text="Several"></span><span class="flicker flicker--alt"></span></span>&nbsp;<span style="color: var(--logo-color-2); letter-spacing: var(--logo-letter-spacing-2); font-size: var(--logo-font-size-2); font-weight: var(--logo-font-weight-2); font-style: var(--logo-font-style-2); font-family: var(--logo-font-family-2); vertical-align: var(--logo-vertical-align-2);"><span class="type" data-text="People"></span><span class="flicker flicker--alt"></span></span>
               <br>
@@ -1464,6 +1464,25 @@
         )
       }
 
+      const reveal = el => {
+        el.classList.add('reveal--done')
+      }
+
+      const unreveal = el => {
+        el.classList.add('reveal--reverted')
+      }
+
+      const rereveal = el => {
+        el.classList.remove('reveal--reverted')
+      }
+
+      const getScrollYRatio = el => {
+        const rect = el.getBoundingClientRect()
+        const v1 = (rect.top + rect.bottom) / window.innerHeight
+        const v2 = Math.abs(v1 - 1) / 2
+        return Math.max(1 - v2, 0)
+      }
+
       const bulkStartFlicker = containerEl => {
         containerEl.querySelectorAll('.flicker').forEach(flickerEl => {
           if (flickerEl.dataset.flickerNonce !== true.toString()) {
@@ -1492,25 +1511,6 @@
             flickerEl.style.visibility = ''
           }
         })
-      }
-
-      const reveal = el => {
-        el.classList.add('reveal--done')
-      }
-
-      const unreveal = el => {
-        el.classList.add('reveal--reverted')
-      }
-
-      const rereveal = el => {
-        el.classList.remove('reveal--reverted')
-      }
-
-      const getScrollYRatio = el => {
-        const rect = el.getBoundingClientRect()
-        const v1 = (rect.top + rect.bottom) / window.innerHeight
-        const v2 = Math.abs(v1 - 1) / 2
-        return Math.max(1 - v2, 0)
       }
 
       const splashEl = document.getElementById('splash')
